@@ -23,6 +23,13 @@
         <td>{{ data.phoneNumber }}</td>
         <td >{{ data.occupation }}</td>
         <td>
+            <span
+            nz-icon
+            nzType="edit"
+            nzTheme="outline"
+            (click)="editEmployee(data)"
+          ></span>
+          <br>
           <span
             nz-icon
             nzType="delete"

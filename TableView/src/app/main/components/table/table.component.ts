@@ -28,4 +28,7 @@ export class TableComponent implements OnInit{
   deleteEmployee(employee: Employee) {
    this.employeesService.deleteEmployee(employee);
   }
+  editEmployee(employee: Employee) {
+    console.log(employee);
+  }
 }
