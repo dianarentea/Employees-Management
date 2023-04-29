@@ -1,4 +1,4 @@
-<nz-table #groupingTable [nzData]="employeesList" nzBordered nzSize="middle" >
+<nz-table #groupingTable [nzPageSize]="8" [nzData]="employeesList" nzBordered nzSize="middle" >
     <thead>
       <tr>
         <th rowspan="3"  [nzSortFn]="sortNameFn">Name</th>
