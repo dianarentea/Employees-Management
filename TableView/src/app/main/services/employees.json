@@ -1,0 +1,155 @@
+[
+{
+"name": "Michael Smith",
+"age": 32,
+"address": "Greenway 45",
+"occupation": "Data Analyst",
+"phoneNumber": 9876543211
+},
+{
+"name": "Jane Johnson",
+"age": 28,
+"address": "Elm Street 12",
+"occupation": "Software Developer",
+"phoneNumber": 9876543212
+},
+{
+"name": "John Williams",
+"age": 41,
+"address": "Maple Drive 34",
+"occupation": "Project Manager",
+"phoneNumber": 9876543213
+},
+{
+"name": "Sarah Jones",
+"age": 36,
+"address": "Oak Lane 56",
+"occupation": "Marketing Specialist",
+"phoneNumber": 9876543214
+},
+{
+"name": "David Brown",
+"age": 29,
+"address": "Pine Road 78",
+"occupation": "Accountant",
+"phoneNumber": 9876543215
+},
+{
+"name": "Emily Davis",
+"age": 33,
+"address": "Cedar Way 90",
+"occupation": "Product Manager",
+"phoneNumber": 9876543216
+},
+{
+"name": "John Smith",
+"age": 39,
+"address": "Willow Street 89",
+"occupation": "Software Engineer",
+"phoneNumber": 9876543217
+},
+{
+"name": "Jane Johnson",
+"age": 25,
+"address": "Birch Avenue 67",
+"occupation": "Web Developer",
+"phoneNumber": 9876543218
+},
+{
+"name": "Michael Williams",
+"age": 48,
+"address": "Cherry Blvd 45",
+"occupation": "Graphic Designer",
+"phoneNumber": 9876543219
+},
+{
+"name": "Sarah Jones",
+"age": 31,
+"address": "Aspen Circle 23",
+"occupation": "HR Specialist",
+"phoneNumber": 9876543220
+},
+{
+"name": "David Kendall",
+"age": 35,
+"address": "Poplar Place 15",
+"occupation": "Sales Representative",
+"phoneNumber": 9876543221
+},
+{
+"name": "Emily Davis",
+"age": 42,
+"address": "Beech Way 27",
+"occupation": "UX Designer",
+"phoneNumber": 9876543222
+},
+{
+"name": "John Smith",
+"age": 38,
+"address": "Walnut Street 39",
+"occupation": "Network Administrator",
+"phoneNumber": 9876543223
+},
+{
+"name": "Jane Ember",
+"age": 27,
+"address": "Hickory Lane 51",
+"occupation": "Systems Analyst",
+"phoneNumber": 9876543224
+},
+{
+"name": "Michael George",
+"age": 45,
+"address": "Chestnut Drive 63",
+"occupation": "Business Analyst",
+"phoneNumber": 9876543225
+},
+{
+"name": "Sarah Jones",
+"age": 30,
+"address": "Sycamore Court 75",
+"occupation": "Data Scientist",
+"phoneNumber": 9876543226},
+{
+"name": "David Brown",
+"age": 34,
+"address": "Spruce Avenue 87",
+"occupation": "Data Analyst",
+"phoneNumber": 9876543227
+},
+{
+"name": "Emily Davis",
+"age": 41,
+"address": "Pine Road 99",
+"occupation": "Software Developer",
+"phoneNumber": 9876543228
+},
+{
+"name": "John Smith",
+"age": 37,
+"address": "Cedar Way 11",
+"occupation": "Project Manager",
+"phoneNumber": 9876543229
+},
+{
+"name": "Jane Advison",
+"age": 26,
+"address": "Willow Street 23",
+"occupation": "Marketing Specialist",
+"phoneNumber": 9876543230
+},
+{
+"name": "Michael Williams",
+"age": 44,
+"address": "Birch Avenue 35",
+"occupation": "Accountant",
+"phoneNumber": 9876543231
+},
+{
+"name": "Sarah Jones",
+"age": 29,
+"address": "Cherry Blvd 47",
+"occupation": "Product Manager",
+"phoneNumber": 9876543232
+}
+]
