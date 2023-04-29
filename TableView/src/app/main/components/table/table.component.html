@@ -1,4 +1,4 @@
-<nz-table #groupingTable [nzPageSize]="8" [nzData]="employeesList" nzBordered nzSize="middle" >
+<nz-table #groupingTable [nzPageSize]="8" [nzData]="employeesList" nzBordered nzSize="middle" [nzScroll]="{ x: '1200px', y: '450px' }">
     <thead>
       <tr>
         <th rowspan="3"  [nzSortFn]="sortNameFn">Name</th>
@@ -40,3 +40,6 @@
       </tr>
     </tbody>
   </nz-table>
+  <button nz-button (click)="addEmployee()" nzType="primary">
+    Add New Employee
+  </button>

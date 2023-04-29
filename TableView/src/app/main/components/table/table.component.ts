@@ -31,4 +31,7 @@ export class TableComponent implements OnInit{
   editEmployee(employee: Employee) {
     console.log(employee);
   }
+  addEmployee() {
+    console.log('add');
+  }
 }
