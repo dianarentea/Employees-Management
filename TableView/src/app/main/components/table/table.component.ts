@@ -10,17 +10,22 @@ export class TableComponent implements OnInit{
 
   employeesList!: Employee[];
 
-  constructor(@Inject(EmployeesService) private employeesService: EmployeesService) {}
+  constructor(@Inject(EmployeesService) private employeesService: EmployeesService) {
+    this.employeesService.employeesListSubject.subscribe((res) => {
+      this.employeesList = [...res];
+    });
+  }
 
-  sortAgeFn = (a: Employee, b: Employee): number => a.age - b.age;
-  nameFilterFn = (list: string[], item: Employee): boolean => list.some(name => item.name.indexOf(name) !== -1);
-  filterName = [
-    { text: 'Joe', value: 'Joe' },
-    { text: 'John', value: 'John' }
-  ];
-
+  
   ngOnInit(): void {
     this.employeesList=this.employeesService.EmployeesList;
   }
   
+  sortAgeFn = (a: Employee, b: Employee): number => a.age - b.age;
+ 
+  sortNameFn = (a: Employee, b: Employee): number => a.name.localeCompare(b.name);
+
+  deleteEmployee(employee: Employee) {
+   this.employeesService.deleteEmployee(employee);
+  }
 }

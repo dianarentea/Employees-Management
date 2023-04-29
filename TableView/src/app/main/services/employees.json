@@ -28,14 +28,14 @@
 "phoneNumber": 9876543214
 },
 {
-"name": "David Brown",
+"name": "David Christopher",
 "age": 29,
 "address": "Pine Road 78",
 "occupation": "Accountant",
 "phoneNumber": 9876543215
 },
 {
-"name": "Emily Davis",
+"name": "Emily Walton",
 "age": 33,
 "address": "Cedar Way 90",
 "occupation": "Product Manager",
@@ -49,21 +49,21 @@
 "phoneNumber": 9876543217
 },
 {
-"name": "Jane Johnson",
+"name": "Jane Wilbert",
 "age": 25,
 "address": "Birch Avenue 67",
 "occupation": "Web Developer",
 "phoneNumber": 9876543218
 },
 {
-"name": "Michael Williams",
+"name": "Michael Lace",
 "age": 48,
 "address": "Cherry Blvd 45",
 "occupation": "Graphic Designer",
 "phoneNumber": 9876543219
 },
 {
-"name": "Sarah Jones",
+"name": "Katrine Turner",
 "age": 31,
 "address": "Aspen Circle 23",
 "occupation": "HR Specialist",
@@ -77,14 +77,14 @@
 "phoneNumber": 9876543221
 },
 {
-"name": "Emily Davis",
+"name": "Emily Kendall",
 "age": 42,
 "address": "Beech Way 27",
 "occupation": "UX Designer",
 "phoneNumber": 9876543222
 },
 {
-"name": "John Smith",
+"name": "John Legend",
 "age": 38,
 "address": "Walnut Street 39",
 "occupation": "Network Administrator",
@@ -105,7 +105,7 @@
 "phoneNumber": 9876543225
 },
 {
-"name": "Sarah Jones",
+"name": "William Jones",
 "age": 30,
 "address": "Sycamore Court 75",
 "occupation": "Data Scientist",
@@ -125,13 +125,6 @@
 "phoneNumber": 9876543228
 },
 {
-"name": "John Smith",
-"age": 37,
-"address": "Cedar Way 11",
-"occupation": "Project Manager",
-"phoneNumber": 9876543229
-},
-{
 "name": "Jane Advison",
 "age": 26,
 "address": "Willow Street 23",
@@ -146,7 +139,7 @@
 "phoneNumber": 9876543231
 },
 {
-"name": "Sarah Jones",
+"name": "Paul Jones",
 "age": 29,
 "address": "Cherry Blvd 47",
 "occupation": "Product Manager",
