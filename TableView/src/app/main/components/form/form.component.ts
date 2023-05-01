@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { Observable, Observer } from 'rxjs';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {EmployeesService} from '../../services/employees.service';
+import { Employee } from '../../interfaces/employee.interface';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -9,13 +9,30 @@ import { Observable, Observer } from 'rxjs';
 })
 export class FormComponent implements OnInit {
 
-  validateForm: UntypedFormGroup;
+  validateForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private employeesService: EmployeesService)
+   {
+    this.validateForm = this.fb.group({
+      name: ['', [Validators.required]],
+      age: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      occupation: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]]
+    });
+  }
+  addEmployee(employee:Employee): void {
+  this.employeesService.addEmployee(employee);
+  }
 
   submitForm(): void {
     console.log('submit', this.validateForm.value);
+    this.addEmployee(this.validateForm.value);
+    this.resetForm(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
   }
 
-  resetForm(e: MouseEvent): void {
+  resetForm(e: MouseEvent): void 
+  {
     e.preventDefault();
     this.validateForm.reset();
     for (const key in this.validateForm.controls) {
@@ -25,46 +42,5 @@ export class FormComponent implements OnInit {
       }
     }
   }
-
-  validateConfirmPassword(): void {
-    setTimeout(() => this.validateForm.controls['confirm'].updateValueAndValidity());
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  userNameAsyncValidator = (control: UntypedFormControl) =>
-    new Observable((observer: Observer<ValidationErrors | null>) => {
-      setTimeout(() => {
-        if (control.value === 'JasonWood') {
-          // you have to return `{error: true}` to mark it as an error event
-          observer.next({ error: true, duplicated: true });
-        } else {
-          observer.next(null);
-        }
-        observer.complete();
-      }, 1000);
-    });
-
-  confirmValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
-    if (!control.value) {
-      return { error: true, required: true };
-    } else if (control.value !== this.validateForm.controls['password'].value) {
-      return { confirm: true, error: true };
-    }
-    return {};
-  };
-
-  constructor(private fb: UntypedFormBuilder) {
-    this.validateForm = this.fb.group({
-      userName: ['', [Validators.required], [this.userNameAsyncValidator]],
-      email: ['', [Validators.email, Validators.required]],
-      password: ['', [Validators.required]],
-      confirm: ['', [this.confirmValidator]],
-      comment: ['', [Validators.required]]
-    });
-  }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  
-
+  ngOnInit(): void {}
 }

@@ -12,11 +12,11 @@ export class TableComponent implements OnInit{
 
   employeesList!: Employee[];
 
-  constructor(@Inject(EmployeesService) private employeesService: EmployeesService, private modalService: NzModalService) {
-    this.employeesService.employeesListSubject.subscribe((res) => {
-      this.employeesList = [...res];
-    });
-  }
+  constructor( private employeesService: EmployeesService, private modalService: NzModalService) {
+    this.employeesService.employeesListObservable.subscribe((employees) => {
+      this.employeesList = employees;
+      });
+    }
 
   
   ngOnInit(): void {

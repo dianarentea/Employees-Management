@@ -9,15 +9,29 @@ import { Subject } from 'rxjs';
 export class EmployeesService {
   private employeesList: Employee[] = employeesData;
   employeesListSubject=new Subject<Employee[]>();
+  employeesListObservable=this.employeesListSubject.asObservable();
 
   constructor() { }
 
   get EmployeesList(): Employee[] {
     return this.employeesList;
   }
-  deleteEmployee(employee: Employee): void {
+  deleteEmployee(employee: Employee): void 
+  {
     const index = this.employeesList.indexOf(employee);
     this.employeesList.splice(index, 1);
-    this.employeesListSubject.next(this.employeesList);
+    this.employeesListSubject.next([...this.employeesList]);
+  }
+  addEmployee(employee: Employee): void
+  {
+    this.employeesList.push(employee);
+    this.employeesListSubject.next([...this.employeesList]);
+  }
+  editEmployee(employee: Employee): void
+  {
+    const index = this.employeesList.indexOf(employee);
+    this.employeesList[index]=employee;
+    this.employeesListSubject.next([...this.employeesList]);
+
   }
 }
