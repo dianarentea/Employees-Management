@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import{Employee} from '../../interfaces/employee.interface';
 import {EmployeesService} from '../../services/employees.service';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
@@ -9,8 +9,9 @@ import { FormComponent } from '../form/form.component';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit{
-
+  @Output() employeeToEdit = new EventEmitter<{ employee: Employee; index: number }>();
   employeesList!: Employee[];
+  FormComponent: any;
 
   constructor( private employeesService: EmployeesService, private modalService: NzModalService) {
     this.employeesService.employeesListObservable.subscribe((employees) => {
@@ -30,8 +31,8 @@ export class TableComponent implements OnInit{
   deleteEmployee(employee: Employee) {
    this.employeesService.deleteEmployee(employee);
   }
-  editEmployee(employee: Employee) {
-    console.log(employee);
+  editEmployee(employee: Employee, index: number): void {
+    this.FormComponent.openEditForm(employee, index);
   }
   addEmployee() {
     const modal: NzModalRef = this.modalService.create({

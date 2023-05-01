@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {EmployeesService} from '../../services/employees.service';
 import { Employee } from '../../interfaces/employee.interface';
@@ -7,8 +7,11 @@ import { Employee } from '../../interfaces/employee.interface';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
 
+export class FormComponent implements OnInit {
+  
+  editMode = false;
+  employeeIndex: number | null = null;
   validateForm: FormGroup;
 
   constructor(private fb: FormBuilder, private employeesService: EmployeesService)
@@ -25,10 +28,22 @@ export class FormComponent implements OnInit {
   this.employeesService.addEmployee(employee);
   }
 
+  openEditForm(employee: Employee, index: number): void {
+    this.editMode = true;
+    this.employeeIndex = index;
+    this.validateForm.patchValue(employee);
+  }
+  
   submitForm(): void {
     console.log('submit', this.validateForm.value);
-    this.addEmployee(this.validateForm.value);
+    if (this.editMode) {
+      this.employeesService.editEmployee(this.employeeIndex!, this.validateForm.value); // use updateEmployee instead of editEmployee
+    } else {
+      this.addEmployee(this.validateForm.value);
+    }
     this.resetForm(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+    this.editMode = false;
+    this.employeeIndex = null;
   }
 
   resetForm(e: MouseEvent): void 
@@ -42,5 +57,11 @@ export class FormComponent implements OnInit {
       }
     }
   }
+  setFormData(employee: Employee, index: number) {
+    this.validateForm.patchValue(employee);
+    this.employeeIndex = index;
+    this.editMode = true;
+  }
+  
   ngOnInit(): void {}
 }

@@ -27,9 +27,8 @@ export class EmployeesService {
     this.employeesList.push(employee);
     this.employeesListSubject.next([...this.employeesList]);
   }
-  editEmployee(employee: Employee): void
+  editEmployee(index: number,employee: Employee): void
   {
-    const index = this.employeesList.indexOf(employee);
     this.employeesList[index]=employee;
     this.employeesListSubject.next([...this.employeesList]);
 
