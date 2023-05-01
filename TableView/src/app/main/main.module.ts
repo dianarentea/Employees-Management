@@ -12,6 +12,10 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule} from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
+import{NzModalModule} from 'ng-zorro-antd/modal';
+import{NzFormModule} from 'ng-zorro-antd/form';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -30,6 +34,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzPageHeaderModule,
     NzTableModule,
     NzIconModule,
+    NzModalModule,
+    NzFormModule,
+    ReactiveFormsModule
   ]
 })
 export class MainModule { }

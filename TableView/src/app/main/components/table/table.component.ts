@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import{Employee} from '../../interfaces/employee.interface';
 import {EmployeesService} from '../../services/employees.service';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { FormComponent } from '../form/form.component';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -10,7 +12,7 @@ export class TableComponent implements OnInit{
 
   employeesList!: Employee[];
 
-  constructor(@Inject(EmployeesService) private employeesService: EmployeesService) {
+  constructor(@Inject(EmployeesService) private employeesService: EmployeesService, private modalService: NzModalService) {
     this.employeesService.employeesListSubject.subscribe((res) => {
       this.employeesList = [...res];
     });
@@ -32,6 +34,10 @@ export class TableComponent implements OnInit{
     console.log(employee);
   }
   addEmployee() {
-    console.log('add');
+    const modal: NzModalRef = this.modalService.create({
+      nzTitle: 'Add Employee',
+      nzContent: FormComponent,
+      nzFooter: null,
+    });
   }
 }
