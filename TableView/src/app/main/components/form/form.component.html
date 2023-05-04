@@ -1,32 +1,32 @@
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Name</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input the name!">
-        <input nz-input formControlName="name" placeholder="Name" />
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write the name!">
+        <input nz-input formControlName="name" placeholder="Name" minlength="5"/>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Age</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input the age!">
-        <input nz-input formControlName="age" placeholder="Age" type="number" />
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write the age!">
+        <input nz-input formControlName="age" placeholder="Age" type="number" min="0"/>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Address</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input the address!">
-        <input nz-input formControlName="address" placeholder="Address" />
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write the address!">
+        <input nz-input formControlName="address" placeholder="Address" minlength="5"/>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Occupation</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input the occupation!">
-        <input nz-input formControlName="occupation" placeholder="Occupation" />
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write the occupation!">
+        <input nz-input formControlName="occupation" placeholder="Occupation" minlength="5"/>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Phone Number</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input the phone number!">
-        <input nz-input formControlName="phoneNumber" placeholder="Phone Number" type="number" />
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write only numbers!">
+        <input nz-input formControlName="phoneNumber" placeholder="Phone Number" type="text" pattern="[0-9]{10,}"/>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>

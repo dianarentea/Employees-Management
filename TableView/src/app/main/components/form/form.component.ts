@@ -21,20 +21,11 @@ export class FormComponent implements OnInit {
    {
     this.validateForm = this.fb.group({
       name: ['', [Validators.required]],
-      age: ['', [Validators.required]],
+      age: ['16', [Validators.required]],
       address: ['', [Validators.required]],
       occupation: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]]
     });
-  }
-  addEmployee(employee:Employee): void {
-  this.employeesService.addEmployee(employee);
-  }
-
-  openEditForm(employee: Employee, index: number): void {
-    this.editMode = true;
-    this.employeeIndex = index;
-    this.validateForm.patchValue(employee);
   }
   
   submitForm(): void {
@@ -42,7 +33,7 @@ export class FormComponent implements OnInit {
     if (this.editMode) {
       this.employeesService.editEmployee(this.employeeIndex!, this.validateForm.value); 
     } else {
-      this.addEmployee(this.validateForm.value);
+      this.employeesService.addEmployee(this.validateForm.value);
     }
     this.resetForm(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
     this.editMode = false;
