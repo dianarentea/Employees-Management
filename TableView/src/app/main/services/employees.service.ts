@@ -1,7 +1,9 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Employee } from '../interfaces/employee.interface';
 import employeesData from './employees.json';
 import { Subject } from 'rxjs';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { FormComponent } from '../components/form/form.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,8 @@ export class EmployeesService {
   private employeesList: Employee[] = employeesData;
   employeesListSubject=new Subject<Employee[]>();
   employeesListObservable=this.employeesListSubject.asObservable();
-  employeeEditedEvent = new EventEmitter<void>();
-  constructor() { }
+
+  constructor(private modalService: NzModalService) { }
 
   get EmployeesList(): Employee[] {
     return this.employeesList;
@@ -31,6 +33,24 @@ export class EmployeesService {
   {
     this.employeesList[index]=employee;
     this.employeesListSubject.next([...this.employeesList]);
-    this.employeeEditedEvent.emit();
+  }
+  openAddEmployeeModal(): void {
+    const modal: NzModalRef = this.modalService.create({
+      nzTitle: 'Add Employee',
+      nzContent: FormComponent,
+      nzFooter: null,
+    });
+  }
+  openEditEmployeeModal(employee: Employee, index: number): NzModalRef {
+    const modal: NzModalRef = this.modalService.create({
+      nzTitle: 'Edit Employee',
+      nzContent: FormComponent,
+      nzFooter: null,
+      nzComponentParams: {
+        employeeToEdit: employee,
+        employeeIndex: index,
+      },
+    });
+    return modal;
   }
 }
