@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Employee } from '../interfaces/employee.interface';
 import employeesData from './employees.json';
 import { Subject } from 'rxjs';
@@ -10,7 +10,7 @@ export class EmployeesService {
   private employeesList: Employee[] = employeesData;
   employeesListSubject=new Subject<Employee[]>();
   employeesListObservable=this.employeesListSubject.asObservable();
-
+  employeeEditedEvent = new EventEmitter<void>();
   constructor() { }
 
   get EmployeesList(): Employee[] {
@@ -31,6 +31,6 @@ export class EmployeesService {
   {
     this.employeesList[index]=employee;
     this.employeesListSubject.next([...this.employeesList]);
-
+    this.employeeEditedEvent.emit();
   }
 }

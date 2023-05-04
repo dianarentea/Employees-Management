@@ -1,4 +1,7 @@
-<nz-table #groupingTable [nzPageSize]="8" [nzData]="employeesList" nzBordered nzSize="middle" [nzScroll]="{ x: '1200px', y: '450px' }">
+<nz-table #groupingTable [nzPageSize]="8" 
+[nzData]="employeesList" 
+nzBordered nzSize="middle" 
+[nzScroll]="{ x: '1200px', y: '450px' }">
     <thead>
       <tr>
         <th rowspan="3"  [nzSortFn]="sortNameFn">Name</th>

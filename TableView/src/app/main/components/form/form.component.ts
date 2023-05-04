@@ -1,7 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {EmployeesService} from '../../services/employees.service';
 import { Employee } from '../../interfaces/employee.interface';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -11,10 +12,12 @@ import { Employee } from '../../interfaces/employee.interface';
 export class FormComponent implements OnInit {
   
   editMode = false;
-  employeeIndex: number | null = null;
+  
   validateForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private employeesService: EmployeesService)
+  @Input() employeeIndex: number | null = null;
+  @Input() employeeToEdit: Employee | null = null;
+  @Output() formSubmitted = new EventEmitter<void>();
+  constructor(private fb: FormBuilder, private employeesService: EmployeesService, private modalRef: NzModalRef)
    {
     this.validateForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -37,13 +40,15 @@ export class FormComponent implements OnInit {
   submitForm(): void {
     console.log('submit', this.validateForm.value);
     if (this.editMode) {
-      this.employeesService.editEmployee(this.employeeIndex!, this.validateForm.value); // use updateEmployee instead of editEmployee
+      this.employeesService.editEmployee(this.employeeIndex!, this.validateForm.value); 
     } else {
       this.addEmployee(this.validateForm.value);
     }
     this.resetForm(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
     this.editMode = false;
     this.employeeIndex = null;
+    this.modalRef.close();
+    this.formSubmitted.emit();
   }
 
   resetForm(e: MouseEvent): void 
@@ -63,5 +68,10 @@ export class FormComponent implements OnInit {
     this.editMode = true;
   }
   
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.employeeToEdit && this.employeeIndex !== null) {
+      this.setFormData(this.employeeToEdit, this.employeeIndex);
+  }
 }
+}
+

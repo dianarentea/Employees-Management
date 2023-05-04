@@ -18,10 +18,16 @@ export class TableComponent implements OnInit{
       this.employeesList = employees;
       });
     }
-
+   
+    trackByFn(index: number, item: Employee): number {
+      return index;
+    }
   
   ngOnInit(): void {
     this.employeesList=this.employeesService.EmployeesList;
+    this.employeesService.employeeEditedEvent.subscribe(() => {
+      this.refreshTable();
+    });
   }
   
   sortAgeFn = (a: Employee, b: Employee): number => a.age - b.age;
@@ -31,14 +37,25 @@ export class TableComponent implements OnInit{
   deleteEmployee(employee: Employee) {
    this.employeesService.deleteEmployee(employee);
   }
-  editEmployee(employee: Employee, index: number): void {
-    this.FormComponent.openEditForm(employee, index);
-  }
+  
   addEmployee() {
     const modal: NzModalRef = this.modalService.create({
       nzTitle: 'Add Employee',
       nzContent: FormComponent,
       nzFooter: null,
-    });
-  }
+    });}
+    editEmployee(employee: Employee, index: number): void {
+      const modal: NzModalRef = this.modalService.create({
+        nzTitle: 'Edit Employee',
+        nzContent: FormComponent,
+        nzFooter: null,
+        nzComponentParams: {
+          employeeToEdit: employee,
+          employeeIndex: index,
+        },
+      });
+    }
+    refreshTable(): void {
+      this.employeesList = [...this.employeesList];
+    }
 }
