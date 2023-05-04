@@ -9,20 +9,13 @@ import { FormComponent } from '../form/form.component';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit{
-  @Output() employeeToEdit = new EventEmitter<{ employee: Employee; index: number }>();
   employeesList!: Employee[];
-  FormComponent: any;
 
   constructor( private employeesService: EmployeesService, private modalService: NzModalService) {
     this.employeesService.employeesListObservable.subscribe((employees) => {
       this.employeesList = employees;
       });
-    }
-   
-    trackByFn(index: number, item: Employee): number {
-      return index;
-    }
-  
+    }  
   ngOnInit(): void {
     this.employeesList=this.employeesService.EmployeesList;
     this.employeesService.employeeEditedEvent.subscribe(() => {
