@@ -5,30 +5,40 @@
         <input nz-input formControlName="name" placeholder="Name" minlength="5"/>
       </nz-form-control>
     </nz-form-item>
+
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Age</nz-form-label>
       <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write the age!">
         <input nz-input formControlName="age" placeholder="Age" type="number" min="0"/>
       </nz-form-control>
     </nz-form-item>
+
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Address</nz-form-label>
       <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write the address!">
         <input nz-input formControlName="address" placeholder="Address" minlength="5"/>
       </nz-form-control>
     </nz-form-item>
+
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Occupation</nz-form-label>
       <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write the occupation!">
         <input nz-input formControlName="occupation" placeholder="Occupation" minlength="5"/>
       </nz-form-control>
     </nz-form-item>
+
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired>Phone Number</nz-form-label>
       <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write only numbers!">
-        <input nz-input formControlName="phoneNumber" placeholder="Phone Number" type="text" pattern="[0-9]{10,}"/>
+        <div class="phone-input">
+          <select [(ngModel)]="selectedPrefix">
+            <option *ngFor="let prefix of availablePrefixes" [value]="prefix">{{prefix}}</option>
+          </select>
+          <input nz-input formControlName="phoneNumber" placeholder="Phone Number" type="text" pattern="[0-9]{9}"/>
+        </div>
       </nz-form-control>
     </nz-form-item>
+
     <nz-form-item>
       <nz-form-control [nzOffset]="7" [nzSpan]="12">
         <button nz-button nzType="primary" [disabled]="!validateForm.valid">Submit</button>

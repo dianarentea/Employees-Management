@@ -1,3 +1,6 @@
+<button nz-button (click)="addEmployee()" nzType="primary">
+  Add New Employee
+</button>
 <nz-table #groupingTable [nzPageSize]="8" 
 [nzData]="employeesList" 
 nzBordered nzSize="middle" 
@@ -43,6 +46,3 @@ nzBordered nzSize="middle"
       </tr>
     </tbody>
   </nz-table>
-  <button nz-button (click)="addEmployee()" nzType="primary">
-    Add New Employee
-  </button>

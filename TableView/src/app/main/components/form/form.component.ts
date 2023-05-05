@@ -12,7 +12,10 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
 export class FormComponent implements OnInit {
   
   editMode = false;
-  
+  selectedPrefix: string = '';
+  availablePrefixes: string[]= ['+40', '+42', '+43', '+45', '+53'];
+
+
   validateForm: FormGroup;
   @Input() employeeIndex: number | null = null;
   @Input() employeeToEdit: Employee | null = null;
@@ -30,9 +33,15 @@ export class FormComponent implements OnInit {
   
   submitForm(): void {
     console.log('submit', this.validateForm.value);
-    if (this.editMode) {
+    if (this.validateForm.valid) {
+      const formValue = this.validateForm.value;
+      const phoneNumberWithPrefix = this.selectedPrefix + formValue.phoneNumber;
+      formValue.phoneNumber = phoneNumberWithPrefix;
+    if (this.editMode) 
+    {
       this.employeesService.editEmployee(this.employeeIndex!, this.validateForm.value); 
-    } else {
+    } else 
+    {
       this.employeesService.addEmployee(this.validateForm.value);
     }
     this.resetForm(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
@@ -41,6 +50,7 @@ export class FormComponent implements OnInit {
     this.modalRef.close();
     this.formSubmitted.emit();
   }
+}
 
   resetForm(e: MouseEvent): void 
   {

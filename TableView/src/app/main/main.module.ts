@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AgePipePipe } from './pipes/age-pipe.pipe';
+import { FormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
 import { FormComponent } from './components/form/form.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -16,17 +16,19 @@ import{NzInputModule} from 'ng-zorro-antd/input';
 import{NzModalModule} from 'ng-zorro-antd/modal';
 import{NzFormModule} from 'ng-zorro-antd/form';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PhoneNumberPipePipe } from './pipes/phone-number-pipe.pipe';
+
 
 
 
 
 @NgModule({
   declarations: [
-    AgePipePipe,
     FormComponent,
     DashboardComponent,
     FormComponent,
-    TableComponent  ],
+    TableComponent,
+    PhoneNumberPipePipe  ],
   imports: [
     CommonModule,
     MainRoutingModule,
@@ -39,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NzFormModule,
     ReactiveFormsModule,
     NzInputModule,
+    FormsModule
   ]
 })
 export class MainModule { }

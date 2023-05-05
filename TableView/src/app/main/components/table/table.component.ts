@@ -8,13 +8,15 @@ import {EmployeesService} from '../../services/employees.service';
 })
 export class TableComponent implements OnInit{
   employeesList!: Employee[];
-
-  constructor( private employeesService: EmployeesService) {
+  
+  constructor( private employeesService: EmployeesService) 
+  {
     this.employeesService.employeesListObservable.subscribe((employees) => {
       this.employeesList = employees;
       });
-    }  
-  ngOnInit(): void {
+  }  
+  ngOnInit(): void
+  {
     this.employeesList=this.employeesService.EmployeesList;
     
   }
@@ -27,9 +29,11 @@ export class TableComponent implements OnInit{
   {
    this.employeesService.deleteEmployee(employee);
   }
+
   addEmployee() {
     this.employeesService.openAddEmployeeModal();
   }
+
   editEmployee(employee: Employee, index: number): void 
   {
     this.employeesService.openEditEmployeeModal(employee, index);
