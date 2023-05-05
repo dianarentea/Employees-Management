@@ -18,6 +18,7 @@ export class EmployeesService {
   get EmployeesList(): Employee[] {
     return this.employeesList;
   }
+  //for form component
   deleteEmployee(employee: Employee): void 
   {
     const index = this.employeesList.indexOf(employee);
@@ -34,19 +35,27 @@ export class EmployeesService {
     this.employeesList[index]=employee;
     this.employeesListSubject.next([...this.employeesList]);
   }
-  openAddEmployeeModal(): void {
+
+  //for table component
+  openAddEmployeeModal(): NzModalRef {
     const modal: NzModalRef = this.modalService.create({
       nzTitle: 'Add Employee',
       nzContent: FormComponent,
       nzFooter: null,
+      nzComponentParams: {
+        employeeToEdit: null,
+        employeeIndex: null,
+      },
     });
+    return modal;
   }
   openEditEmployeeModal(employee: Employee, index: number): NzModalRef {
     const modal: NzModalRef = this.modalService.create({
       nzTitle: 'Edit Employee',
       nzContent: FormComponent,
       nzFooter: null,
-      nzComponentParams: {
+      nzComponentParams:
+       {
         employeeToEdit: employee,
         employeeIndex: index,
       },

@@ -39,13 +39,15 @@ export class FormComponent implements OnInit {
       const phoneNumber = String(formValue.phoneNumber);
       const prefix = String(formValue.prefix);
       const phoneNumberWithPrefix = `${prefix}${phoneNumber}`;
-  
 
     formValue.phoneNumber = phoneNumberWithPrefix;
 
-    if (this.editMode) {
+    if (this.editMode) 
+    {
       this.employeesService.editEmployee(this.employeeIndex!, formValue);
-    } else {
+    } 
+    else 
+    {
       this.employeesService.addEmployee(formValue);
     }
 

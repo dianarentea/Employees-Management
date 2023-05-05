@@ -5,19 +5,23 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PhoneNumberPipePipe implements PipeTransform {
 
-  transform(value: any, countryPrefix: string='+1'):string {
-    if(value==null)
+  transform(phoneNumber: any):string {
+    
+    if(phoneNumber.length==null)
     {
       return 'Invalid number';
     }
-    if (typeof value !== 'number' || isNaN(value)) {
-      return 'Invalid number';
-    }
-    let phoneNumberStr = value.toString();
+    let phoneNumberStr = phoneNumber.toString();
    
-    if (phoneNumberStr.length !== 9) {
-      return 'Invalid number';
+    if(phoneNumberStr.length<9)
+    {
+      return 'Not enough digits';
     }
-    return `$[countryPrefix] (${phoneNumberStr.slice(0, 3)}) ${phoneNumberStr.slice(3)}`;
+    else
+    if(phoneNumberStr.length>9)
+    {
+      return 'Too many digits';
+    }
+    return '';
   }
 }

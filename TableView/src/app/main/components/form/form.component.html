@@ -38,7 +38,7 @@
         <input nz-input formControlName="phoneNumber" placeholder="Phone Number" type="text" pattern="[0-9]{9}"/>
          <div *ngIf="validateForm.controls['phoneNumber'].invalid && validateForm.controls['phoneNumber'].touched"
            class="error-message">
-        {{ validateForm.controls['phoneNumber'].errors | phoneNumberPipe:selectedPrefix }}
+        {{ validateForm.controls['phoneNumber'].value | phoneNumberPipe }}
       </div>
       </nz-form-control>
     </nz-form-item>   
