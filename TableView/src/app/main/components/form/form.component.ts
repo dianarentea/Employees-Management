@@ -27,6 +27,7 @@ export class FormComponent implements OnInit {
       age: ['16', [Validators.required]],
       address: ['', [Validators.required]],
       occupation: ['', [Validators.required]],
+      prefix: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]]
     });
   }
@@ -35,16 +36,20 @@ export class FormComponent implements OnInit {
     console.log('submit', this.validateForm.value);
     if (this.validateForm.valid) {
       const formValue = this.validateForm.value;
-      const phoneNumberWithPrefix = this.selectedPrefix + formValue.phoneNumber;
-      formValue.phoneNumber = phoneNumberWithPrefix;
-    if (this.editMode) 
-    {
-      this.employeesService.editEmployee(this.employeeIndex!, this.validateForm.value); 
-    } else 
-    {
-      this.employeesService.addEmployee(this.validateForm.value);
+      const phoneNumber = String(formValue.phoneNumber);
+      const prefix = String(formValue.prefix);
+      const phoneNumberWithPrefix = `${prefix}${phoneNumber}`;
+  
+
+    formValue.phoneNumber = phoneNumberWithPrefix;
+
+    if (this.editMode) {
+      this.employeesService.editEmployee(this.employeeIndex!, formValue);
+    } else {
+      this.employeesService.addEmployee(formValue);
     }
-    this.resetForm(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+
+    this.resetForm(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
     this.editMode = false;
     this.employeeIndex = null;
     this.modalRef.close();
@@ -64,7 +69,18 @@ export class FormComponent implements OnInit {
     }
   }
   setFormData(employee: Employee, index: number) {
-    this.validateForm.patchValue(employee);
+    
+  const phoneNumberWithPrefix = employee.phoneNumber.toString();
+  const phoneNumber = phoneNumberWithPrefix.replace(/^[+]\d{2,3}/, '');
+  const prefix = phoneNumberWithPrefix.substring(0, phoneNumberWithPrefix.length - phoneNumber.length);
+  this.selectedPrefix = prefix;
+
+  const updatedEmployee = {
+    ...employee,
+    prefix: prefix,
+    phoneNumber: phoneNumber
+  };
+    this.validateForm.patchValue(updatedEmployee);
     this.employeeIndex = index;
     this.editMode = true;
   }
