@@ -32,7 +32,7 @@ export class EmployeesService {
   }
   editEmployee(index: number,employee: Employee): void
   {
-    this.employeesList[index]=employee;
+    this.employeesList.splice(index, 1, employee);
     this.employeesListSubject.next([...this.employeesList]);
   }
 
