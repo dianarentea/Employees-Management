@@ -1,0 +1,31 @@
+h1{
+    color: rgb(85, 111, 194);
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 50px;
+}
+.container{
+    background-image: url(../../../../assets/background.jpg);
+    background-size: cover;
+    height: 595px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+.buttonLogin{
+    background-color: rgb(228, 226, 229);
+    font-size: 20px;
+    padding: 4px 15px;
+    border-radius: 15px;
+    border-color: #a385c1;
+    color: #a385c1;
+    font-family: 'Helvetica';
+    transition-duration: 0.4s;
+    position: relative;
+    top:30%
+}

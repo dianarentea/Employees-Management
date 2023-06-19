@@ -33,7 +33,10 @@ export class TableComponent implements OnInit{
   addEmployee() {
     this.employeesService.openAddEmployeeModal();
   }
-
+  openLogin()
+  {
+    this.employeesService.openLogin();
+  }
   editEmployee(employee: Employee, index: number): void 
   {
     this.employeesService.openEditEmployeeModal(employee, index);

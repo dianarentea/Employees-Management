@@ -17,6 +17,10 @@ import{NzModalModule} from 'ng-zorro-antd/modal';
 import{NzFormModule} from 'ng-zorro-antd/form';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PhoneNumberPipePipe } from './pipes/phone-number-pipe.pipe';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { HomeViewComponent } from './components/trip/home-view/home-view.component';
+import { MyTripsComponent } from './components/trip/my-trips/my-trips.component';
 
 
 
@@ -28,8 +32,14 @@ import { PhoneNumberPipePipe } from './pipes/phone-number-pipe.pipe';
     DashboardComponent,
     FormComponent,
     TableComponent,
-    PhoneNumberPipePipe  ],
+    PhoneNumberPipePipe,
+    RegisterComponent,
+    LoginComponent,
+    HomeViewComponent,
+    MyTripsComponent  ],
+
   imports: [
+
     CommonModule,
     MainRoutingModule,
 
@@ -41,7 +51,7 @@ import { PhoneNumberPipePipe } from './pipes/phone-number-pipe.pipe';
     NzFormModule,
     ReactiveFormsModule,
     NzInputModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class MainModule { }

@@ -4,6 +4,8 @@ import employeesData from './employees.json';
 import { Subject } from 'rxjs';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { FormComponent } from '../components/form/form.component';
+import { LoginComponent } from '../components/auth/login/login.component';
+import { RegisterComponent } from '../components/auth/register/register.component';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +50,30 @@ export class EmployeesService {
       },
     });
     return modal;
+  }
+  openLogin(): NzModalRef {
+    const modal: NzModalRef = this.modalService.create({
+      nzTitle: 'Login',
+      nzContent: LoginComponent,
+      nzFooter: null,
+      nzComponentParams: {
+        
+      },
+    });
+    return modal;
+
+  }
+  openRegister(): NzModalRef {
+    const modal: NzModalRef = this.modalService.create({
+      nzTitle: 'Register',
+      nzContent: RegisterComponent,
+      nzFooter: null,
+      nzComponentParams: {
+        
+      },
+    });
+    return modal;
+
   }
   openEditEmployeeModal(employee: Employee, index: number): NzModalRef {
     const modal: NzModalRef = this.modalService.create({
