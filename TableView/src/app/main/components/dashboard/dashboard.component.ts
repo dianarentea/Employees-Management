@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../interfaces/employee.interface';
 import { EmployeesService } from '../../services/employees.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ import { EmployeesService } from '../../services/employees.service';
 export class DashboardComponent implements OnInit{
   selectedEmployee: Employee | null = null;
   selectedEmployeeIndex: number | null = null;
-  constructor(private employeesService: EmployeesService) 
+  constructor(private employeesService: EmployeesService, private usersService:UsersService) 
   { }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
@@ -27,10 +28,10 @@ export class DashboardComponent implements OnInit{
   }
 openLogin()
 {
-  this.employeesService.openLogin();
+  this.usersService.openLogin();
 }
 openRegister()
 {
-  this.employeesService.openRegister();
+  this.usersService.openRegister();
 }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 import { EmployeesService } from 'src/app/main/services/employees.service';
+import { UsersService } from 'src/app/main/services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,9 @@ import { EmployeesService } from 'src/app/main/services/employees.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  
+  showErrorMessage = false; 
 
-  constructor(private fb: FormBuilder, private employeesService: EmployeesService) { }
+  constructor(private fb: FormBuilder, private usersService:UsersService, private modalRef:NzModalRef) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -21,19 +23,17 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(): void {
-    if (this.loginForm.valid) {
-      console.log('submit', this.loginForm.value);
-    } else {
-      Object.values(this.loginForm.controls).forEach(control => {
-        if (control.invalid) {
-          control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
-        }
-      });
+    const { email, password } = this.loginForm.value;
+    this.usersService.loginSubmit(email, password);
+    this.showErrorMessage = !this.usersService.getIsAuthenticated(); // Afiseaza mesajul de eroare daca autentificarea a esuat
+  
+    if (this.usersService.getIsAuthenticated()) {
+      this.modalRef.close();
     }
   }
+  
   openRegister()
   {
-    this.employeesService.openRegister();
+    this.usersService.openRegister();
   }
 }

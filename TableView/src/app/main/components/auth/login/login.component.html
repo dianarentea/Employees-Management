@@ -21,12 +21,13 @@
     </nz-form-item>
     <nz-form-item nz-row class="login-area">
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
-        <button nz-button nzType="primary" >Login</button>
-        <br>
-        
-          If you don't have an account, please
+        <button nz-button nzType="primary" (click)="submitForm()">Login</button>
+        <br><br>
+        <div *ngIf="showErrorMessage" class="error-message">
+          It doesn't exists an account with this e-mail, please
           <button class="underline-button" (click)="openRegister()">Register</button>
-       
+        </div>
+   
       </nz-form-control>
     </nz-form-item>
   </form>

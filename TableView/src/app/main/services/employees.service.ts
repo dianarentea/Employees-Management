@@ -51,30 +51,6 @@ export class EmployeesService {
     });
     return modal;
   }
-  openLogin(): NzModalRef {
-    const modal: NzModalRef = this.modalService.create({
-      nzTitle: 'Login',
-      nzContent: LoginComponent,
-      nzFooter: null,
-      nzComponentParams: {
-        
-      },
-    });
-    return modal;
-
-  }
-  openRegister(): NzModalRef {
-    const modal: NzModalRef = this.modalService.create({
-      nzTitle: 'Register',
-      nzContent: RegisterComponent,
-      nzFooter: null,
-      nzComponentParams: {
-        
-      },
-    });
-    return modal;
-
-  }
   openEditEmployeeModal(employee: Employee, index: number): NzModalRef {
     const modal: NzModalRef = this.modalService.create({
       nzTitle: 'Edit Employee',

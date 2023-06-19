@@ -21,6 +21,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { LoginComponent } from './components/auth/login/login.component';
 import { HomeViewComponent } from './components/trip/home-view/home-view.component';
 import { MyTripsComponent } from './components/trip/my-trips/my-trips.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -42,6 +43,7 @@ import { MyTripsComponent } from './components/trip/my-trips/my-trips.component'
 
     CommonModule,
     MainRoutingModule,
+    RouterModule,
 
     NzButtonModule,
     NzPageHeaderModule,

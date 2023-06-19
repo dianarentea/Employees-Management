@@ -8,6 +8,20 @@
     </nz-form-item>
 
     <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="Firstname">Firstname</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid firstname!">
+        <input nz-input formControlName="Firstname" id="Firstname" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="Lastname">Lastname</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid lastname!">
+        <input nz-input formControlName="Lastname" id="Lastname" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
         <input

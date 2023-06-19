@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { HomeViewComponent } from './components/trip/home-view/home-view.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path:'register',
     component: RegisterComponent
+  },
+  {
+    path: 'home-view',
+    component: HomeViewComponent
   }
 ];
 @NgModule({
