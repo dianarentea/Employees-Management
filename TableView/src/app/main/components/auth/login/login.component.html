@@ -22,6 +22,9 @@
     <nz-form-item nz-row class="login-area">
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
         <button nz-button nzType="primary" (click)="submitForm()">Login</button>
+        <br>
+        <input type="checkbox" [(ngModel)]="rememberMe" id="rememberMeCheckbox">
+        <label for="rememberMeCheckbox">Remember Me</label>
         <br><br>
         <div *ngIf="showErrorMessage" class="error-message">
           It doesn't exists an account with this e-mail, please

@@ -12,6 +12,8 @@ import { UsersService } from 'src/app/main/services/users.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   showErrorMessage = false; 
+  rememberMe: boolean = false;
+
 
   constructor(private fb: FormBuilder, private usersService:UsersService, private modalRef:NzModalRef) { }
 
@@ -24,9 +26,14 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     const { email, password } = this.loginForm.value;
-    this.usersService.loginSubmit(email, password);
+    this.usersService.loginSubmit(email, password,this.rememberMe);
     this.showErrorMessage = !this.usersService.getIsAuthenticated(); // Afiseaza mesajul de eroare daca autentificarea a esuat
-  
+    if (this.rememberMe) {
+
+      localStorage.setItem('rememberMe', 'true');
+    } else {
+      localStorage.removeItem('rememberMe');
+    }
     if (this.usersService.getIsAuthenticated()) {
       this.modalRef.close();
     }

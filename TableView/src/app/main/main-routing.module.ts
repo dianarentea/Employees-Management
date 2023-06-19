@@ -4,10 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { HomeViewComponent } from './components/trip/home-view/home-view.component';
+import { MyTripsComponent } from './components/trip/my-trips/my-trips.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path:'',
     component: DashboardComponent
   },
   {
@@ -17,7 +18,12 @@ const routes: Routes = [
   {
     path: 'home-view',
     component: HomeViewComponent
-  }
+  },
+  {
+    path:'my-trips',
+    component: MyTripsComponent,
+  },
+  
 ];
 @NgModule({
   declarations: [],

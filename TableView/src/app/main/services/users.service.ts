@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class UsersService {
 
   private usersList: Users[] = usersData;
+  private currentUsername: string = '';
   usersListSubject=new Subject<Users[]>();
   usersListObservable=this.usersListSubject.asObservable();
   private isAuthenticated: boolean = false;
@@ -22,6 +23,9 @@ export class UsersService {
 
   get UsersList(): Users[] {
     return this.usersList;
+  }
+  get CurrentUsername(): string {
+    return this.currentUsername;
   }
    openLogin(): NzModalRef {
     const modal: NzModalRef = this.modalService.create({
@@ -46,12 +50,16 @@ export class UsersService {
     });
     return modal;
 }
-loginSubmit(email: string, password: string): void {
+loginSubmit(email: string, password: string,rememberMe: boolean): void {
   const user = this.usersList.find(u => u.email === email && u.password === password);
-
+  this.currentUsername = user?.lastname || '';
   if (user) 
   {
     this.isAuthenticated = true;
+    if (rememberMe) 
+    {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+    }
     this.router.navigate(['/home-view']);
   } 
   else 
@@ -69,6 +77,7 @@ registerSubmit(user: Users): void
 {
   this.usersList.push(user);
   this.usersListSubject.next([...this.usersList]);
+ 
   this.router.navigate(['/home-view']);
   // Realizează cererea HTTP pentru a actualiza fișierul users.json
   this.httpClient.put('/api/users', this.usersList)
@@ -76,6 +85,17 @@ registerSubmit(user: Users): void
       () => console.log('Fișierul users.json a fost actualizat cu succes!'),
       error => console.error('A apărut o eroare la actualizarea fișierului users.json:', error)
     );
+}
+
+openMyTrips(): void {
+  this.router.navigate(['/my-trips']);
+}
+openAllTrips(): void {
+  this.router.navigate(['/all-trips']);
+}
+logout(): void {
+  this.isAuthenticated = false;
+  this.router.navigate(['']);
 }
 
 }

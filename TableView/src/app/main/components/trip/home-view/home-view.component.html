@@ -1,19 +1,24 @@
+<head>
+    <link href="/../../../../../assets/scss" rel="stylesheet">
+</head>
+<body>
 <div class="background" #discoverElement>
     <ul nz-menu nzMode="inline" class="overlay-menu">
         <li nz-submenu nzTitle="More..." nzIcon="appstore">
         <ul>
-          <li nz-menu-item>My trips</li>
+          <li nz-menu-item (click)="openMyTrips()">My trips</li>
           <li nz-menu-item>View all trips</li>
           <li nz-menu-item>
-            <span class="menu-item-text">Log out</span> 
+            <span class="menu-item-text" (click)="logout()">Log out</span> 
             <span nz-icon nzType="logout" nzTheme="outline"></span>
-          </li>
+            <i class="fa-solid fa-right-from-bracket"></i>
+                  </li>
           
         </ul>
       </li>
       </ul>
     <div class="title">
-        <p id="one">Discover the colorful world</p><br>
+        <p id="one">Discover the colorful world, {{currentUsername}}!</p><br>
         <p id="two">{{homePageTitle}}</p>
         <hr>
         <p id="three">Fill your life with adventures, not things. Have stories to tell, not stuff to show</p>
@@ -22,3 +27,4 @@
 
     </div>
 </div>
+</body>
