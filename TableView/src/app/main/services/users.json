@@ -1,11 +1,13 @@
 [
     {
-        "name":"Maria",
+        "firstname":"Maria",
+        "lastname":"Popa",
         "email":"maria99@gmail.com",
         "password":"1"
     },
     {
-        "name":"John",
+        "firstname":"John",
+        "lastname":"Rusu",
         "email":"john99@gmail.com",
         "password":"2"
     }

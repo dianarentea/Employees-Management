@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 import { LoginComponent } from '../components/auth/login/login.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class UsersService {
   usersListObservable=this.usersListSubject.asObservable();
   private isAuthenticated: boolean = false;
 
-  constructor(private modalService: NzModalService, private router:Router) {}
+  constructor(private modalService: NzModalService, private router:Router, private httpClient:HttpClient) {}
 
   get UsersList(): Users[] {
     return this.usersList;
@@ -62,6 +63,19 @@ loginSubmit(email: string, password: string): void {
 
 getIsAuthenticated(): boolean {
   return this.isAuthenticated;
+}
+
+registerSubmit(user: Users): void
+{
+  this.usersList.push(user);
+  this.usersListSubject.next([...this.usersList]);
+  this.router.navigate(['/home-view']);
+  // Realizează cererea HTTP pentru a actualiza fișierul users.json
+  this.httpClient.put('/api/users', this.usersList)
+    .subscribe(
+      () => console.log('Fișierul users.json a fost actualizat cu succes!'),
+      error => console.error('A apărut o eroare la actualizarea fișierului users.json:', error)
+    );
 }
 
 }

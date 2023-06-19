@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormGroup, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { NzModalRef } from 'ng-zorro-antd/modal';
+import { UsersService } from 'src/app/main/services/users.service';
+
 
 @Component({
   selector: 'app-register',
@@ -8,7 +11,9 @@ import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb: UntypedFormBuilder) {}
+
+
+  constructor(private fb: UntypedFormBuilder, private usersService:UsersService, private modalRef:NzModalRef ){}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -16,29 +21,39 @@ export class RegisterComponent implements OnInit {
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
       nickname: [null, [Validators.required]],
-      phoneNumberPrefix: ['+86'],
-      phoneNumber: [null, [Validators.required]],
-      website: [null, [Validators.required]],
-      captcha: [null, [Validators.required]],
-      agree: [false]
     });
   }
+
   validateForm!: UntypedFormGroup;
-  captchaTooltipIcon: NzFormTooltipIcon = {
-    type: 'info-circle',
-    theme: 'twotone'
-  };
+ 
 
   submitForm(): void {
-    if (this.validateForm.valid) {
+    if (this.validateForm.valid) 
+    {
       console.log('submit', this.validateForm.value);
-    } else {
-      Object.values(this.validateForm.controls).forEach(control => {
-        if (control.invalid) {
-          control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
+      const formValue = this.validateForm.value;
+      this.usersService.registerSubmit(formValue);
+      this.modalRef.close();
+    }
+     else {
+      for (const key in this.validateForm.controls) {
+        if (this.validateForm.controls.hasOwnProperty(key)) {
+          this.validateForm.controls[key].markAsDirty();
+          this.validateForm.controls[key].updateValueAndValidity();
         }
-      });
+      }
+    }
+  }
+
+  resetForm(e: MouseEvent): void 
+  {
+    e.preventDefault();
+    this.validateForm.reset();
+    for (const key in this.validateForm.controls) {
+      if (this.validateForm.controls.hasOwnProperty(key)) {
+        this.validateForm.controls[key].markAsPristine();
+        this.validateForm.controls[key].updateValueAndValidity();
+      }
     }
   }
 

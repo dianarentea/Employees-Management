@@ -19,9 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PhoneNumberPipePipe } from './pipes/phone-number-pipe.pipe';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginComponent } from './components/auth/login/login.component';
-import { HomeViewComponent } from './components/trip/home-view/home-view.component';
-import { MyTripsComponent } from './components/trip/my-trips/my-trips.component';
 import { RouterModule } from '@angular/router';
+import { TripModule } from './components/trip/trip.module';
 
 
 
@@ -29,26 +28,25 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    FormComponent,
     DashboardComponent,
     FormComponent,
     TableComponent,
     PhoneNumberPipePipe,
     RegisterComponent,
     LoginComponent,
-    HomeViewComponent,
-    MyTripsComponent  ],
+  ],
 
   imports: [
 
     CommonModule,
     MainRoutingModule,
     RouterModule,
+    TripModule,
 
     NzButtonModule,
     NzPageHeaderModule,
     NzTableModule,
-    NzIconModule,
+    //NzIconModule,
     NzModalModule,
     NzFormModule,
     ReactiveFormsModule,

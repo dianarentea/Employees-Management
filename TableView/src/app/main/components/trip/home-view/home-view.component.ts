@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-view',
   templateUrl: './home-view.component.html',
   styleUrls: ['./home-view.component.scss']
 })
-export class HomeViewComponent {
+export class HomeViewComponent implements OnInit {
+
+  homePageTitle?: string;
+
+  ngOnInit(): void {
+    this.homePageTitle='NEW ADVENTURE';
+  }
 
 }
