@@ -1,2 +1,2 @@
-# Employees-Management
-Adaugare si editare entitati intr-un tabel
+# My trips plan
+Find the best place to visit this summer
