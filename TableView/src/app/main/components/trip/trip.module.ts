@@ -7,11 +7,13 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { AppstoreOutline } from '@ant-design/icons-angular/icons';
 import { LogoutOutline } from '@ant-design/icons-angular/icons';
+import { MyTripsTableComponent } from './my-trips-table/my-trips-table.component';
 
 
 @NgModule({
   declarations: [
-    HomeViewComponent
+    HomeViewComponent,
+    MyTripsTableComponent
   ],
   imports: [
     CommonModule,

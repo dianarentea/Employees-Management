@@ -78,8 +78,8 @@ registerSubmit(email:string, firstname:string, lastname:string, password:string)
   this.usersListSubject.next([...this.usersList]);
   this,this.currentUsername=lastname;
   this.router.navigate(['/home-view']);
-
 }
+
 getIsAuthenticated(): boolean {
   return this.isAuthenticated;
 }
