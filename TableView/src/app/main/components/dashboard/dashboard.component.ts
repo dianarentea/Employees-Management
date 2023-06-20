@@ -9,12 +9,15 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
+
   selectedEmployee: Employee | null = null;
   selectedEmployeeIndex: number | null = null;
+  homePageTitle?: string;
+
   constructor(private employeesService: EmployeesService, private usersService:UsersService) 
   { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.homePageTitle='NEW ADVENTURE';
   }
 
   openEditForm({ employee, index }: { employee: Employee; index: number }): void {

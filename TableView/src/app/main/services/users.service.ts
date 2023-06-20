@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import{Users} from '../interfaces/users';
+import{User} from '../interfaces/user';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import usersData from './users.json';
 import { Subject } from 'rxjs';
@@ -13,15 +13,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersService {
 
-  private usersList: Users[] = usersData;
+  private usersList: User[] = usersData;
   private currentUsername: string = '';
-  usersListSubject=new Subject<Users[]>();
+  usersListSubject=new Subject<User[]>();
   usersListObservable=this.usersListSubject.asObservable();
   private isAuthenticated: boolean = false;
 
+
   constructor(private modalService: NzModalService, private router:Router, private httpClient:HttpClient) {}
 
-  get UsersList(): Users[] {
+  get UsersList(): User[] {
     return this.usersList;
   }
   get CurrentUsername(): string {
@@ -69,22 +70,18 @@ loginSubmit(email: string, password: string,rememberMe: boolean): void {
   }
 }
 
-getIsAuthenticated(): boolean {
-  return this.isAuthenticated;
-}
-
-registerSubmit(user: Users): void
+registerSubmit(email:string, firstname:string, lastname:string, password:string): void
 {
+  console.log("registerSubmit");
+  const user:User={email,firstname,lastname,password};
   this.usersList.push(user);
   this.usersListSubject.next([...this.usersList]);
- 
+  this,this.currentUsername=lastname;
   this.router.navigate(['/home-view']);
-  // Realizează cererea HTTP pentru a actualiza fișierul users.json
-  this.httpClient.put('/api/users', this.usersList)
-    .subscribe(
-      () => console.log('Fișierul users.json a fost actualizat cu succes!'),
-      error => console.error('A apărut o eroare la actualizarea fișierului users.json:', error)
-    );
+
+}
+getIsAuthenticated(): boolean {
+  return this.isAuthenticated;
 }
 
 openMyTrips(): void {

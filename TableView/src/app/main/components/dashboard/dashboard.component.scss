@@ -29,3 +29,52 @@ h1{
     position: relative;
     top:30%
 }
+.title
+{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    color:white;
+    text-align: center;
+    position: relative;
+    top:35%;
+    line-height: 12px;
+}
+hr{
+    width:700px;
+}
+#one
+{
+    font-family: 'Helvetica';
+    color:white;
+    font-size: 25px;
+}
+#two
+{
+    font-family: 'Helvetica';
+    color:white;
+    font-size: 45px;
+    font-weight: bold;
+}
+#three
+{
+    font-family: 'Helvetica';
+    color:white;
+    font-size: 20px;
+}
+.buttonExplore{
+    background-color:rgb(33, 73, 134);
+    font-size: 25px;
+    padding: 4px 15px;
+    border-radius: 10px;
+    border-color: #ececec;
+    color: #ffffff;
+    font-family: 'Helvetica';
+    transition-duration: 0.4s;
+    position: relative;
+    top:50%;
+    height: 30px;
+}
+.buttonExplore:hover {
+    background-color: #afc0d6;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }

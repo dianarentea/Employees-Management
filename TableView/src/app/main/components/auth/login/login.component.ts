@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   submitForm(): void {
     const { email, password } = this.loginForm.value;
     this.usersService.loginSubmit(email, password,this.rememberMe);
-    this.showErrorMessage = !this.usersService.getIsAuthenticated(); // Afiseaza mesajul de eroare daca autentificarea a esuat
+    this.showErrorMessage = !this.usersService.getIsAuthenticated(); 
     if (this.rememberMe) {
 
       localStorage.setItem('rememberMe', 'true');
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
   
   openRegister()
   {
+    this.modalRef.close();
     this.usersService.openRegister();
   }
 }
