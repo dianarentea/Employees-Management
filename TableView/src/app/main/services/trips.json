@@ -1,10 +1,59 @@
 [
     {
-        "emai":"maria99@gmail.com" ,
+        "userEmail":"maria99@gmail.com" ,
         "country":"France",
         "city":"Paris",
         "attraction":"Eiffel Tower",
         "restaurant":"Le Jules Verne",
-        "likes":1
+        "likes":1,
+        "image":"assets/images/paris.jpg"
+    },
+    {
+        "userEmail":"john99@gmail.com",
+        "country":"Spain",
+        "city":"Barcelona",
+        "attraction":"Sagrada Familia",
+        "restaurant":"La Pergola",
+        "likes":2,
+        "image":"assets/images/barcelona.jpg"
+
+    },
+    {
+        "userEmail":"maria99@gmail.com",
+        "country":"Slovenia",
+        "city":"Lubliana",
+        "attraction":"Ljubljana Castle",
+        "restaurant":"La Pergola",
+        "likes":3,
+        "image":"assets/images/lubliana.jpg"
+
+    },
+    {
+        "userEmail":"john99@gmail.com",
+        "country":"Austria",
+        "city":"Viena",
+        "attraction":"Schonbrunn Palace",
+        "restaurant":"Steirereck",
+        "likes":4,
+        "image":"assets/images/viena.jpg"
+    },
+    {
+        "userEmail":"maria99@gmail.com",
+        "country":"Hungary",
+        "city":"Budapest",
+        "attraction":"Fisherman's Bastion",
+        "restaurant":"Onyx",
+        "likes":5,
+        "image":"assets/images/budapesta.jpg"
+    },
+    {
+        "userEmail":"john99@gmail.com",
+        "country":"Switzerland",
+        "city":"Geneva",
+        "attraction":"Lake Geneva",
+        "restaurant":"The Restaurant",
+        "likes":6,
+        "image":"assets/images/geneva.jpg"
     }
+
 ]

@@ -23,8 +23,13 @@
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
         <button nz-button nzType="primary" (click)="submitForm()">Login</button>
         <br>
-        <input type="checkbox"  id="rememberMeCheckbox">
-        <label for="rememberMeCheckbox">Remember Me</label>
+        <div class="pretty p-icon p-round p-pulse">
+          <input type="checkbox" />
+          <div class="state p-success">
+              <p><i class="icon mdi mdi-check"></i>
+              <label>Remember me!</label></p>
+          </div>
+      </div>
         <br><br>
         <div *ngIf="showErrorMessage" class="error-message">
           It doesn't exists an account with this e-mail, please

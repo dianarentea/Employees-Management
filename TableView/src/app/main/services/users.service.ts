@@ -15,6 +15,8 @@ export class UsersService {
 
   private usersList: User[] = usersData;
   private currentUsername: string = '';
+  private currentUserEmail: string = '';
+  
   usersListSubject=new Subject<User[]>();
   usersListObservable=this.usersListSubject.asObservable();
   private isAuthenticated: boolean = false;
@@ -27,6 +29,9 @@ export class UsersService {
   }
   get CurrentUsername(): string {
     return this.currentUsername;
+  }
+  get CurrentUserEmail(): string {
+    return this.currentUserEmail;
   }
    openLogin(): NzModalRef {
     const modal: NzModalRef = this.modalService.create({
@@ -54,6 +59,8 @@ export class UsersService {
 loginSubmit(email: string, password: string,rememberMe: boolean): void {
   const user = this.usersList.find(u => u.email === email && u.password === password);
   this.currentUsername = user?.lastname || '';
+  console.log(this.currentUserEmail)
+  this.currentUserEmail = user?.email || '';
   if (user) 
   {
     this.isAuthenticated = true;
@@ -76,7 +83,7 @@ registerSubmit(email:string, firstname:string, lastname:string, password:string)
   const user:User={email,firstname,lastname,password};
   this.usersList.push(user);
   this.usersListSubject.next([...this.usersList]);
-  this,this.currentUsername=lastname;
+  this.currentUsername=lastname;
   this.router.navigate(['/home-view']);
 }
 

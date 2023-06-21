@@ -1,0 +1,22 @@
+.header-container{
+    position: relative;
+  }
+  h1{
+    margin: 0 0 18px 0;
+    font-family: "Bebas Neue", cursive;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+    text-align: center;
+    font-weight: bold;
+    color:rgb(3, 83, 158);
+  }  
+    .game-list-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      margin-right: 30px;
+    }
+    
+    

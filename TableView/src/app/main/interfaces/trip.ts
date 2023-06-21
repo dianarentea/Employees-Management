@@ -5,5 +5,6 @@ export interface Trip {
     attraction: string;
     restaurant: string;
     likes: number;
+    image: string;
 
 }
