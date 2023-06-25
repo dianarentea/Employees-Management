@@ -41,20 +41,6 @@
       "firstname": "Rentea",
       "lastname": "Remus",
       "password": "1"
-    },
-    {
-      "id": 7,
-      "email": "test@gmail.com",
-      "firstname": "Test",
-      "lastname": "Test",
-      "password": "1234"
-    },
-    {
-      "id": 8,
-      "email": "test@gmail.com",
-      "firstname": "Test",
-      "lastname": "Test",
-      "password": "1234"
     }
   ],
   "trips": [
@@ -124,6 +110,25 @@
       "attraction": "Tampa",
       "restaurant": "Cerbul Carpatin",
       "id": 7,
+      "userEmail": "maria99@gmail.com",
+      "image": "assets/default.jpg"
+    },
+    {
+      "country": "Austria",
+      "city": "Innsbruck",
+      "attraction": "Maria-Hilfe Strasse",
+      "restaurant": "Buch-Caffe",
+      "id": 8,
+      "userEmail": "diana@gmail.com",
+      "image": "assets/default.jpg"
+    },
+    {
+      "country": "Spaain",
+      "city": "Madrid",
+      "attraction": "unknown",
+      "restaurant": "Marbela",
+      "image": "assets/default.jpg",
+      "id": 9,
       "userEmail": "maria99@gmail.com"
     }
   ]

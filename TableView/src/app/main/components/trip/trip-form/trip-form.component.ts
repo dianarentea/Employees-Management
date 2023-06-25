@@ -12,6 +12,7 @@ import { TripsService } from 'src/app/main/services/trips.service';
 export class TripFormComponent implements OnInit{
    editMode = false;
    validateForm: FormGroup;
+   selectedFile: File | null | undefined;
    
   @Input() tripIndex: number | null = null;
   @Input() tripToEdit: Trip | null = null;
@@ -24,8 +25,16 @@ export class TripFormComponent implements OnInit{
       city: ['', [Validators.required]],
       attraction: ['', [Validators.required]],
       restaurant: ['', [Validators.required]],
+      image:"assets/default.jpg"
     });
   }
+
+  ngOnInit(): void {
+    if (this.tripToEdit && this.tripIndex !== null) {
+      this.setFormData(this.tripToEdit, this.tripIndex);
+  }
+}
+
   
   submitForm(): void {
     console.log('submit', this.validateForm.value);
@@ -69,11 +78,14 @@ export class TripFormComponent implements OnInit{
     this.tripIndex = index;
     this.editMode = true;
   }
-  
-  ngOnInit(): void {
-    if (this.tripToEdit && this.tripIndex !== null) {
-      this.setFormData(this.tripToEdit, this.tripIndex);
-  }
+
+
+
+onFileSelected(event: any): void {
+  this.selectedFile = event.target.files[0] as File;
 }
+
+  
+
 
 }

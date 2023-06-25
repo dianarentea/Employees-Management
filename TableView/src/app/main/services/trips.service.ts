@@ -36,6 +36,7 @@ export class TripsService implements OnInit {
     return this.tripsListCurrentUser;
   }
 
+
   deleteTrip(trip: Trip): void
   {
     const index = this.tripsList.indexOf(trip);
@@ -92,5 +93,6 @@ export class TripsService implements OnInit {
     });
     return modal;
   }
+  
 
 }

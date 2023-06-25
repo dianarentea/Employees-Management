@@ -46,7 +46,7 @@ import { TripModule } from './components/trip/trip.module';
     NzButtonModule,
     NzPageHeaderModule,
     NzTableModule,
-    //NzIconModule,
+    
     NzModalModule,
     NzFormModule,
     ReactiveFormsModule,

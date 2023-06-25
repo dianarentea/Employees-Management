@@ -38,6 +38,7 @@ import { TripCardComponent } from './trip-card/trip-card.component';
     NzModalModule,
     NzFormModule,
     ReactiveFormsModule,
+    NzIconModule,
 
   ]
 })
