@@ -18,16 +18,7 @@ export class DashboardComponent implements OnInit{
   { }
   ngOnInit(): void {
     this.homePageTitle='NEW ADVENTURE';
-  }
-
-  openEditForm({ employee, index }: { employee: Employee; index: number }): void {
-    this.selectedEmployee = employee;
-    this.selectedEmployeeIndex = index;
-  }
-
-  resetSelectedEmployee(): void {
-    this.selectedEmployee = null;
-    this.selectedEmployeeIndex = null;
+    this.usersService.ngOnInit();
   }
 openLogin()
 {

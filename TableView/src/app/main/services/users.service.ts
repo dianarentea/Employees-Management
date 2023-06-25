@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import{User} from '../interfaces/user';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import usersData from './users.json';
@@ -11,9 +11,9 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UsersService implements OnInit{
 
-  private usersList: User[] = usersData;
+  private usersList: User[] = [];
   private currentUsername: string = '';
   private currentUserEmail: string = '';
   
@@ -22,7 +22,17 @@ export class UsersService {
   private isAuthenticated: boolean = false;
 
 
-  constructor(private modalService: NzModalService, private router:Router, private httpClient:HttpClient) {}
+  constructor(private modalService: NzModalService, private router:Router, private http:HttpClient) {}
+
+  ngOnInit(): void {
+    
+   this.http.get<User[]>('http://localhost:3000/users').subscribe((users:User[])=>{
+    console.log('res',users);
+      this.usersList=users;
+      this.usersListSubject.next([...this.usersList]);
+    }
+    );
+  }
 
   get UsersList(): User[] {
     return this.usersList;
@@ -79,10 +89,15 @@ loginSubmit(email: string, password: string,rememberMe: boolean): void {
 
 registerSubmit(email:string, firstname:string, lastname:string, password:string): void
 {
+  const id=this.usersList.length+1;
   console.log("registerSubmit");
-  const user:User={email,firstname,lastname,password};
-  this.usersList.push(user);
-  this.usersListSubject.next([...this.usersList]);
+  const user:User={id,email,firstname,lastname,password};
+  this.http.post('http://localhost:3000/users',user).subscribe((res)=>{
+    console.log('res',res);
+  });
+
+  // this.usersList.push(user);
+  // this.usersListSubject.next([...this.usersList]);
   this.currentUsername=lastname;
   this.router.navigate(['/home-view']);
 }
