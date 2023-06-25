@@ -4,8 +4,6 @@ import employeesData from './employees.json';
 import { Subject } from 'rxjs';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { FormComponent } from '../components/form/form.component';
-import { LoginComponent } from '../components/auth/login/login.component';
-import { RegisterComponent } from '../components/auth/register/register.component';
 
 @Injectable({
   providedIn: 'root'

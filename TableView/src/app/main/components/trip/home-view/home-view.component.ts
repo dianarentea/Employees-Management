@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TripsService } from 'src/app/main/services/trips.service';
 import { UsersService } from 'src/app/main/services/users.service';
 
 @Component({
@@ -11,10 +12,11 @@ export class HomeViewComponent implements OnInit {
   homePageTitle?: string;
   currentUsername?: string;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, private tripsService: TripsService) { }
 
   ngOnInit(): void {
     this.homePageTitle='NEW ADVENTURE';
+    this.tripsService.ngOnInit();
     this.currentUsername=this.usersService.CurrentUsername;
   }
   openMyTrips(): void {

@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import{User} from '../interfaces/user';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
-import usersData from './users.json';
 import { Subject } from 'rxjs';
 import { LoginComponent } from '../components/auth/login/login.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
@@ -95,9 +94,8 @@ registerSubmit(email:string, firstname:string, lastname:string, password:string)
   this.http.post('http://localhost:3000/users',user).subscribe((res)=>{
     console.log('res',res);
   });
-
-  // this.usersList.push(user);
-  // this.usersListSubject.next([...this.usersList]);
+  this.usersList.push(user);
+  this.usersListSubject.next([...this.usersList]);
   this.currentUsername=lastname;
   this.router.navigate(['/home-view']);
 }
