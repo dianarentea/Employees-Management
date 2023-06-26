@@ -25,21 +25,7 @@
       "id": 4,
       "email": "diana@gmail.com",
       "firstname": "Diana",
-      "lastname": "d",
-      "password": "1"
-    },
-    {
-      "id": 5,
-      "email": "eu@gmail.con",
-      "firstname": "eu",
-      "lastname": "eu",
-      "password": "1234"
-    },
-    {
-      "id": 6,
-      "email": "remus@gmail.com",
-      "firstname": "Rentea",
-      "lastname": "Remus",
+      "lastname": "Diana",
       "password": "1"
     }
   ],
@@ -108,27 +94,20 @@
       "country": "Roumania",
       "city": "Brasov",
       "attraction": "Tampa",
-      "restaurant": "Cerbul Carpatin",
-      "id": 7,
-      "userEmail": "maria99@gmail.com",
-      "image": "assets/default.jpg"
-    },
-    {
-      "country": "Austria",
-      "city": "Innsbruck",
-      "attraction": "Maria-Hilfe Strasse",
-      "restaurant": "Buch-Caffe",
-      "id": 8,
-      "userEmail": "diana@gmail.com",
-      "image": "assets/default.jpg"
-    },
-    {
-      "country": "Spaain",
-      "city": "Madrid",
-      "attraction": "unknown",
-      "restaurant": "Marbela",
+      "restaurant": "Cerbul",
       "image": "assets/default.jpg",
-      "id": 9,
+      "likes": 0,
+      "id": 7,
+      "userEmail": "maria99@gmail.com"
+    },
+    {
+      "country": "dsadsadas",
+      "city": "dsadasdd",
+      "attraction": "asdasdasda",
+      "restaurant": "dasdsadas",
+      "image": "assets/default.jpg",
+      "id": 8,
+      "likes": 0,
       "userEmail": "maria99@gmail.com"
     }
   ]

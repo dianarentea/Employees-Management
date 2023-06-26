@@ -1,7 +1,7 @@
-<button nz-button (click)="addTrip()" nzType="primary">
-    Add New Trip
-  </button>
-  <nz-table #groupingTable [nzPageSize]="8" [nzData]="TripsList" [(nzPageIndex)]="currentPage" nzSize="middle" 
+<nz-table #groupingTable [nzPageSize]="8" 
+  [nzData]="TripsList" 
+  [(nzPageIndex)]="currentPage" 
+  nzSize="middle" 
   [nzScroll]="{ x: '1200px', y: '450px' }" class="table-styling">
       <thead>
         <tr>
@@ -10,6 +10,7 @@
           <th  [nzSortFn]="sortAttractionFn">Attraction</th>
           <th  [nzSortFn]="sortRestaurantFn">Restaurant</th>
           <th  [nzSortFn]="sortLikesFn">Likes</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -37,4 +38,7 @@
         </tr>
       </tbody>
     </nz-table>
+    <button nz-button (click)="addTrip()" nzType="primary">
+      Add New Trip
+    </button>
   

@@ -30,7 +30,6 @@ import { TripModule } from './components/trip/trip.module';
   declarations: [
     DashboardComponent,
     FormComponent,
-    TableComponent,
     PhoneNumberPipePipe,
     RegisterComponent,
     LoginComponent,

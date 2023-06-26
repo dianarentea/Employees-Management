@@ -2,6 +2,7 @@
   Add New Employee
 </button>
 <nz-table #groupingTable [nzPageSize]="8" 
+[(nzPageIndex)]="currentPage"
 [nzData]="employeesList" 
 nzBordered nzSize="middle" 
 [nzScroll]="{ x: '1200px', y: '450px' }">
@@ -33,7 +34,7 @@ nzBordered nzSize="middle"
             nz-icon
             nzType="edit"
             nzTheme="outline"
-            (click)="editEmployee(data,i)"
+            (click)="editEmployee(data,i+(currentPage-1)*8)"
           ></span>
           <br>
           <span

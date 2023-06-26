@@ -40,7 +40,8 @@ export class TripsService implements OnInit {
   deleteTrip(trip: Trip): void
   {
     const index = this.tripsList.indexOf(trip);
-    this.http.delete('http://localhost:3000/trips/'+trip.id).subscribe((res)=>{console.log('res',res);});
+    this.http.delete('http://localhost:3000/trips/'+trip.id).subscribe((res)=>{
+    console.log('res',res);});
     this.tripsList.splice(index, 1);
     this.tripsListSubject.next([...this.tripsList]);
     this.updateTripsListCurrentUser();
@@ -48,6 +49,7 @@ export class TripsService implements OnInit {
   addTrip(trip: Trip): void
   {
     trip.id=this.tripsList.length+1;
+    trip.likes=0;
     trip.userEmail = this.usersService.CurrentUserEmail;
     this.http.post('http://localhost:3000/trips',trip).subscribe((res)=>{
     console.log('res',res);});
@@ -55,12 +57,17 @@ export class TripsService implements OnInit {
     this.tripsListSubject.next([...this.tripsList]);
     this.updateTripsListCurrentUser();
   }
-  editTrip(index: number,trip: Trip): void
-  {
+  editTrip(index: number, trip: Trip): void {
+    console.log(index);
+    console.log('tripid',trip.id);
+    this.http.put('http://localhost:3000/trips'+index, trip).subscribe((res) => {
+      console.log('res', res);
+    });
     this.tripsList.splice(index, 1, trip);
     this.tripsListSubject.next([...this.tripsList]);
-    this.updateTripsListCurrentUser();
+   // this.updateTripsListCurrentUser();
   }
+  
   private updateTripsListCurrentUser(): void {
     const currentUserEmail = this.usersService.CurrentUserEmail;
     this.tripsListCurrentUser = this.tripsList.filter((trip) => trip.userEmail === currentUserEmail);

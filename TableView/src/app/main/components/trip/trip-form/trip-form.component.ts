@@ -43,7 +43,7 @@ export class TripFormComponent implements OnInit{
     if (this.editMode && this.tripIndex !== null) 
     {
       console.log("editare");
-      this.tripsService.editTrip(this.tripIndex, formValue);
+      this.tripsService.editTrip(this.tripIndex!, formValue);
     } 
     else 
     {

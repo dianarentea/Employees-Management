@@ -8,6 +8,7 @@ import {EmployeesService} from '../../services/employees.service';
 })
 export class TableComponent implements OnInit{
   employeesList!: Employee[];
+  currentPage = 1;
   
   constructor( private employeesService: EmployeesService) 
   {
