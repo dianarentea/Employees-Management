@@ -43,6 +43,7 @@ export class MyTripsTableComponent implements OnInit {
   }
   editTrip(trip: Trip, index: number): void
   {
+    console.log("editare",trip.id);
     this.tripsService.openEditTripModal(trip, index);
   }
 }

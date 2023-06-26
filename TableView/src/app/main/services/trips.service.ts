@@ -12,21 +12,22 @@ export class TripsService implements OnInit {
 
   private tripsList: Trip[] = [];
   private tripsListCurrentUser: Trip[] = [];
+
   tripsListSubject=new Subject<Trip[]>();
   tripsListObservable=this.tripsListSubject.asObservable();
 
-  constructor(private modalService: NzModalService, private usersService: UsersService, private http:HttpClient) { }
-  
-  ngOnInit(): void {
+  constructor(private modalService: NzModalService, private usersService: UsersService, private http:HttpClient) 
+  { 
     this.http.get<Trip[]>('http://localhost:3000/trips').subscribe((trips:Trip[])=>{
-      console.log('res',trips);
-      this.tripsListCurrentUser = this.tripsList.filter((trip) => trip.userEmail === this.usersService.CurrentUserEmail);
-        this.tripsList=trips;
-        this.tripsListSubject.next([...this.tripsList]);
-      }
-      );
-
+      console.log('res din ctor',trips);
+      this.tripsList=trips;
+    }
+    );
+    this.tripsListCurrentUser = this.tripsList.filter((trip) => trip.userEmail === this.usersService.CurrentUserEmail);
+    this.tripsListSubject.next([...this.tripsList]);
   }
+  
+  ngOnInit(): void {}
 
   get TripsList(): Trip[] {
     return this.tripsList;
@@ -57,22 +58,38 @@ export class TripsService implements OnInit {
     this.tripsListSubject.next([...this.tripsList]);
     this.updateTripsListCurrentUser();
   }
-  editTrip(index: number, trip: Trip): void {
-    console.log(index);
+  editTrip( trip: Trip, index:number): void {
     console.log('tripid',trip.id);
-    this.http.put('http://localhost:3000/trips'+index, trip).subscribe((res) => {
-      console.log('res', res);
+    console.log('tripindex',index);
+    this.http.put('http://localhost:3000/trips/'+trip.id, trip).subscribe((trip) => {
+      console.log('res din edit', trip);
     });
-    this.tripsList.splice(index, 1, trip);
-    this.tripsListSubject.next([...this.tripsList]);
-   // this.updateTripsListCurrentUser();
+    this.tripsListCurrentUser.splice(index, 1, trip);
+    this.tripsListSubject.next([...this.tripsListCurrentUser]);
+    this.updateTripsListCurrentUser();
+    console.log('tripslist',this.tripsList);
   }
   
   private updateTripsListCurrentUser(): void {
+    this.http.get<Trip[]>('http://localhost:3000/trips').subscribe((trips:Trip[])=>{
+      console.log('res din update trip list',trips);
+      this.tripsList=trips;
+    }
+    );
     const currentUserEmail = this.usersService.CurrentUserEmail;
+    console.log('tripslist din trip list method',this.tripsList);
     this.tripsListCurrentUser = this.tripsList.filter((trip) => trip.userEmail === currentUserEmail);
     this.tripsListSubject.next([...this.tripsListCurrentUser]);
   }
+  updateTrip(trip: Trip): void {
+    console.log('tripid',trip.id);
+    this.http.put('http://localhost:3000/trips/'+trip.id, trip).subscribe((res) => {
+      console.log('res', res);
+    });
+    this.tripsListSubject.next([...this.tripsList]);
+    this.updateTripsListCurrentUser();
+  }
+
 
   openAddTripModal(): NzModalRef {
     const modal: NzModalRef = this.modalService.create({
@@ -98,6 +115,7 @@ export class TripsService implements OnInit {
           tripIndex: index,
         },
     });
+    console.log("editaredinmodal",trip.id);
     return modal;
   }
   

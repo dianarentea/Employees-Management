@@ -25,7 +25,10 @@ export class TripFormComponent implements OnInit{
       city: ['', [Validators.required]],
       attraction: ['', [Validators.required]],
       restaurant: ['', [Validators.required]],
-      image:"assets/default.jpg"
+      image:"assets/default.jpg",
+      id: null,
+      userEmail:null,
+      likes: null,
     });
   }
 
@@ -40,10 +43,14 @@ export class TripFormComponent implements OnInit{
     console.log('submit', this.validateForm.value);
     if (this.validateForm.valid) {
       const formValue = this.validateForm.value;
+      this.validateForm.value.id=this.tripToEdit?.id;
+      this.validateForm.value.likes=this.tripToEdit?.likes;
+      this.validateForm.value.userEmail=this.tripToEdit?.userEmail;
     if (this.editMode && this.tripIndex !== null) 
     {
-      console.log("editare");
-      this.tripsService.editTrip(this.tripIndex!, formValue);
+      console.log("editare din form" ,this.tripToEdit?.id );
+      console.log("editare din form index" ,this.tripIndex );
+      this.tripsService.editTrip(formValue,this.tripIndex);
     } 
     else 
     {

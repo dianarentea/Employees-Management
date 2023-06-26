@@ -1,3 +1,6 @@
+<head>
+</head>
+<body>
 <article class="card">
   <img
     class="card__background"
@@ -11,7 +14,9 @@
         City: {{tripCard.city}}     <br>
         Main attraction: {{tripCard.attraction}}<br>
         Restaurant/Caffe: {{tripCard.restaurant}}<br>
+        <fa-icon [icon]="faHeart" (click)="likeTrip(tripCard)" ></fa-icon> {{tripCard.likes}}<br>
       </p>
     </div>
   </div>
 </article>
+</body>
