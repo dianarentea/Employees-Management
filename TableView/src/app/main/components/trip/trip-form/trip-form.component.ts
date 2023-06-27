@@ -29,6 +29,7 @@ export class TripFormComponent implements OnInit{
       id: null,
       userEmail:null,
       likes: null,
+      likedByCurrentUser: false,
     });
   }
 

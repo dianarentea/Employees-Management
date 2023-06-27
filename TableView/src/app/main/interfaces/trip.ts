@@ -7,5 +7,6 @@ export interface Trip {
     restaurant: string;
     likes: number;
     image: string;
+    likedByCurrentUser: boolean;
 
 }

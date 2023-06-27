@@ -87,8 +87,19 @@ export class TripsService implements OnInit {
     );
   }
 
-  updateTripLikes(trip: Trip): void {
-    console.log('tripid',trip.id);
+  isTripLikedByCurrentUser(trip: Trip): boolean {
+    if(trip.userEmail != this.usersService.CurrentUserEmail && trip.likedByCurrentUser == false)
+    {
+      trip.likedByCurrentUser = true;
+      return true;
+    }
+
+    return false;
+  }
+
+  updateTripLikes(trip: Trip): void 
+  {
+      console.log('tripid',trip.id);
     this.http.put('http://localhost:3000/trips/'+trip.id, trip).subscribe((res) => {
       console.log('res', res);
     });

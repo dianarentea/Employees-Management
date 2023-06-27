@@ -36,9 +36,10 @@
       "attraction": "Eiffel ",
       "restaurant": "Le Jules Verne",
       "image": "assets/images/paris.jpg",
-      "likes": 1,
+      "likes": 3,
       "userEmail": "maria99@gmail.com",
-      "id": 1
+      "id": 1,
+      "likedByCurrentUser": false
     },
     {
       "id": 2,
@@ -47,8 +48,9 @@
       "city": "Barcelona",
       "attraction": "Sagrada Familia",
       "restaurant": "La Pergola",
-      "likes": 3,
-      "image": "assets/images/barcelona.jpg"
+      "likes": 8,
+      "image": "assets/images/barcelona.jpg",
+      "likedByCurrentUser": true
     },
     {
       "id": 3,
@@ -57,8 +59,9 @@
       "city": "Lubliana",
       "attraction": "Ljubljana Castle",
       "restaurant": "La Pergola",
-      "likes": 9,
-      "image": "assets/images/lubliana.jpg"
+      "likes": 11,
+      "image": "assets/images/lubliana.jpg",
+      "likedByCurrentUser": false
     },
     {
       "id": 4,
@@ -67,8 +70,9 @@
       "city": "Viena",
       "attraction": "Schonbrunn Palace",
       "restaurant": "Steirereck",
-      "likes": 4,
-      "image": "assets/images/viena.jpg"
+      "likes": 5,
+      "image": "assets/images/viena.jpg",
+      "likedByCurrentUser": true
     },
     {
       "country": "Hungary",
@@ -78,7 +82,8 @@
       "image": "assets/images/budapesta.jpg",
       "id": 5,
       "userEmail": "maria99@gmail.com",
-      "likes": 5
+      "likes": 5,
+      "likedByCurrentUser": false
     },
     {
       "id": 6,
@@ -88,7 +93,8 @@
       "attraction": "Lake Geneva",
       "restaurant": "The Restaurant",
       "likes": 6,
-      "image": "assets/images/geneva.jpg"
+      "image": "assets/images/geneva.jpg",
+      "likedByCurrentUser": false
     },
     {
       "country": "Roumania",
@@ -98,7 +104,8 @@
       "image": "assets/default.jpg",
       "id": 7,
       "userEmail": "maria99@gmail.com",
-      "likes": 1
+      "likes": 1,
+      "likedByCurrentUser": false
     }
   ]
 }

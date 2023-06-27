@@ -16,9 +16,10 @@ export class TripCardComponent {
   @Input() tripCard!: Trip;
   
   likeTrip(trip: Trip): void {
-    trip.likes++;
+    if(this.tripsService.isTripLikedByCurrentUser(trip)==true)
+    {
+      trip.likes++;
+    }
     this.tripsService.updateTripLikes(trip);
   }
-
-  
 }
