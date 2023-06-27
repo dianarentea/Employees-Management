@@ -27,6 +27,20 @@
       "firstname": "Diana",
       "lastname": "Diana",
       "password": "1"
+    },
+    {
+      "id": 5,
+      "email": "diana@gmail.com",
+      "firstname": "Diana",
+      "lastname": "Rentea",
+      "password": "diana234D#"
+    },
+    {
+      "id": 6,
+      "email": "diana@gmail.com",
+      "firstname": "Diana",
+      "lastname": "Rentea",
+      "password": "diana234D#"
     }
   ],
   "trips": [
@@ -36,10 +50,10 @@
       "attraction": "Eiffel ",
       "restaurant": "Le Jules Verne",
       "image": "assets/images/paris.jpg",
-      "likes": 3,
+      "likes": 4,
       "userEmail": "maria99@gmail.com",
       "id": 1,
-      "likedByCurrentUser": false
+      "likedByCurrentUser": true
     },
     {
       "id": 2,
@@ -59,9 +73,9 @@
       "city": "Lubliana",
       "attraction": "Ljubljana Castle",
       "restaurant": "La Pergola",
-      "likes": 11,
+      "likes": 12,
       "image": "assets/images/lubliana.jpg",
-      "likedByCurrentUser": false
+      "likedByCurrentUser": true
     },
     {
       "id": 4,
@@ -82,8 +96,8 @@
       "image": "assets/images/budapesta.jpg",
       "id": 5,
       "userEmail": "maria99@gmail.com",
-      "likes": 5,
-      "likedByCurrentUser": false
+      "likes": 6,
+      "likedByCurrentUser": true
     },
     {
       "id": 6,
@@ -104,19 +118,19 @@
       "image": "assets/default.jpg",
       "id": 7,
       "userEmail": "maria99@gmail.com",
-      "likes": 1,
-      "likedByCurrentUser": false
+      "likes": 2,
+      "likedByCurrentUser": true
     },
     {
       "country": "Roumania",
       "city": "Cluj-Napoca",
       "attraction": "Opera",
-      "restaurant": "La bagatele",
+      "restaurant": "La Mama-Mia",
       "image": "assets/default.jpg",
       "id": 8,
       "userEmail": "maria99@gmail.com",
-      "likes": 0,
-      "likedByCurrentUser": false
+      "likes": 1,
+      "likedByCurrentUser": true
     },
     {
       "country": "Turkey",
@@ -126,8 +140,8 @@
       "image": "assets/default.jpg",
       "id": 9,
       "userEmail": "john99@gmail.com",
-      "likes": 0,
-      "likedByCurrentUser": false
+      "likes": 1,
+      "likedByCurrentUser": true
     },
     {
       "country": "Greece",
@@ -148,8 +162,19 @@
       "image": "assets/default.jpg",
       "id": 11,
       "userEmail": "maria99@gmail.com",
-      "likes": 0,
-      "likedByCurrentUser": false
+      "likes": 1,
+      "likedByCurrentUser": true
+    },
+    {
+      "country": "Roumania",
+      "city": "Sambata de Sus",
+      "attraction": "Mountains",
+      "restaurant": "Sambata Chalet",
+      "image": "assets/default.jpg",
+      "id": 12,
+      "userEmail": "diana@gmail.com",
+      "likes": 1,
+      "likedByCurrentUser": true
     }
   ]
 }

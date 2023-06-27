@@ -16,10 +16,10 @@
 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
-    color:rgb(80, 97, 170);
+    color:rgb(63, 78, 149);
     text-align: center;
     position: relative;
-    top:10%;
+    top:15%;
     line-height: 12px;
     font-family: 'Helvetica';
     font-weight: bold;
@@ -27,4 +27,49 @@
   .menu-item-text {
     margin-right: 8px; 
   }
-  
+  .container
+{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    background-color: white;
+    top: 40%;
+}
+#one
+{
+    font-family: 'Helvetica';
+    color:rgb(80, 97, 170);
+    font-size: 22px;
+    text-align: center;
+}
+#two
+{
+    font-family: 'Helvetica';
+    color:rgb(80, 97, 170);
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+}
+h1{
+    font-family: 'Helvetica';
+    color:rgb(80, 97, 170);
+    font-size: 20px;
+    font-weight: bold;
+}
+h2{
+    font-family: 'Helvetica';
+    color:black;
+    font-size: 14px;
+    font-weight: bold;
+}
+h3{
+    font-family: 'Helvetica';
+    font-size: 13px;
+    color:rgb(152, 152, 152);
+    width: 600px;
+    text-align: justify;
+}
+hr{
+  margin-top: 10%;
+    width:700px;
+}
