@@ -37,7 +37,6 @@ export class TripsService implements OnInit {
     return this.tripsListCurrentUser;
   }
 
-
   deleteTrip(trip: Trip): void
   {
     const index = this.tripsList.indexOf(trip);
@@ -58,30 +57,37 @@ export class TripsService implements OnInit {
     this.tripsListSubject.next([...this.tripsList]);
     this.updateTripsListCurrentUser();
   }
-  editTrip( trip: Trip, index:number): void {
-    console.log('tripid',trip.id);
-    console.log('tripindex',index);
-    this.http.put('http://localhost:3000/trips/'+trip.id, trip).subscribe((trip) => {
-      console.log('res din edit', trip);
-    });
-    this.tripsListCurrentUser.splice(index, 1, trip);
-    this.tripsListSubject.next([...this.tripsListCurrentUser]);
-    this.updateTripsListCurrentUser();
-    console.log('tripslist',this.tripsList);
+
+  async editTrip(trip: Trip, index: number): Promise<void> {
+    try {
+      console.log('tripid', trip.id);
+      console.log('tripindex', index);
+      
+      await this.http.put('http://localhost:3000/trips/' + trip.id, trip).toPromise();
+      
+      this.tripsListCurrentUser.splice(index, 1, trip);
+      this.tripsListSubject.next([...this.tripsListCurrentUser]);
+      await this.updateTripsListCurrentUser();
+      
+      console.log('tripslist', this.tripsList);
+    } catch (error) {
+      console.log('Error editing trip:', error);
+    }
   }
   
   private updateTripsListCurrentUser(): void {
     this.http.get<Trip[]>('http://localhost:3000/trips').subscribe((trips:Trip[])=>{
       console.log('res din update trip list',trips);
       this.tripsList=trips;
+      const currentUserEmail = this.usersService.CurrentUserEmail;
+      console.log('tripslist din trip list method',this.tripsList);
+      this.tripsListCurrentUser = this.tripsList.filter((trip) => trip.userEmail === currentUserEmail);
+      this.tripsListSubject.next([...this.tripsListCurrentUser]);
     }
     );
-    const currentUserEmail = this.usersService.CurrentUserEmail;
-    console.log('tripslist din trip list method',this.tripsList);
-    this.tripsListCurrentUser = this.tripsList.filter((trip) => trip.userEmail === currentUserEmail);
-    this.tripsListSubject.next([...this.tripsListCurrentUser]);
   }
-  updateTrip(trip: Trip): void {
+
+  updateTripLikes(trip: Trip): void {
     console.log('tripid',trip.id);
     this.http.put('http://localhost:3000/trips/'+trip.id, trip).subscribe((res) => {
       console.log('res', res);

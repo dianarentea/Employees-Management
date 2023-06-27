@@ -17,7 +17,7 @@ export class TripCardComponent {
   
   likeTrip(trip: Trip): void {
     trip.likes++;
-    this.tripsService.updateTrip(trip);
+    this.tripsService.updateTripLikes(trip);
   }
 
   
