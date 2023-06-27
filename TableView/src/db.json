@@ -92,9 +92,9 @@
       "city": "Geneva",
       "attraction": "Lake Geneva",
       "restaurant": "The Restaurant",
-      "likes": 6,
+      "likes": 7,
       "image": "assets/images/geneva.jpg",
-      "likedByCurrentUser": false
+      "likedByCurrentUser": true
     },
     {
       "country": "Roumania",
@@ -105,6 +105,39 @@
       "id": 7,
       "userEmail": "maria99@gmail.com",
       "likes": 1,
+      "likedByCurrentUser": false
+    },
+    {
+      "country": "Roumania",
+      "city": "Cluj-Napoca",
+      "attraction": "Opera",
+      "restaurant": "La bagatele",
+      "image": "assets/default.jpg",
+      "id": 8,
+      "userEmail": "maria99@gmail.com",
+      "likes": 0,
+      "likedByCurrentUser": false
+    },
+    {
+      "country": "Turkey",
+      "city": "Istanbul",
+      "attraction": "Topkapi Palate",
+      "restaurant": "Crizyu",
+      "image": "assets/default.jpg",
+      "id": 9,
+      "userEmail": "john99@gmail.com",
+      "likes": 0,
+      "likedByCurrentUser": false
+    },
+    {
+      "country": "Greece",
+      "city": "Athena",
+      "attraction": "Old Town",
+      "restaurant": "Kiruui Terassa",
+      "image": "assets/default.jpg",
+      "id": 10,
+      "userEmail": "john99@gmail.com",
+      "likes": 0,
       "likedByCurrentUser": false
     }
   ]

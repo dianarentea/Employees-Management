@@ -46,16 +46,22 @@ export class TripsService implements OnInit {
     this.tripsListSubject.next([...this.tripsList]);
     this.updateTripsListCurrentUser();
   }
-  addTrip(trip: Trip): void
-  {
-    trip.id=this.tripsList.length+1;
-    trip.likes=0;
-    trip.userEmail = this.usersService.CurrentUserEmail;
-    this.http.post('http://localhost:3000/trips',trip).subscribe((res)=>{
-    console.log('res',res);});
-    this.tripsList.push(trip);
-    this.tripsListSubject.next([...this.tripsList]);
-    this.updateTripsListCurrentUser();
+  
+  async addTrip(trip: Trip): Promise<void> {
+    try {
+      trip.id = this.tripsList.length + 1;
+      trip.likes = 0;
+      trip.userEmail = this.usersService.CurrentUserEmail;
+  
+      await this.http.post('http://localhost:3000/trips', trip).toPromise();
+  
+      this.tripsList.push(trip);
+      this.tripsListSubject.next([...this.tripsList]);
+  
+      await this.updateTripsListCurrentUser();
+    } catch (error) {
+      console
+    }  
   }
 
   async editTrip(trip: Trip, index: number): Promise<void> {
