@@ -5,4 +5,20 @@
     text-decoration: underline;
     cursor: pointer;
   }
+  .pretty {
+    display: flex;
+    align-items: center; /* Alinează vertical elementele pe aceeași linie */
+  }
+  
+  .pretty input[type="checkbox"] {
+    margin-right: 5px; /* Spațiu între checkbox și text */
+  }
+  
+  .pretty p {
+    margin: 0; /* Elimină spațiul în jurul paragrafului */
+  }
+  .pretty label {
+    margin-top: 2px; /* Ajustați această valoare pentru a obține alinierea dorită */
+  }
+    
   

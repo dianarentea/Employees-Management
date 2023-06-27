@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
-import { TableComponent } from './components/table/table.component';
 import { FormComponent } from './components/form/form.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import{DashboardComponent} from './components/dashboard/dashboard.component';
 import { MainRoutingModule } from './main-routing.module';
 
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
@@ -28,6 +27,7 @@ import { TripModule } from './components/trip/trip.module';
 
 @NgModule({
   declarations: [
+
     DashboardComponent,
     FormComponent,
     PhoneNumberPipePipe,

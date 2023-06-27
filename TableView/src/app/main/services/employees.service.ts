@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../interfaces/employee.interface';
-import employeesData from './employees.json';
 import { Subject } from 'rxjs';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { FormComponent } from '../components/form/form.component';
@@ -9,7 +8,7 @@ import { FormComponent } from '../components/form/form.component';
   providedIn: 'root'
 })
 export class EmployeesService {
-  private employeesList: Employee[] = employeesData;
+  private employeesList: Employee[] = [];
   employeesListSubject=new Subject<Employee[]>();
   employeesListObservable=this.employeesListSubject.asObservable();
 
