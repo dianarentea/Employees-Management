@@ -1,0 +1,1009 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>table-view documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">table-view documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/main/components/form/form.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-form</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./form.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#availablePrefixes" >availablePrefixes</a>
+                            </li>
+                            <li>
+                                <a href="#editMode" >editMode</a>
+                            </li>
+                            <li>
+                                <a href="#selectedPrefix" >selectedPrefix</a>
+                            </li>
+                            <li>
+                                <a href="#validateForm" >validateForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                            <li>
+                                <a href="#setFormData" >setFormData</a>
+                            </li>
+                            <li>
+                                <a href="#submitForm" >submitForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#employeeIndex" >employeeIndex</a>
+                            </li>
+                            <li>
+                                <a href="#employeeToEdit" >employeeToEdit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#formSubmitted" >formSubmitted</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, employeesService: <a href="../injectables/EmployeesService.html" target="_self">EmployeesService</a>, modalRef: NzModalRef)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/main/components/form/form.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>employeesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EmployeesService.html" target="_self" >EmployeesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalRef</td>
+                                                  
+                                                        <td>
+                                                                    <code>NzModalRef</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="employeeIndex"></a>
+                        <b>employeeIndex</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/main/components/form/form.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="employeeToEdit"></a>
+                        <b>employeeToEdit</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Employee.html" target="_self" >Employee | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/main/components/form/form.component.ts:21</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formSubmitted"></a>
+                        <b>formSubmitted</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/main/components/form/form.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/main/components/form/form.component.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetForm(e: MouseEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/main/components/form/form.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+                                    <td>
+                                            <code>MouseEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFormData"></a>
+                    <span class="name">
+                        <span ><b>setFormData</b></span>
+                        <a href="#setFormData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setFormData(employee: <a href="../interfaces/Employee.html" target="_self">Employee</a>, index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/main/components/form/form.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>employee</td>
+                                    <td>
+                                                <code><a href="../interfaces/Employee.html" target="_self" >Employee</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitForm"></a>
+                    <span class="name">
+                        <span ><b>submitForm</b></span>
+                        <a href="#submitForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/main/components/form/form.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availablePrefixes"></a>
+                    <span class="name">
+                        <span ><b>availablePrefixes</b></span>
+                        <a href="#availablePrefixes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;+40&#x27;, &#x27;+42&#x27;, &#x27;+43&#x27;, &#x27;+45&#x27;, &#x27;+53&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/main/components/form/form.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editMode"></a>
+                    <span class="name">
+                        <span ><b>editMode</b></span>
+                        <a href="#editMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/main/components/form/form.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedPrefix"></a>
+                    <span class="name">
+                        <span ><b>selectedPrefix</b></span>
+                        <a href="#selectedPrefix"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/main/components/form/form.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateForm"></a>
+                    <span class="name">
+                        <span ><b>validateForm</b></span>
+                        <a href="#validateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/main/components/form/form.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import {EmployeesService} from &#x27;../../services/employees.service&#x27;;
+import { Employee } from &#x27;../../interfaces/employee.interface&#x27;;
+import { NzModalRef } from &#x27;ng-zorro-antd/modal&#x27;;
+@Component({
+  selector: &#x27;app-form&#x27;,
+  templateUrl: &#x27;./form.component.html&#x27;,
+  styleUrls: [&#x27;./form.component.scss&#x27;]
+})
+
+export class FormComponent implements OnInit {
+  
+  editMode &#x3D; false;
+  selectedPrefix: string &#x3D; &#x27;&#x27;;
+  availablePrefixes: string[]&#x3D; [&#x27;+40&#x27;, &#x27;+42&#x27;, &#x27;+43&#x27;, &#x27;+45&#x27;, &#x27;+53&#x27;];
+
+
+  validateForm: FormGroup;
+  @Input() employeeIndex: number | null &#x3D; null;
+  @Input() employeeToEdit: Employee | null &#x3D; null;
+  @Output() formSubmitted &#x3D; new EventEmitter&lt;void&gt;();
+  constructor(private fb: FormBuilder, private employeesService: EmployeesService, private modalRef: NzModalRef)
+   {
+    this.validateForm &#x3D; this.fb.group({
+      name: [&#x27;&#x27;, [Validators.required]],
+      age: [&#x27;16&#x27;, [Validators.required]],
+      address: [&#x27;&#x27;, [Validators.required]],
+      occupation: [&#x27;&#x27;, [Validators.required]],
+      prefix: [&#x27;&#x27;, [Validators.required]],
+      phoneNumber: [&#x27;&#x27;, [Validators.required]]
+    });
+  }
+  
+  submitForm(): void {
+    console.log(&#x27;submit&#x27;, this.validateForm.value);
+    if (this.validateForm.valid) {
+      const formValue &#x3D; this.validateForm.value;
+      const phoneNumber &#x3D; String(formValue.phoneNumber);
+      const prefix &#x3D; String(formValue.prefix);
+      const phoneNumberWithPrefix &#x3D; &#x60;${prefix}${phoneNumber}&#x60;;
+
+    formValue.phoneNumber &#x3D; phoneNumberWithPrefix;
+
+    if (this.editMode) 
+    {
+      this.employeesService.editEmployee(this.employeeIndex!, formValue);
+    } 
+    else 
+    {
+      this.employeesService.addEmployee(formValue);
+    }
+
+    this.resetForm(new MouseEvent(&#x27;click&#x27;, { bubbles: true, cancelable: true, view: window }));
+    this.editMode &#x3D; false;
+    this.employeeIndex &#x3D; null;
+    this.modalRef.close();
+    this.formSubmitted.emit();
+  }
+}
+
+  resetForm(e: MouseEvent): void 
+  {
+    e.preventDefault();
+    this.validateForm.reset();
+    for (const key in this.validateForm.controls) {
+      if (this.validateForm.controls.hasOwnProperty(key)) {
+        this.validateForm.controls[key].markAsPristine();
+        this.validateForm.controls[key].updateValueAndValidity();
+      }
+    }
+  }
+  setFormData(employee: Employee, index: number) {
+    
+  const phoneNumberWithPrefix &#x3D; employee.phoneNumber.toString();
+  const phoneNumber &#x3D; phoneNumberWithPrefix.replace(/^[+]\d{2,3}/, &#x27;&#x27;);
+  const prefix &#x3D; phoneNumberWithPrefix.substring(0, phoneNumberWithPrefix.length - phoneNumber.length);
+  this.selectedPrefix &#x3D; prefix;
+
+  const updatedEmployee &#x3D; {
+    ...employee,
+    prefix: prefix,
+    phoneNumber: phoneNumber
+  };
+    this.validateForm.patchValue(updatedEmployee);
+    this.employeeIndex &#x3D; index;
+    this.editMode &#x3D; true;
+  }
+  
+  ngOnInit(): void {
+    if (this.employeeToEdit &amp;&amp; this.employeeIndex !&#x3D;&#x3D; null) {
+      this.setFormData(this.employeeToEdit, this.employeeIndex);
+  }
+}
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form nz-form [formGroup]&#x3D;&quot;validateForm&quot; (ngSubmit)&#x3D;&quot;submitForm()&quot;&gt;
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Name&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 5 letters!&quot;&gt;
+        &lt;input nz-input formControlName&#x3D;&quot;name&quot; placeholder&#x3D;&quot;Name&quot; minlength&#x3D;&quot;5&quot;/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Age&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 5 letters!&quot;&gt;
+        &lt;input nz-input formControlName&#x3D;&quot;age&quot; placeholder&#x3D;&quot;Age&quot; type&#x3D;&quot;number&quot; min&#x3D;&quot;0&quot;/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Address&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 5 letters!&quot;&gt;
+        &lt;input nz-input formControlName&#x3D;&quot;address&quot; placeholder&#x3D;&quot;Address&quot; minlength&#x3D;&quot;5&quot;/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Occupation&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 5 letters!!&quot;&gt;
+        &lt;input nz-input formControlName&#x3D;&quot;occupation&quot; placeholder&#x3D;&quot;Occupation&quot; minlength&#x3D;&quot;5&quot;/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Phone Number&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSpan]&#x3D;&quot;4&quot;&gt;
+        &lt;select formControlName&#x3D;&quot;prefix&quot; class&#x3D;&quot;prefix-select&quot;&gt;
+          &lt;option *ngFor&#x3D;&quot;let prefix of availablePrefixes&quot; [value]&#x3D;&quot;prefix&quot;&gt;{{prefix}}&lt;/option&gt;
+        &lt;/select&gt;        
+      &lt;/nz-form-control&gt;
+      &lt;nz-form-control [nzSpan]&#x3D;&quot;8&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write 9 digits!&quot;&gt;
+        &lt;input nz-input formControlName&#x3D;&quot;phoneNumber&quot; placeholder&#x3D;&quot;Phone Number&quot; type&#x3D;&quot;text&quot; pattern&#x3D;&quot;[0-9]{9}&quot;/&gt;
+         &lt;div *ngIf&#x3D;&quot;validateForm.controls[&#x27;phoneNumber&#x27;].invalid &amp;&amp; validateForm.controls[&#x27;phoneNumber&#x27;].touched&quot;
+           class&#x3D;&quot;error-message&quot;&gt;
+        {{ validateForm.controls[&#x27;phoneNumber&#x27;].value | phoneNumberPipe }}
+      &lt;/div&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;   
+
+    &lt;nz-form-item&gt;
+      &lt;nz-form-control [nzOffset]&#x3D;&quot;7&quot; [nzSpan]&#x3D;&quot;12&quot;&gt;
+        &lt;button nz-button nzType&#x3D;&quot;primary&quot; [disabled]&#x3D;&quot;!validateForm.valid&quot;&gt;Submit&lt;/button&gt;
+        &lt;button nz-button (click)&#x3D;&quot;resetForm($event)&quot;&gt;Reset&lt;/button&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+  &lt;/form&gt;
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./form.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">  .prefix-select {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    padding: 4px 12px;
+    font-size: 14px;
+    background-color: #fff;
+    margin-bottom: 8px;
+  }
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">    <nz-form-item>      <nz-form-label [nzSpan]="7" nzRequired>Name</nz-form-label>      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 5 letters!">        <input nz-input formControlName="name" placeholder="Name" minlength="5"/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSpan]="7" nzRequired>Age</nz-form-label>      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 5 letters!">        <input nz-input formControlName="age" placeholder="Age" type="number" min="0"/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSpan]="7" nzRequired>Address</nz-form-label>      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 5 letters!">        <input nz-input formControlName="address" placeholder="Address" minlength="5"/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSpan]="7" nzRequired>Occupation</nz-form-label>      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 5 letters!!">        <input nz-input formControlName="occupation" placeholder="Occupation" minlength="5"/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSpan]="7" nzRequired>Phone Number</nz-form-label>      <nz-form-control [nzSpan]="4">        <select formControlName="prefix" class="prefix-select">          <option *ngFor="let prefix of availablePrefixes" [value]="prefix">{{prefix}}</option>        </select>              </nz-form-control>      <nz-form-control [nzSpan]="8" nzHasFeedback nzErrorTip="Please write 9 digits!">        <input nz-input formControlName="phoneNumber" placeholder="Phone Number" type="text" pattern="[0-9]{9}"/>         <div *ngIf="validateForm.controls[\'phoneNumber\'].invalid && validateForm.controls[\'phoneNumber\'].touched"           class="error-message">        {{ validateForm.controls[\'phoneNumber\'].value | phoneNumberPipe }}      </div>      </nz-form-control>    </nz-form-item>       <nz-form-item>      <nz-form-control [nzOffset]="7" [nzSpan]="12">        <button nz-button nzType="primary" [disabled]="!validateForm.valid">Submit</button>        <button nz-button (click)="resetForm($event)">Reset</button>      </nz-form-control>    </nz-form-item>  </form>  </div>'
+    var COMPONENTS = [{'name': 'AllTripsComponent', 'selector': 'app-all-trips'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeViewComponent', 'selector': 'app-home-view'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MyTripsComponent', 'selector': 'app-my-trips'},{'name': 'MyTripsTableComponent', 'selector': 'app-my-trips-table'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TripCardComponent', 'selector': 'app-trip-card'},{'name': 'TripFormComponent', 'selector': 'app-trip-form'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
