@@ -16,7 +16,6 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { AllTripsComponent } from './all-trips/all-trips.component';
 import { TripCardComponent } from './trip-card/trip-card.component';
-import { TableComponent } from '../table/table.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -27,8 +26,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MyTripsComponent,
     TripFormComponent,
     AllTripsComponent,
-    TripCardComponent,
-    TableComponent
+    TripCardComponent
      
   ],
   imports: [

@@ -137,6 +137,17 @@
       "image": "assets/default.jpg",
       "id": 10,
       "userEmail": "john99@gmail.com",
+      "likes": 1,
+      "likedByCurrentUser": true
+    },
+    {
+      "country": "Croatia",
+      "city": "Zagreb",
+      "attraction": "Slmjene-Park",
+      "restaurant": "Panorama Restaurant",
+      "image": "assets/default.jpg",
+      "id": 11,
+      "userEmail": "maria99@gmail.com",
       "likes": 0,
       "likedByCurrentUser": false
     }
