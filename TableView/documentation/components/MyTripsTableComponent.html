@@ -780,7 +780,10 @@ export class MyTripsTableComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;nz-table #groupingTable [nzPageSize]&#x3D;&quot;8&quot; 
+        <pre class="line-numbers"><code class="language-html">&lt;button nz-button (click)&#x3D;&quot;addTrip()&quot; nzType&#x3D;&quot;primary&quot;&gt;
+  Add New Trip
+&lt;/button&gt;
+&lt;nz-table #groupingTable [nzPageSize]&#x3D;&quot;8&quot; 
   [nzData]&#x3D;&quot;TripsList&quot; 
   [(nzPageIndex)]&#x3D;&quot;currentPage&quot; 
   nzSize&#x3D;&quot;middle&quot; 
@@ -820,9 +823,7 @@ export class MyTripsTableComponent implements OnInit {
         &lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/nz-table&gt;
-    &lt;button nz-button (click)&#x3D;&quot;addTrip()&quot; nzType&#x3D;&quot;primary&quot;&gt;
-      Add New Trip
-    &lt;/button&gt;
+
   </code></pre>
     </div>
 
@@ -871,8 +872,8 @@ export class MyTripsTableComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nz-table #groupingTable [nzPageSize]="8"   [nzData]="TripsList"   [(nzPageIndex)]="currentPage"   nzSize="middle"   [nzScroll]="{ x: \'1200px\', y: \'450px\' }" class="table-styling">      <thead>        <tr>          <th  [nzSortFn]="sortCountryFn">Country</th>          <th  [nzSortFn]="sortCityFn">City</th>          <th  [nzSortFn]="sortAttractionFn">Attraction</th>          <th  [nzSortFn]="sortRestaurantFn">Restaurant</th>          <th  [nzSortFn]="sortLikesFn">Likes</th>          <th>Action</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let data of groupingTable.data; let i=index">          <td >{{ data.country }}</td>          <td>{{ data.city }}</td>          <td>{{ data.attraction }}</td>          <td>{{ data.restaurant }}</td>          <td >{{ data.likes }}</td>          <td>              <span              nz-icon              nzType="edit"              nzTheme="outline"              (click)="editTrip(data,i+(currentPage-1)*8)"            ></span>            <br>            <span              nz-icon              nzType="delete"              nzTheme="outline"              (click)="deleteTrip(data)"            ></span>          </td>        </tr>      </tbody>    </nz-table>    <button nz-button (click)="addTrip()" nzType="primary">      Add New Trip    </button>  </div>'
-    var COMPONENTS = [{'name': 'AllTripsComponent', 'selector': 'app-all-trips'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeViewComponent', 'selector': 'app-home-view'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MyTripsComponent', 'selector': 'app-my-trips'},{'name': 'MyTripsTableComponent', 'selector': 'app-my-trips-table'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TripCardComponent', 'selector': 'app-trip-card'},{'name': 'TripFormComponent', 'selector': 'app-trip-form'}];
+        var COMPONENT_TEMPLATE = '<div><button nz-button (click)="addTrip()" nzType="primary">  Add New Trip</button><nz-table #groupingTable [nzPageSize]="8"   [nzData]="TripsList"   [(nzPageIndex)]="currentPage"   nzSize="middle"   [nzScroll]="{ x: \'1200px\', y: \'450px\' }" class="table-styling">      <thead>        <tr>          <th  [nzSortFn]="sortCountryFn">Country</th>          <th  [nzSortFn]="sortCityFn">City</th>          <th  [nzSortFn]="sortAttractionFn">Attraction</th>          <th  [nzSortFn]="sortRestaurantFn">Restaurant</th>          <th  [nzSortFn]="sortLikesFn">Likes</th>          <th>Action</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let data of groupingTable.data; let i=index">          <td >{{ data.country }}</td>          <td>{{ data.city }}</td>          <td>{{ data.attraction }}</td>          <td>{{ data.restaurant }}</td>          <td >{{ data.likes }}</td>          <td>              <span              nz-icon              nzType="edit"              nzTheme="outline"              (click)="editTrip(data,i+(currentPage-1)*8)"            ></span>            <br>            <span              nz-icon              nzType="delete"              nzTheme="outline"              (click)="deleteTrip(data)"            ></span>          </td>        </tr>      </tbody>    </nz-table>  </div>'
+    var COMPONENTS = [{'name': 'AllTripsComponent', 'selector': 'app-all-trips'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HomeViewComponent', 'selector': 'app-home-view'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MyTripsComponent', 'selector': 'app-my-trips'},{'name': 'MyTripsTableComponent', 'selector': 'app-my-trips-table'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TripCardComponent', 'selector': 'app-trip-card'},{'name': 'TripFormComponent', 'selector': 'app-trip-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MyTripsTableComponent'};
 </script>

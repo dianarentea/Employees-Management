@@ -23,7 +23,7 @@
 
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+      <nz-form-control [nzSm]="14" [nzXs]="24" >
         <input
           nz-input
           type="password"
@@ -32,6 +32,26 @@
           placeholder="Please introduce at least 8 characters!"
           (ngModelChange)="updateConfirmValidator()"
         />
+       <nz-input-group>
+        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['minlength']">
+          Please introduce at least 8 characters!
+        </div>
+        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['required']">
+          Please input your password!
+        </div>
+        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['uppercase']">
+          Please introduce at least 1 uppercase letter!
+        </div>
+        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['lowercase']">
+          Please introduce at least 1 lowercase letter!
+        </div>
+        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['number']">
+          Please introduce at least 1 number!
+        </div>
+        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['special']">
+          Please introduce at least 1 special character!
+        </div>
+       </nz-input-group>
       </nz-form-control>
     </nz-form-item>
 
@@ -42,7 +62,7 @@
         <ng-template #errorTpl let-control>
           <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
           <ng-container *ngIf="control.hasError('confirm')">
-            Two passwords that you enter is inconsistent!
+            The passwords don't match!
           </ng-container>
         </ng-template>
       </nz-form-control>
