@@ -15,6 +15,7 @@ export class UsersService implements OnInit{
   private usersList: User[] = [];
   private currentUsername: string = '';
   private currentUserEmail: string = '';
+
   
   usersListSubject=new Subject<User[]>();
   usersListObservable=this.usersListSubject.asObservable();
@@ -48,7 +49,7 @@ export class UsersService implements OnInit{
       nzContent: LoginComponent,
       nzFooter: null,
       nzComponentParams: {
-        
+       
       },
     });
     return modal;
@@ -72,7 +73,9 @@ loginSubmit(email: string, password: string,rememberMe: boolean): void {
   this.currentUserEmail = user?.email || '';
   if (user) 
   {
+    console.log("a, intrat in if")
     this.isAuthenticated = true;
+    console.log('remember me', rememberMe);
     if (rememberMe) 
     {
       localStorage.setItem('currentUser', JSON.stringify(user));

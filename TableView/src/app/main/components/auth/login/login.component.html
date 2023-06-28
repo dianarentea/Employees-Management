@@ -16,6 +16,7 @@
           id="password"
           formControlName="password"
           placeholder="password"
+          
         />
       </nz-form-control>
   
@@ -25,7 +26,7 @@
         <button nz-button nzType="primary" (click)="submitForm()">Login</button>
         <br><br>
         <div class="pretty p-icon p-round p-pulse">
-          <input type="checkbox" />
+          <input type="checkbox" formControlName="rememberMe" />
           <div class="state p-success">
             <p>
               <i class="icon mdi mdi-check"></i>
