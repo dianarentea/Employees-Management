@@ -1,4 +1,12 @@
 .red-text {
     color: red;
   }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
   
+  .button-container .button {
+    margin: 4px;
+  }

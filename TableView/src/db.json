@@ -27,20 +27,6 @@
       "firstname": "Diana",
       "lastname": "Diana",
       "password": "1"
-    },
-    {
-      "id": 5,
-      "email": "diana@gmail.com",
-      "firstname": "Diana",
-      "lastname": "Rentea",
-      "password": "diana234D#"
-    },
-    {
-      "id": 6,
-      "email": "diana@gmail.com",
-      "firstname": "Diana",
-      "lastname": "Rentea",
-      "password": "diana234D#"
     }
   ],
   "trips": [
@@ -53,7 +39,7 @@
       "likes": 4,
       "userEmail": "maria99@gmail.com",
       "id": 1,
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "id": 2,
@@ -64,7 +50,7 @@
       "restaurant": "La Pergola",
       "likes": 8,
       "image": "assets/images/barcelona.jpg",
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "id": 3,
@@ -75,7 +61,7 @@
       "restaurant": "La Pergola",
       "likes": 12,
       "image": "assets/images/lubliana.jpg",
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "id": 4,
@@ -86,7 +72,7 @@
       "restaurant": "Steirereck",
       "likes": 5,
       "image": "assets/images/viena.jpg",
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Hungary",
@@ -97,7 +83,7 @@
       "id": 5,
       "userEmail": "maria99@gmail.com",
       "likes": 6,
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "id": 6,
@@ -106,7 +92,7 @@
       "city": "Geneva",
       "attraction": "Lake Geneva",
       "restaurant": "The Restaurant",
-      "likes": 7,
+      "likes": 8,
       "image": "assets/images/geneva.jpg",
       "likedByCurrentUser": true
     },
@@ -119,7 +105,7 @@
       "id": 7,
       "userEmail": "maria99@gmail.com",
       "likes": 2,
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Roumania",
@@ -130,7 +116,7 @@
       "id": 8,
       "userEmail": "maria99@gmail.com",
       "likes": 1,
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Turkey",
@@ -141,7 +127,7 @@
       "id": 9,
       "userEmail": "john99@gmail.com",
       "likes": 1,
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Greece",
@@ -152,7 +138,7 @@
       "id": 10,
       "userEmail": "john99@gmail.com",
       "likes": 1,
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Croatia",
@@ -163,7 +149,7 @@
       "id": 11,
       "userEmail": "maria99@gmail.com",
       "likes": 1,
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Roumania",
@@ -173,8 +159,19 @@
       "image": "assets/default.jpg",
       "id": 12,
       "userEmail": "diana@gmail.com",
-      "likes": 1,
+      "likes": 2,
       "likedByCurrentUser": true
+    },
+    {
+      "country": "Norway",
+      "city": "Oslo-downtown",
+      "attraction": "Lake Onix",
+      "restaurant": "Merbel Restaurant",
+      "image": "assets/default.jpg",
+      "id": 13,
+      "userEmail": "maria99@gmail.com",
+      "likes": 0,
+      "likedByCurrentUser": false
     }
   ]
 }

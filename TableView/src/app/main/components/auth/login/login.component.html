@@ -23,7 +23,7 @@
     <nz-form-item nz-row class="login-area">
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
         <button nz-button nzType="primary" (click)="submitForm()">Login</button>
-        <br>
+        <br><br>
         <div class="pretty p-icon p-round p-pulse">
           <input type="checkbox" />
           <div class="state p-success">
@@ -33,13 +33,11 @@
             </p>
           </div>
         </div>
-        
-        <br><br>
-        <div *ngIf="showErrorMessage" class="error-message">
-          It doesn't exists an account with this e-mail, please
-          <button class="underline-button" (click)="openRegister()">Register</button>
+        <br>
+        <div>
+          Or 
+          <button class="underline-button" (click)="openRegister()">register now!</button>
         </div>
-   
       </nz-form-control>
     </nz-form-item>
   </form>

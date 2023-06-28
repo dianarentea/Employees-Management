@@ -1,6 +1,8 @@
-<button nz-button (click)="addTrip()" nzType="primary">
-  Add New Trip
-</button>
+<div class="button-container">
+  <button class="button" (click)="addTrip()">
+    Add New Trip
+  </button>
+  </div>
 <nz-table #groupingTable [nzPageSize]="8" 
   [nzData]="TripsList" 
   [(nzPageIndex)]="currentPage" 
@@ -42,4 +44,3 @@
       </tbody>
     </nz-table>
 
-  

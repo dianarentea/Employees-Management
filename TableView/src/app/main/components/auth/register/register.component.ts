@@ -46,6 +46,16 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
+  isFieldValid(field: string): boolean|undefined {
+    const control = this.registerForm.get(field);
+    return control?.invalid && (control?.dirty || control?.touched);
+  }
+  
+  displayFieldError(field: string, error: string): boolean |undefined{
+    const control = this.registerForm.get(field);
+    return control?.hasError(error);
+  }
+  
 
   updateConfirmValidator(): void {
     Promise.resolve().then(() => this.registerForm.controls['checkPassword'].updateValueAndValidity());
@@ -80,4 +90,16 @@ export class RegisterComponent implements OnInit {
     }
     return {};
   };
+  getPasswordValidationStatus(): string {
+    const passwordControl = this.registerForm.get('password');
+    if (passwordControl?.dirty && passwordControl?.errors) {
+      return 'error';
+    }
+    return 'success';
+  }
+  
+  isPasswordValid(): boolean|undefined {
+    const passwordControl = this.registerForm.get('password');
+    return passwordControl?.dirty && passwordControl?.valid;
+  }
 }
