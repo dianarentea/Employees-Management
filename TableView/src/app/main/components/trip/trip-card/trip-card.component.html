@@ -1,22 +1,25 @@
 <head>
 </head>
 <body>
-<article class="card">
-  <img
-    class="card__background"
-    [src]="tripCard.image" alt="image"
-    width="1920"
-    height="2193"/>
-  <div class="card__content | flow">
-    <div class="card__content--container | flow">
-      <h2 class="card__title">{{tripCard.country}}</h2>
-      <p class="card__description">
-        City: {{tripCard.city}}     <br>
-        Main attraction: {{tripCard.attraction}}<br>
-        Restaurant/Caffe: {{tripCard.restaurant}}<br>
-        <fa-icon [icon]="faHeart" (click)="likeTrip(tripCard)" ></fa-icon> {{tripCard.likes}}<br>
-      </p>
+  <article  class="card">
+    <img
+      class="card__background"
+      [src]="tripCard.image"
+      alt="image"
+      width="1920"
+      height="2193"
+    />
+    <div class="card__content | flow">
+      <div class="card__content--container | flow">
+        <h2 class="card__title">{{ tripCard.country }}</h2>
+        <p class="card__description">
+          City: {{ tripCard.city }} <br />
+          Main attraction: {{ tripCard.attraction }}<br />
+          Restaurant/Caffe: {{ tripCard.restaurant }}<br />
+          <fa-icon [icon]="faHeart" (click)="likeTrip(tripCard)"></fa-icon>
+          {{ tripCard.likes }}<br />
+        </p>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
 </body>

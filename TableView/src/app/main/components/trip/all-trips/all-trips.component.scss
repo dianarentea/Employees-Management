@@ -1,85 +1,151 @@
-hr{
-  margin-top: 2%;
-    width:700px;
+.background {
+background-image: url(../../../../../assets/peak.jpg);
+min-height: 100vh;
+background-size: 100% auto;
+background-repeat: no-repeat;
+background-attachment: fixed;
+position: relative;
+margin: 0;
+padding: 0;
 }
-.header-container{
-    position: relative;
-    background: linear-gradient(to top, white, rgb(93, 153, 209));
-  }
-  h1{
-    margin: 0 0 18px 0;
-    font-family: "Bebas Neue", cursive;
-    font-size: 1.9rem;
-    letter-spacing: 0.06em;
-    color: var(--title-color);
-    transition: color 0.3s ease-out;
-    text-align: center;
-    font-weight: bold;
-    color:rgb(3, 83, 158);
-  }  
-    .game-list-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      justify-content: center;
-      margin-right: 30px;
-    }
-    .search-bar
-{
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
-    background: rgb(243, 238, 238);
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
+
+.header-container {
+position: relative;
+margin-bottom: 20px;
 }
-.search-bar input{
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    padding: 14px 15px;
-    font-size: 15px;
-    color:rgb(53, 54, 55)
+
+h1 {
+
+font-size: 3rem;
+letter-spacing: 0.05em;
+text-align: center;
+font-weight: bold;
+color: #FDD7CA;
+text-shadow: 2px 2px 4px #952C3B;
+transition: font-size 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+
+
+.game-list-container {
+margin-top: auto;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+justify-content: center;
+gap: 20px;
+}
+
+.search-bar {
+width: 100%;
+max-width: 350px;
+margin: 0 auto;
+background: rgba(255, 255, 255, 0.9);
+display: flex;
+align-items: center;
+border-radius: 30px;
+padding: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+background: transparent;
+flex: 1;
+border: 0;
+outline: none;
+padding: 12px;
+font-size: 15px;
+color: #342234;
+}
+
 .button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
+display: flex;
+justify-content: center;
+margin-top: 16px;
 }
 
 .button-container .button {
-  margin: 0 4px;
+margin: 0 8px;
 }
-.button{
-    background-color: rgb(255, 255, 255);
-    font-size: 15px;
-    padding: 2px 6px;
-    border-radius: 10px;
-    border-color: #507cb6;
-    color:rgb(30, 78, 180);
-    font-family: 'Helvetica';
-    transition-duration: 0.4s;
-    align-items: center;
-    margin-right: 10px;
-  }
-.buttonExplore:hover {
-    background-color: #ffffff;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  }
-  .button{
-    background-color: rgb(255, 255, 255);
-    font-size: 15px;
-    padding: 2px 6px;
-    border-radius: 10px;
-    border-color: #507cb6;
-    color:rgb(30, 78, 180);
-    font-family: 'Helvetica';
-    transition-duration: 0.4s;
-    align-items: center;
-    margin-right: 10px;
-  }
-.buttonExplore:hover {
-    background-color: #ffffff;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  } 
+
+.button {
+background-color: #952C3B;
+font-size: 14px;
+padding: 10px 20px;
+border-radius: 30px;
+border: none;
+color: #ffffff;
+font-family: 'Helvetica Neue', Arial, sans-serif;
+transition-duration: 0.4s;
+cursor: pointer;
+opacity: 0.9;
+}
+
+.button:hover {
+background-color: #FDD7CA;
+opacity: 1;
+color: #342234;
+transform: scale(1.05);
+}
+
+.card {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 300px;
+height: 250px;
+border-radius: 20px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+margin: 10px;
+
+overflow: hidden;
+transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.card:hover,
+.card:focus-within {
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card__background {
+width: 100%;
+height: 160px;
+object-fit: cover;
+object-position: center;
+}
+
+.card__content {
+padding: 20px;
+text-align: center;
+}
+
+.card__title {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.card__description {
+font-size: 14px;
+line-height: 1.4;
+color: #888888;
+}
+
+@media (max-width: 768px) {
+.game-list-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (max-width: 480px) {
+.game-list-container {
+  grid-template-columns: 1fr;
+}
+}
+hr {
+
+width: 700px;
+border: none;
+border-top: 1px solid #FDD7CA;
+}

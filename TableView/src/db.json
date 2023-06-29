@@ -33,12 +33,12 @@
     {
       "country": "France",
       "city": "Paris",
-      "attraction": "Eiffel ",
+      "attraction": "Eiffel -Tower",
       "restaurant": "Le Jules Verne",
       "image": "assets/images/paris.jpg",
-      "likes": 4,
-      "userEmail": "maria99@gmail.com",
       "id": 1,
+      "userEmail": "maria99@gmail.com",
+      "likes": 4,
       "likedByCurrentUser": false
     },
     {
@@ -48,9 +48,9 @@
       "city": "Barcelona",
       "attraction": "Sagrada Familia",
       "restaurant": "La Pergola",
-      "likes": 8,
+      "likes": 9,
       "image": "assets/images/barcelona.jpg",
-      "likedByCurrentUser": false
+      "likedByCurrentUser": true
     },
     {
       "id": 3,
@@ -169,6 +169,17 @@
       "restaurant": "Merbel Restaurant",
       "image": "assets/default.jpg",
       "id": 13,
+      "userEmail": "maria99@gmail.com",
+      "likes": 0,
+      "likedByCurrentUser": false
+    },
+    {
+      "country": "Roumania",
+      "city": "Iasi-",
+      "attraction": "Culturii Palace",
+      "restaurant": "Iulius Mall",
+      "image": "assets/default.jpg",
+      "id": 14,
       "userEmail": "maria99@gmail.com",
       "likes": 0,
       "likedByCurrentUser": false

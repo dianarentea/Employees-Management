@@ -1,24 +1,61 @@
 .underline-button {
-    background: none;
-    border: none;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  .pretty {
-    display: flex;
-    align-items: center; /* Alinează vertical elementele pe aceeași linie */
-  }
-  
-  .pretty input[type="checkbox"] {
-    margin-right: 5px; /* Spațiu între checkbox și text */
-  }
-  
-  .pretty p {
-    margin: 0; /* Elimină spațiul în jurul paragrafului */
-  }
-  .pretty label {
-    margin-top: 2px; /* Ajustați această valoare pentru a obține alinierea dorită */
-  }
-    
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pretty {
+  display: flex;
+  align-items: center;
+}
+
+.pretty input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.pretty p {
+  margin: 0;
+}
+
+.pretty label {
+  margin-top: 2px;
+}
+
+/* Updated modern and pleasing design */
+
+.underline-button {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out; /* Add smooth color transition */
+}
+
+.underline-button:hover {
+  color: #ff4081; /* Change color on hover */
+  text-decoration: underline;
+}
+
+.pretty {
+  display: flex;
+  align-items: flex-start; /* Adjust alignment */
+  gap: 10px; /* Add some space between elements */
+}
+
+.pretty input[type="checkbox"] {
+  margin-right: 10px; /* Increase space between checkbox and text */
+}
+
+.pretty p {
+  margin: 0;
+  font-size: 16px; /* Adjust font size */
+}
+
+.pretty label {
+  margin-top: 4px; /* Adjust spacing */
+  font-weight: bold; /* Make labels bold */
+}
   

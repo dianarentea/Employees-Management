@@ -1,46 +1,47 @@
-<div class="button-container">
-  <button class="button" (click)="addTrip()">
-    Add New Trip
-  </button>
-  </div>
-<nz-table #groupingTable [nzPageSize]="8" 
-  [nzData]="TripsList" 
-  [(nzPageIndex)]="currentPage" 
-  nzSize="middle" 
-  [nzScroll]="{ x: '1200px', y: '450px' }" class="table-styling">
-      <thead>
-        <tr>
-          <th  [nzSortFn]="sortCountryFn">Country</th>
-          <th  [nzSortFn]="sortCityFn">City</th>
-          <th  [nzSortFn]="sortAttractionFn">Attraction</th>
-          <th  [nzSortFn]="sortRestaurantFn">Restaurant</th>
-          <th  [nzSortFn]="sortLikesFn">Likes</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of groupingTable.data; let i=index">
-          <td >{{ data.country }}</td>
-          <td>{{ data.city }}</td>
-          <td>{{ data.attraction }}</td>
-          <td>{{ data.restaurant }}</td>
-          <td >{{ data.likes }}</td>
-          <td>
+<div class="background">
+  <div class="button-container">
+    <button class="button" (click)="addTrip()">
+      Add New Trip
+    </button>
+    </div>
+  <nz-table #groupingTable [nzPageSize]="8" 
+    [nzData]="TripsList" 
+    [(nzPageIndex)]="currentPage" 
+    nzSize="middle" 
+    [nzScroll]="{ x: '1200px', y: '450px' }" class="table-styling">
+        <thead>
+          <tr>
+            <th  [nzSortFn]="sortCountryFn">Country</th>
+            <th  [nzSortFn]="sortCityFn">City</th>
+            <th  [nzSortFn]="sortAttractionFn">Attraction</th>
+            <th  [nzSortFn]="sortRestaurantFn">Restaurant</th>
+            <th  [nzSortFn]="sortLikesFn">Likes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of groupingTable.data; let i=index">
+            <td >{{ data.country }}</td>
+            <td>{{ data.city }}</td>
+            <td>{{ data.attraction }}</td>
+            <td>{{ data.restaurant }}</td>
+            <td >{{ data.likes }}</td>
+            <td>
+                <span
+                nz-icon
+                nzType="edit"
+                nzTheme="outline"
+                (click)="editTrip(data,i+(currentPage-1)*8)"
+              ></span>
+              <br>
               <span
-              nz-icon
-              nzType="edit"
-              nzTheme="outline"
-              (click)="editTrip(data,i+(currentPage-1)*8)"
-            ></span>
-            <br>
-            <span
-              nz-icon
-              nzType="delete"
-              nzTheme="outline"
-              (click)="deleteTrip(data)"
-            ></span>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
-
+                nz-icon
+                nzType="delete"
+                nzTheme="outline"
+                (click)="deleteTrip(data)"
+              ></span>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      </div>

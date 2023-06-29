@@ -1,75 +1,89 @@
-.background{
-    background-image: url(../../../../../assets/background.jpg);
-    height: 595px;
+.background {
+    background-image: url(../../../../../assets/peakp.jpg);
+    min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    position:relative;
-} 
-.overlay-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200px;
-    z-index: 999;
+    position: relative;
+    margin: 0;
+    padding: 0;
   }
-.title
-{
+  
+  .title {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
-    color:rgb(63, 78, 149);
+    font-size: 40px;
+    color: white;
     text-align: center;
     position: relative;
-    top:15%;
+
+    margin-bottom: 20px;
+    top: 80px;
     line-height: 12px;
     font-family: 'Helvetica';
     font-weight: bold;
-}
-  .menu-item-text {
-    margin-right: 8px; 
+    text-shadow: 4px 4px 4px rgba(0.8, 0.8, 0.8, 0.8);
   }
-  .container
-{
+  
+  .overlay-menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 200px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .menu-item-text {
+    margin-right: 8px;
+  }
+  
+  .container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     justify-content: center;
-    background-color: white;
-    top: 40%;
-}
-#one
-{
-    font-family: 'Helvetica';
-    color:rgb(80, 97, 170);
-    font-size: 22px;
+   
+  
+    
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .column {
     text-align: center;
-}
-#two
-{
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+
+  
+  .column h1 {
     font-family: 'Helvetica';
-    color:rgb(80, 97, 170);
-    font-size: 45px;
-    font-weight: bold;
-    text-align: center;
-}
-h1{
-    font-family: 'Helvetica';
-    color:rgb(80, 97, 170);
+    color: rgb(42, 22, 106);
     font-size: 20px;
     font-weight: bold;
-}
-h2{
+  }
+  
+  .column h2 {
     font-family: 'Helvetica';
-    color:black;
+    color: rgb(80, 97, 170);
     font-size: 14px;
     font-weight: bold;
-}
-h3{
+  }
+  
+  .column h3 {
     font-family: 'Helvetica';
     font-size: 13px;
-    color:rgb(152, 152, 152);
-    width: 600px;
-    text-align: justify;
-}
-hr{
-  margin-top: 10%;
-    width:700px;
-}
+    color: rgb(57, 57, 57);
+    text-align: center;
+  }
+  
+  hr {
+  
+    width: 700px;
+    border: none;
+    border-top: 1px solid rgb(80, 97, 170);
+  }
+  

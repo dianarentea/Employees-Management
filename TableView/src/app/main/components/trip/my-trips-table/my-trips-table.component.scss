@@ -1,39 +1,65 @@
+.background {
+  background-image: linear-gradient(to bottom, #ffffff, rgb(42, 22, 106));
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  margin: 0;
+  padding: 0;
+}
+
 .table-styling {
-    width: 1600px;
-    height: 400px;
-  }
+  width: 100%;
+  height: 400px;
+  border-collapse: collapse;
+  padding: 20px;
   
-  th {
-    width: 30px; 
-    background-color: green;
-  }
-  
-  td {
-    width: 30px;
-  }
-  .button{
-    background-color: rgb(255, 255, 255);
-    font-size: 15px;
-    padding: 2px 6px;
-    border-radius: 10px;
-    border-color: #507cb6;
-    color:rgb(30, 78, 180);
-    font-family: 'Helvetica';
-    transition-duration: 0.4s;
-    align-items: center;
-    margin-right: 10px;
-    
-  }
-.buttonExplore:hover {
-    background-color: #ffffff;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  }
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 8px;
-  }
-  
-  .button-container .button {
-    margin: 0 4px;
-  }
+}
+
+.th {
+  background-color: rgb(80, 97, 170);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+}
+
+.td {
+  padding: 12px;
+  text-align: left;
+}
+
+.tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.tr:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.button {
+  background-color: rgb(42, 22, 106);
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 50px; /* Adjust padding to make the button wider */
+  border: none;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(24, 11, 67);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.button-container .button {
+  margin: 0 4px;
+}
