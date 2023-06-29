@@ -8,5 +8,4 @@ export interface Trip {
     likes: number;
     image: string;
     likedByCurrentUser: boolean;
-
 }

@@ -30,17 +30,17 @@
     },
     {
       "id": 5,
-      "email": "test@gmail.com",
-      "firstname": "Test",
-      "lastname": "Test",
-      "password": "test123T#"
+      "email": "olivia@gmail.com",
+      "firstname": "Olivia",
+      "lastname": "Olivia",
+      "password": "olivia123O#"
     },
     {
       "id": 6,
-      "email": "test@gmail.com",
-      "firstname": "Test",
-      "lastname": "Test",
-      "password": "test123T#"
+      "email": "olivia@gmail.com",
+      "firstname": "Olivia",
+      "lastname": "Olivia",
+      "password": "olivia123O#"
     }
   ],
   "trips": [
@@ -64,7 +64,7 @@
       "restaurant": "La Pergola",
       "likes": 9,
       "image": "assets/images/barcelona.jpg",
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "id": 3,
@@ -86,7 +86,7 @@
       "restaurant": "Steirereck",
       "likes": 6,
       "image": "assets/images/viena.jpg",
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Hungary",
@@ -108,7 +108,7 @@
       "restaurant": "The Restaurant",
       "likes": 8,
       "image": "assets/images/geneva.jpg",
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Roumania",
@@ -151,7 +151,7 @@
       "image": "assets/default.jpg",
       "id": 10,
       "userEmail": "john99@gmail.com",
-      "likes": 1,
+      "likes": 2,
       "likedByCurrentUser": false
     },
     {
@@ -174,7 +174,7 @@
       "id": 12,
       "userEmail": "diana@gmail.com",
       "likes": 2,
-      "likedByCurrentUser": true
+      "likedByCurrentUser": false
     },
     {
       "country": "Norway",
@@ -195,8 +195,30 @@
       "image": "assets/default.jpg",
       "id": 14,
       "userEmail": "maria99@gmail.com",
-      "likes": 0,
-      "likedByCurrentUser": false
+      "likes": 1,
+      "likedByCurrentUser": true
+    },
+    {
+      "country": "Spain",
+      "city": "Barcelona",
+      "attraction": "Sagrada Familia",
+      "restaurant": "La Hefe",
+      "image": "assets/default.jpg",
+      "id": 15,
+      "userEmail": "olivia@gmail.com",
+      "likes": 1,
+      "likedByCurrentUser": true
+    },
+    {
+      "country": "Portugal",
+      "city": "Lisbon",
+      "attraction": "Mosteiro dos Jerónimos",
+      "restaurant": "El Comandor",
+      "image": "assets/default.jpg",
+      "id": 16,
+      "userEmail": "olivia@gmail.com",
+      "likes": 1,
+      "likedByCurrentUser": true
     }
   ]
 }

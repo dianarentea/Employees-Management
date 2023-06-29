@@ -15,12 +15,12 @@ export class HomeViewComponent implements OnInit {
   constructor(private usersService: UsersService, private tripsService: TripsService) { }
 
   ngOnInit(): void {
-    this.homePageTitle='NEW ADVENTURE';
+    this.homePageTitle = 'NEW ADVENTURE';
     this.tripsService.ngOnInit();
-    this.currentUsername=this.usersService.CurrentUsername;
+    this.currentUsername = this.usersService.CurrentUsername;
   }
   openMyTrips(): void {
-   this.usersService.openMyTrips();
+    this.usersService.openMyTrips();
   }
   openAllTrips(): void {
     this.usersService.openAllTrips();

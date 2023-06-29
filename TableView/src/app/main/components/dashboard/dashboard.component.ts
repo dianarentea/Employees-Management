@@ -6,21 +6,19 @@ import { UsersService } from '../../services/users.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
+
   homePageTitle?: string;
 
-  constructor(private usersService:UsersService) 
-  { }
+  constructor(private usersService: UsersService) { }
   ngOnInit(): void {
-    this.homePageTitle='NEW ADVENTURE';
+    this.homePageTitle = 'NEW ADVENTURE';
     this.usersService.ngOnInit();
   }
-openLogin()
-{
-  this.usersService.openLogin();
-}
-openRegister()
-{
-  this.usersService.openRegister();
-}
+  openLogin() {
+    this.usersService.openLogin();
+  }
+  openRegister() {
+    this.usersService.openRegister();
+  }
 }

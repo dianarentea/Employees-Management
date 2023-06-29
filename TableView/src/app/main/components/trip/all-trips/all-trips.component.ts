@@ -7,13 +7,13 @@ import { TripsService } from 'src/app/main/services/trips.service';
   templateUrl: './all-trips.component.html',
   styleUrls: ['./all-trips.component.scss']
 })
-export class AllTripsComponent implements OnInit{
+export class AllTripsComponent implements OnInit {
 
-  cardTripList!:Trip[];
-  searchCard='';
-  filteredCards!:Trip[];
+  cardTripList!: Trip[];
+  searchCard = '';
+  filteredCards!: Trip[];
 
-  constructor(private tripsService: TripsService){};
+  constructor(private tripsService: TripsService) { };
 
   search() {
     if (this.searchCard.length >= 1) {
@@ -33,17 +33,14 @@ export class AllTripsComponent implements OnInit{
     }
   }
   
-  
-  
-  
-clearSearch() {
-  this.searchCard = '';
-  this.filteredCards = this.cardTripList;
-}
+  clearSearch() {
+    this.searchCard = '';
+    this.filteredCards = this.cardTripList;
+  }
 
   ngOnInit(): void {
-  this.cardTripList = this.tripsService.TripsList;
-  this.filteredCards = this.cardTripList;
+    this.cardTripList = this.tripsService.TripsList;
+    this.filteredCards = this.cardTripList;
   }
 
 }

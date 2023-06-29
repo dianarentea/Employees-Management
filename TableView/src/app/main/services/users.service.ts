@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import{User} from '../interfaces/user';
+import { User } from '../interfaces/user';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { Subject } from 'rxjs';
 import { LoginComponent } from '../components/auth/login/login.component';
@@ -10,25 +10,23 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService implements OnInit{
+export class UsersService implements OnInit {
 
   private usersList: User[] = [];
   private currentUsername: string = '';
   private currentUserEmail: string = '';
 
-  
-  usersListSubject=new Subject<User[]>();
-  usersListObservable=this.usersListSubject.asObservable();
+
+  usersListSubject = new Subject<User[]>();
+  usersListObservable = this.usersListSubject.asObservable();
   private isAuthenticated: boolean = false;
 
-
-  constructor(private modalService: NzModalService, private router:Router, private http:HttpClient) {}
+  constructor(private modalService: NzModalService, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
-    
-   this.http.get<User[]>('http://localhost:3000/users').subscribe((users:User[])=>{
-    console.log('res',users);
-      this.usersList=users;
+
+    this.http.get<User[]>('http://localhost:3000/users').subscribe((users: User[]) => {
+      this.usersList = users;
       this.usersListSubject.next([...this.usersList]);
     }
     );
@@ -43,13 +41,14 @@ export class UsersService implements OnInit{
   get CurrentUserEmail(): string {
     return this.currentUserEmail;
   }
-   openLogin(): NzModalRef {
+
+  openLogin(): NzModalRef {
     const modal: NzModalRef = this.modalService.create({
       nzTitle: 'Login',
       nzContent: LoginComponent,
       nzFooter: null,
       nzComponentParams: {
-       
+
       },
     });
     return modal;
@@ -61,61 +60,54 @@ export class UsersService implements OnInit{
       nzContent: RegisterComponent,
       nzFooter: null,
       nzComponentParams: {
-        
+
       },
     });
     return modal;
-}
-loginSubmit(email: string, password: string,rememberMe: boolean): void {
-  const user = this.usersList.find(u => u.email === email && u.password === password);
-  this.currentUsername = user?.lastname || '';
-  console.log(this.currentUserEmail)
-  this.currentUserEmail = user?.email || '';
-  if (user) 
-  {
-    console.log("a, intrat in if")
-    this.isAuthenticated = true;
-    console.log('remember me', rememberMe);
-    if (rememberMe) 
-    {
-      localStorage.setItem('currentUser', JSON.stringify(user));
-    }
-    this.router.navigate(['/home-view']);
-  } 
-  else 
-  {
-    this.isAuthenticated = false;
-    console.log('Auth has failed!');
   }
-}
+  loginSubmit(email: string, password: string, rememberMe: boolean): void {
+    const user = this.usersList.find(u => u.email === email && u.password === password);
+    this.currentUsername = user?.lastname || '';
+    console.log(this.currentUserEmail)
+    this.currentUserEmail = user?.email || '';
+    if (user) {
 
-registerSubmit(email:string, firstname:string, lastname:string, password:string): void
-{
-  const id=this.usersList.length+1;
-  console.log("registerSubmit");
-  const user:User={id,email,firstname,lastname,password};
-  this.http.post('http://localhost:3000/users',user).subscribe((res)=>{
-    console.log('res',res);
-  });
-  this.usersList.push(user);
-  this.usersListSubject.next([...this.usersList]);
-  this.currentUsername=lastname;
-  this.router.navigate(['/home-view']);
-}
+      this.isAuthenticated = true;
+      if (rememberMe) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+      }
+      this.router.navigate(['/home-view']);
+    }
+    else {
+      this.isAuthenticated = false;
+      console.log('Auth has failed!');
+    }
+  }
 
-getIsAuthenticated(): boolean {
-  return this.isAuthenticated;
-}
+  registerSubmit(email: string, firstname: string, lastname: string, password: string): void {
+    const id = this.usersList.length + 1;
+    const user: User = { id, email, firstname, lastname, password };
+    this.http.post('http://localhost:3000/users', user).subscribe((res) => {
+    });
+    this.usersList.push(user);
+    this.usersListSubject.next([...this.usersList]);
+    this.currentUsername = lastname;
+    this.router.navigate(['/home-view']);
+  }
 
-openMyTrips(): void {
-  this.router.navigate(['/my-trips']);
-}
-openAllTrips(): void {
-  this.router.navigate(['/all-trips']);
-}
-logout(): void {
-  this.isAuthenticated = false;
-  this.router.navigate(['']);
-}
+  getIsAuthenticated(): boolean {
+    return this.isAuthenticated;
+  }
+
+  openMyTrips(): void {
+    this.router.navigate(['/my-trips']);
+  }
+  openAllTrips(): void {
+    this.router.navigate(['/all-trips']);
+  }
+  logout(): void {
+    this.isAuthenticated = false;
+    this.router.navigate(['']);
+  }
 
 }

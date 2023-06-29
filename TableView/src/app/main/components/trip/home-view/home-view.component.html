@@ -1,46 +1,49 @@
 <body>
   <div class="background" #discoverElement>
-      <ul nz-menu nzMode="inline" class="overlay-menu">
-          <li nz-submenu nzTitle="More..." nzIcon="appstore">
-          <ul>
-            <li nz-menu-item (click)="openMyTrips()">My trips</li>
-            <li nz-menu-item (click)="openAllTrips()">View all trips</li>
-            <li nz-menu-item>
-              <span class="menu-item-text" (click)="logout()">Log out</span> 
-              <span nz-icon nzType="logout" nzTheme="outline"></span>
-                  </li>
-                  
-            
-          </ul>
-        </li>
+    <ul nz-menu nzMode="inline" class="overlay-menu">
+      <li nz-submenu nzTitle="More..." nzIcon="appstore">
+        <ul>
+          <li nz-menu-item (click)="openMyTrips()">My trips</li>
+          <li nz-menu-item (click)="openAllTrips()">View all trips</li>
+          <li nz-menu-item>
+            <span class="menu-item-text" (click)="logout()">Log out</span>
+            <span nz-icon nzType="logout" nzTheme="outline"></span>
+          </li>
         </ul>
-      <div class="title">
-        <p>Discover the colorful world, {{currentUsername}} !</p>
-        <hr>
+      </li>
+    </ul>
+    <div class="title">
+      <p>Discover the colorful world, {{currentUsername}} !</p>
+      <hr>
+    </div>
+    <br><br><br> <br><br><br>
+    <div class="container">
+      <div class="column">
+        <h1>Travel</h1>
+        <h2>Travel anywhere with us</h2>
+        <h3>Our experienced writers travel the world to bring you informative and inspirational features, destination
+          round-ups, travel ideas, tips and beautiful photos in order to help you plan your next holiday.</h3>
       </div>
-      <br><br><br> <br><br><br>
-      <div class="container">
-        <div class="column">
-          <h1>Travel</h1>
-          <h2>Travel anywhere with us</h2>
-          <h3>Our experienced writers travel the world to bring you informative and inspirational features, destination round-ups, travel ideas, tips and beautiful photos in order to help you plan your next holiday.</h3>
-        </div>
-        <div class="column">
-          <h1>Travel Arrangements</h1>
-          <h2>Get ready for your perfect journey</h2>
-          <h3>We have plans, lists, itineraries for all kinds of journeys whether it is about a cruise, a jungle trip, or hiking on a mountain. We are prepared for any kind of adventure you want to choose.</h3>
-        </div>
-        <div class="column">
-          <h1>Our professional guide</h1>
-          <h2>Discover places that you've only seen in movies with our guides</h2>
-          <h3>Are you afraid you will miss a place and be sad that you didn't find it on your trip? No worries! Our guides know everything you must see in your trip, so you don't need to stress about missing something.</h3>
-        </div>
-        <div class="column">
-          <h1>Activities</h1>
-          <h2>Are you getting bored fast?</h2>
-          <h3>Our partners will arrange everything for you to be sure that you will have no time to stay on your phone during your trip. We will prepare different kinds of activities specific to the zone you travel to, and you will make unforgettable memories with new people.</h3>
-        </div>
+      <div class="column">
+        <h1>Travel Arrangements</h1>
+        <h2>Get ready for your perfect journey</h2>
+        <h3>We have plans, lists, itineraries for all kinds of journeys whether it is about a cruise, a jungle trip, or
+          hiking on a mountain. We are prepared for any kind of adventure you want to choose.</h3>
       </div>
-      
+      <div class="column">
+        <h1>Our professional guide</h1>
+        <h2>Discover places that you've only seen in movies with our guides</h2>
+        <h3>Are you afraid you will miss a place and be sad that you didn't find it on your trip? No worries! Our guides
+          know everything you must see in your trip, so you don't need to stress about missing something.</h3>
+      </div>
+      <div class="column">
+        <h1>Activities</h1>
+        <h2>Are you getting bored fast?</h2>
+        <h3>Our partners will arrange everything for you to be sure that you will have no time to stay on your phone
+          during your trip. We will prepare different kinds of activities specific to the zone you travel to, and you
+          will make unforgettable memories with new people.</h3>
+      </div>
+    </div>
+
   </div>
-  </body>
+</body>

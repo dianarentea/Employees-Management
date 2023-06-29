@@ -1,45 +1,36 @@
 <form nz-form [formGroup]="loginForm" (ngSubmit)="submitForm()">
-    
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
-      
-      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not a valid E-mail!">
-        <input nz-input formControlName="email" placeholder="e-mail" id="email" />
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
-        <input
-          nz-input
-          type="password"
-          id="password"
-          formControlName="password"
-          placeholder="password"
-          
-        />
-      </nz-form-control>
-  
-    </nz-form-item>
-    <nz-form-item nz-row class="login-area">
-      <nz-form-control [nzSpan]="14" [nzOffset]="6">
-        <button nz-button nzType="primary" (click)="submitForm()">Login</button>
-        <br><br>
-        <div class="pretty p-icon p-round p-pulse">
-          <input type="checkbox" formControlName="rememberMe" />
-          <div class="state p-success">
-            <p>
-              <i class="icon mdi mdi-check"></i>
-              <label>Remember me!</label>
-            </p>
-          </div>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not a valid E-mail!">
+      <input nz-input formControlName="email" placeholder="e-mail" id="email" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+      <input nz-input type="password" id="password" formControlName="password" placeholder="password" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row class="login-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary" (click)="submitForm()">Login</button>
+      <br><br>
+      <div class="pretty p-icon p-round p-pulse">
+        <input type="checkbox" formControlName="rememberMe" />
+        <div class="state p-success">
+          <p>
+            <i class="icon mdi mdi-check"></i>
+            <label>Remember me!</label>
+          </p>
         </div>
-        <br>
-        <div>
-          Or 
-          <button class="underline-button" (click)="openRegister()">register now!</button>
-        </div>
-      </nz-form-control>
-    </nz-form-item>
-  </form>
-  
+      </div>
+      <br>
+      <div>
+        Or
+        <button class="underline-button" (click)="openRegister()">register now!</button>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+</form>

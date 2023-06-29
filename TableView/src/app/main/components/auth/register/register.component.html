@@ -1,84 +1,85 @@
 <form nz-form [formGroup]="registerForm" (ngSubmit)="submitForm()">
 
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input formControlName="email" placeholder="example@gmail.com" id="email" />
-        <div class="red-text" *ngIf="registerForm.get('email')?.dirty && registerForm.get('email')?.errors?.['email']">
-          A user with the same email already exists.
-          </div>
-      </nz-form-control>
-    </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+      <input nz-input formControlName="email" placeholder="example@gmail.com" id="email" />
+      <div class="red-text" *ngIf="registerForm.get('email')?.dirty && registerForm.get('email')?.errors?.['email']">
+        A user with the same email already exists.
+      </div>
+    </nz-form-control>
+  </nz-form-item>
 
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="firstname">Firstname</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid firstname!" >
-        <input nz-input formControlName="firstname" placeholder="Firstname" id="firstname" />
-      </nz-form-control>
-    </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="firstname">Firstname</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid firstname!">
+      <input nz-input formControlName="firstname" placeholder="Firstname" id="firstname" />
+    </nz-form-control>
+  </nz-form-item>
 
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="lastname">Lastname</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid lastname!">
-        <input nz-input formControlName="lastname" placeholder="Lastname" id="lastname" />
-      </nz-form-control>
-    </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="lastname">Lastname</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid lastname!">
+      <input nz-input formControlName="lastname" placeholder="Lastname" id="lastname" />
+    </nz-form-control>
+  </nz-form-item>
 
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="getPasswordValidationStatus()" [nzHasFeedback]="isPasswordValid()">
-          <input
-          nz-input
-          type="password"
-          id="password"
-          formControlName="password"
-          placeholder="Please introduce at least 8 characters!"
-          (ngModelChange)="updateConfirmValidator()"
-        />
-       
-        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['minlength']">
-          Please introduce at least 8 characters!
-        </div>
-        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['required']">
-          Please input your password!
-        </div>
-        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['uppercase']">
-          Please introduce at least 1 uppercase letter!
-        </div>
-        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['lowercase']">
-          Please introduce at least 1 lowercase letter!
-        </div>
-        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['number']">
-          Please introduce at least 1 number!
-        </div>
-        <div class="red-text" *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['special']">
-          Please introduce at least 1 special character!
-        </div>
-      
-      </nz-form-control>
-    </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="getPasswordValidationStatus()"
+      [nzHasFeedback]="isPasswordValid()">
+      <input nz-input type="password" id="password" formControlName="password"
+        placeholder="Please introduce at least 8 characters!" (ngModelChange)="updateConfirmValidator()" />
 
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirm</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
-        <input nz-input type="password" formControlName="checkPassword" placeholder="Confirm password" id="checkPassword" />
-        <ng-template #errorTpl let-control>
-          <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
-          <ng-container *ngIf="control.hasError('confirm')">
-            The passwords don't match!
-          </ng-container>
-        </ng-template>
-      </nz-form-control>
-    </nz-form-item>
-      
-    <nz-form-item nz-row class="register-area">
-      <nz-form-control [nzSpan]="14" [nzOffset]="6">
-        <div class="button-container">
+      <div class="red-text"
+        *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['minlength']">
+        Please introduce at least 8 characters!
+      </div>
+      <div class="red-text"
+        *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['required']">
+        Please input your password!
+      </div>
+      <div class="red-text"
+        *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['uppercase']">
+        Please introduce at least 1 uppercase letter!
+      </div>
+      <div class="red-text"
+        *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['lowercase']">
+        Please introduce at least 1 lowercase letter!
+      </div>
+      <div class="red-text"
+        *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['number']">
+        Please introduce at least 1 number!
+      </div>
+      <div class="red-text"
+        *ngIf="registerForm.get('password')?.dirty && registerForm.get('password')?.errors?.['special']">
+        Please introduce at least 1 special character!
+      </div>
+
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirm</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+      <input nz-input type="password" formControlName="checkPassword" placeholder="Confirm password"
+        id="checkPassword" />
+      <ng-template #errorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
+        <ng-container *ngIf="control.hasError('confirm')">
+          The passwords don't match!
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <div class="button-container">
         <button nz-button nzType="primary" (click)="submitForm()">Register</button>
         <button nz-button (click)="resetForm($event)">Reset</button>
       </div>
-      
-      </nz-form-control>
-    </nz-form-item>
+    </nz-form-control>
+  </nz-form-item>
 
-  </form>
+</form>

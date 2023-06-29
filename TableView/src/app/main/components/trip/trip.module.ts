@@ -28,7 +28,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     TripFormComponent,
     AllTripsComponent,
     TripCardComponent
-     
+
   ],
   imports: [
     CommonModule,

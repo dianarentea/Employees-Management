@@ -13,12 +13,12 @@ import { UsersService } from 'src/app/main/services/users.service';
 export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
-  errorMessage:string = '';
+  errorMessage: string = '';
 
-  constructor(private fb: UntypedFormBuilder, private usersService:UsersService, private modalRef:NzModalRef ){}
+  constructor(private fb: UntypedFormBuilder, private usersService: UsersService, private modalRef: NzModalRef) { }
 
   ngOnInit(): void {
-   this.initializeRegisterForm();
+    this.initializeRegisterForm();
   }
 
   initializeRegisterForm(): void {
@@ -32,16 +32,13 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-
   submitForm(): void {
-    const{email,firstname,lastname,password}=this.registerForm.value;
-    console.log("submmit din register");
-    this.usersService.registerSubmit(email,firstname,lastname,password);
+    const { email, firstname, lastname, password } = this.registerForm.value;
+    this.usersService.registerSubmit(email, firstname, lastname, password);
     this.modalRef.close();
   }
 
-  resetForm(e: MouseEvent): void 
-  {
+  resetForm(e: MouseEvent): void {
     e.preventDefault();
     this.registerForm.reset();
     for (const key in this.registerForm.controls) {
@@ -51,17 +48,16 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
-  
-  isFieldValid(field: string): boolean|undefined {
+
+  isFieldValid(field: string): boolean | undefined {
     const control = this.registerForm.get(field);
     return control?.invalid && (control?.dirty || control?.touched);
   }
-  
-  displayFieldError(field: string, error: string): boolean |undefined{
+
+  displayFieldError(field: string, error: string): boolean | undefined {
     const control = this.registerForm.get(field);
     return control?.hasError(error);
   }
-  
 
   updateConfirmValidator(): void {
     Promise.resolve().then(() => this.registerForm.controls['checkPassword'].updateValueAndValidity());
@@ -75,11 +71,12 @@ export class RegisterComponent implements OnInit {
     }
     return {};
   };
+
   isEmailValid(): boolean | undefined {
     const userEmail = this.usersService.UsersList.find(user => user.email === this.registerForm.get('email')?.value);
     return userEmail?.email === this.registerForm.get('email')?.value;
   }
-  
+
   emailValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return { required: true };
@@ -88,7 +85,7 @@ export class RegisterComponent implements OnInit {
     }
     return {};
   };
-  
+
   passwordValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return { required: true };
@@ -110,6 +107,7 @@ export class RegisterComponent implements OnInit {
     }
     return {};
   };
+
   getPasswordValidationStatus(): string {
     const passwordControl = this.registerForm.get('password');
     if (passwordControl?.dirty && passwordControl?.errors) {
@@ -117,8 +115,8 @@ export class RegisterComponent implements OnInit {
     }
     return 'success';
   }
-  
-  isPasswordValid(): boolean|undefined {
+
+  isPasswordValid(): boolean | undefined {
     const passwordControl = this.registerForm.get('password');
     return passwordControl?.dirty && passwordControl?.valid;
   }
