@@ -13,16 +13,17 @@ import { UsersService } from 'src/app/main/services/users.service';
 export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
+  errorMessage:string = '';
 
   constructor(private fb: UntypedFormBuilder, private usersService:UsersService, private modalRef:NzModalRef ){}
 
   ngOnInit(): void {
    this.initializeRegisterForm();
   }
-  
+
   initializeRegisterForm(): void {
     this.registerForm = this.fb.group({
-      email: [null, [Validators.required, Validators.email]],
+      email: [null, [Validators.required, Validators.email, this.emailValidator]],
       firstname: [null, [Validators.required]],
       lastname: [null, [Validators.required]],
       password: [null, [Validators.required, this.passwordValidator]],
@@ -50,6 +51,7 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
+  
   isFieldValid(field: string): boolean|undefined {
     const control = this.registerForm.get(field);
     return control?.invalid && (control?.dirty || control?.touched);
@@ -73,6 +75,20 @@ export class RegisterComponent implements OnInit {
     }
     return {};
   };
+  isEmailValid(): boolean | undefined {
+    const userEmail = this.usersService.UsersList.find(user => user.email === this.registerForm.get('email')?.value);
+    return userEmail?.email === this.registerForm.get('email')?.value;
+  }
+  
+  emailValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
+    if (!control.value) {
+      return { required: true };
+    } else if (this.isEmailValid()) {
+      return { email: true, error: true };
+    }
+    return {};
+  };
+  
   passwordValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return { required: true };

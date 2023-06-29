@@ -4,6 +4,9 @@
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
         <input nz-input formControlName="email" placeholder="example@gmail.com" id="email" />
+        <div class="red-text" *ngIf="registerForm.get('email')?.dirty && registerForm.get('email')?.errors?.['email']">
+          A user with the same email already exists.
+          </div>
       </nz-form-control>
     </nz-form-item>
 
