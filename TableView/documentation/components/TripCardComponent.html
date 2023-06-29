@@ -369,7 +369,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
 import { Trip } from &#x27;src/app/main/interfaces/trip&#x27;;
 import { TripsService } from &#x27;src/app/main/services/trips.service&#x27;;
-import{faHeart} from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { faHeart } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
 @Component({
   selector: &#x27;app-trip-card&#x27;,
   templateUrl: &#x27;./trip-card.component.html&#x27;,
@@ -377,15 +377,14 @@ import{faHeart} from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
 })
 export class TripCardComponent {
 
-  faHeart&#x3D;faHeart;
+  faHeart &#x3D; faHeart;
 
   constructor(private tripsService: TripsService) { }
 
   @Input() tripCard!: Trip;
-  
+
   likeTrip(trip: Trip): void {
-    if(this.tripsService.isTripLikedByCurrentUser(trip)&#x3D;&#x3D;true)
-    {
+    if (this.tripsService.isTripLikedByCurrentUser(trip) &#x3D;&#x3D; true) {
       trip.likes++;
     }
     this.tripsService.updateTripLikes(trip);
@@ -395,27 +394,22 @@ export class TripCardComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;head&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;article class&#x3D;&quot;card&quot;&gt;
-  &lt;img
-    class&#x3D;&quot;card__background&quot;
-    [src]&#x3D;&quot;tripCard.image&quot; alt&#x3D;&quot;image&quot;
-    width&#x3D;&quot;1920&quot;
-    height&#x3D;&quot;2193&quot;/&gt;
-  &lt;div class&#x3D;&quot;card__content | flow&quot;&gt;
-    &lt;div class&#x3D;&quot;card__content--container | flow&quot;&gt;
-      &lt;h2 class&#x3D;&quot;card__title&quot;&gt;{{tripCard.country}}&lt;/h2&gt;
-      &lt;p class&#x3D;&quot;card__description&quot;&gt;
-        City: {{tripCard.city}}     &lt;br&gt;
-        Main attraction: {{tripCard.attraction}}&lt;br&gt;
-        Restaurant/Caffe: {{tripCard.restaurant}}&lt;br&gt;
-        &lt;fa-icon [icon]&#x3D;&quot;faHeart&quot; (click)&#x3D;&quot;likeTrip(tripCard)&quot; &gt;&lt;/fa-icon&gt; {{tripCard.likes}}&lt;br&gt;
-      &lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;body&gt;
+  &lt;article class&#x3D;&quot;card&quot;&gt;
+    &lt;img class&#x3D;&quot;card__background&quot; [src]&#x3D;&quot;tripCard.image&quot; alt&#x3D;&quot;image&quot; width&#x3D;&quot;1920&quot; height&#x3D;&quot;2193&quot; /&gt;
+    &lt;div class&#x3D;&quot;card__content | flow&quot;&gt;
+      &lt;div class&#x3D;&quot;card__content--container | flow&quot;&gt;
+        &lt;h2 class&#x3D;&quot;card__title&quot;&gt;{{ tripCard.country }}&lt;/h2&gt;
+        &lt;p class&#x3D;&quot;card__description&quot;&gt;
+          City: {{ tripCard.city }} &lt;br /&gt;
+          Main attraction: {{ tripCard.attraction }}&lt;br /&gt;
+          Restaurant/Caffe: {{ tripCard.restaurant }}&lt;br /&gt;
+          &lt;fa-icon [icon]&#x3D;&quot;faHeart&quot; (click)&#x3D;&quot;likeTrip(tripCard)&quot;&gt;&lt;/fa-icon&gt;
+          {{ tripCard.likes }}&lt;br /&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/article&gt;
+  &lt;/article&gt;
 &lt;/body&gt;</code></pre>
     </div>
 
@@ -423,187 +417,112 @@ export class TripCardComponent {
                 <p class="comment">
                     <code>./trip-card.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">@import url(&quot;https://fonts.googleapis.com/css2?family&#x3D;Lato:wght@400;700&amp;family&#x3D;Montserrat:wght@700&amp;display&#x3D;swap&quot;);
-
-:root {
-  /* Colors */
-  --brand-color: hsl(46, 100%, 50%);
-  --black: hsl(0, 0%, 0%);
-  --white: hsl(0, 0%, 100%);
-  /* Fonts */
-  --font-title: &quot;Montserrat&quot;, sans-serif;
-  --font-text: &quot;Lato&quot;, sans-serif;
-}
-
-/* RESET */
-
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin */
-body,
-h2,
-p {
-  margin: 0;
-}
-
-/* GLOBAL STYLES */
-body {
+                <pre class="line-numbers"><code class="language-scss">body {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 h2 {
   font-size: 30px;
-  font-family: var(--font-title);
+  font-family: &quot;Montserrat&quot;, sans-serif;
   color: var(--white);
   line-height: 1.1;
 }
 
 p {
-  font-family: var(--font-text);
+  font-family: &quot;Lato&quot;, sans-serif;
   font-size: 15px;
   line-height: 1.1;
   color: var(--white);
 }
 
-.flow &gt; * + * {
-  margin-top: var(--flow-space, 1em);
-}
-
-/* CARD COMPONENT */
-
 .card {
   display: grid;
   place-items: center;
   width: 300px;
-  height: 300px;
+  height: 250px;
   overflow: hidden;
-  border-radius: 0.625rem;
-  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
-  margin-left:65px;
-  margin-bottom: 55px;
-  margin-top: 55px;
-}
-
-.card &gt; * {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  border-radius: 10px;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.25);
+  margin: 70px;
 }
 
 .card__background {
   object-fit: cover;
-  max-width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 200px;
+  will-change: transform;
+  transition: transform 0.3s ease-out;
 }
 
 .card__content {
-  --flow-space: 45px;
+  color: #242037;
   display: flex;
+  text-align: center;
   flex-direction: column;
-  justify-content: space-between;
-  align-self: center;
-  height: 55%;
-  padding:15px;
-  background: linear-gradient(
-    180deg,
-    hsla(0, 9%, 84%, 0.897) 0%,
-    hsla(0, 11%, 91%, 0.877) 10%,
-    hsl(0, 0%, 100%) 100%
-  );
-}
-
-.card__content--container {
-  --flow-space: 3.25rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 15px;
+  width: 300px;
+  background: 
+    rgba(255, 255, 255, 0.9);
+ 
+  transform: translateY(0%);
+  will-change: transform;
+  transition: transform 0.3s ease-out;
 }
 
 .card__title {
   position: relative;
-  width: fit-content;
-  
+  color:#242037;
 }
 
 .card__title::after {
   content: &quot;&quot;;
-  position: absolute;
-  height: 10px;
-  width: calc(100% + 1.25rem);
-  bottom: calc((1.25rem - 0.5rem) * -1);
-  left: -1.25rem;
+  text-align: center;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
   background-color: var(--brand-color);
+  opacity: 0;
+  transform: scaleX(0);
+  
+}
+
+.card:hover,
+.card:focus-within {
+  transform: scale(1.05);
+}
+
+.card:hover .card__content,
+.card:focus-within .card__content {
+  transform: translateY(-75%) translateZ(0);
+}
+
+.card:hover .card__background,
+.card:focus-within .card__background {
+  transform: scale(1.3)  translateZ(0);
+  
+}
+
+.card:hover .card__title::after,
+.card:focus-within .card__title::after {
+  opacity: 1;
+  transform: scaleX(1);
+ 
 }
 
 @media (any-hover: hover) and (any-pointer: fine) {
   .card__content {
-    transform: translateY(62%);
-    transition: transform 500ms ease-out;
-    transition-delay: 500ms;
+    transition: transform 50ms ease-out;
   }
 
-  .card__title::after {
-    opacity: 0;
-    transform: scaleX(0);
-    transition: opacity 1000ms ease-in, transform 500ms ease-out;
-    transition-delay: 500ms;
-    transform-origin: right;
-  }
-
-  .card__background {
-    transition: transform 500ms ease-in;
-  }
-
-  .card__content--container &gt; :not(.card__title),
-  .card__button {
-    opacity: 0;
-    transition: transform 500ms ease-out, opacity 500ms ease-out;
-  }
-
-  .card:hover,
-  .card:focus-within {
-    transform: scale(1.05);
-    transition: transform 500ms ease-in;
-  }
-
-  .card:hover .card__content,
-  .card:focus-within .card__content {
-    transform: translateY(0);
-    transition: transform 500ms ease-in;
-  }
-
-  .card:focus-within .card__content {
-    transition-duration: 0ms;
-  }
-
-  .card:hover .card__background,
-  .card:focus-within .card__background {
-    transform: scale(1.3);
-  }
-
-  .card:hover .card__content--container &gt; :not(.card__title),
-  .card:hover .card__button,
-  .card:focus-within .card__content--container &gt; :not(.card__title),
-  .card:focus-within .card__button {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-    transition-delay: 1000ms;
-  }
-
-  .card:hover .card__title::after,
-  .card:focus-within .card__title::after {
-    opacity: 1;
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: opacity 500ms ease-in, transform 500ms ease-in;
-    transition-delay: 500ms;
-  }
-}
-
-</code></pre>
+  
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -631,7 +550,7 @@ p {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><head></head><body><article class="card">  <img    class="card__background"    [src]="tripCard.image" alt="image"    width="1920"    height="2193"/>  <div class="card__content | flow">    <div class="card__content--container | flow">      <h2 class="card__title">{{tripCard.country}}</h2>      <p class="card__description">        City: {{tripCard.city}}     <br>        Main attraction: {{tripCard.attraction}}<br>        Restaurant/Caffe: {{tripCard.restaurant}}<br>        <fa-icon [icon]="faHeart" (click)="likeTrip(tripCard)" ></fa-icon> {{tripCard.likes}}<br>      </p>    </div>  </div></article></body></div>'
+        var COMPONENT_TEMPLATE = '<div><body>  <article class="card">    <img class="card__background" [src]="tripCard.image" alt="image" width="1920" height="2193" />    <div class="card__content | flow">      <div class="card__content--container | flow">        <h2 class="card__title">{{ tripCard.country }}</h2>        <p class="card__description">          City: {{ tripCard.city }} <br />          Main attraction: {{ tripCard.attraction }}<br />          Restaurant/Caffe: {{ tripCard.restaurant }}<br />          <fa-icon [icon]="faHeart" (click)="likeTrip(tripCard)"></fa-icon>          {{ tripCard.likes }}<br />        </p>      </div>    </div>  </article></body></div>'
     var COMPONENTS = [{'name': 'AllTripsComponent', 'selector': 'app-all-trips'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HomeViewComponent', 'selector': 'app-home-view'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MyTripsComponent', 'selector': 'app-my-trips'},{'name': 'MyTripsTableComponent', 'selector': 'app-my-trips-table'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TripCardComponent', 'selector': 'app-trip-card'},{'name': 'TripFormComponent', 'selector': 'app-trip-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TripCardComponent'};

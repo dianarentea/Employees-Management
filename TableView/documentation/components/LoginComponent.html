@@ -163,6 +163,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#initializeLoginForm" >initializeLoginForm</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
@@ -194,7 +197,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/main/components/auth/login/login.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/main/components/auth/login/login.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -269,6 +272,43 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="initializeLoginForm"></a>
+                    <span class="name">
+                        <span ><b>initializeLoginForm</b></span>
+                        <a href="#initializeLoginForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeLoginForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/main/components/auth/login/login.component.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
                         <span ><b>ngOnInit</b></span>
@@ -322,8 +362,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/main/components/auth/login/login.component.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/main/components/auth/login/login.component.ts:63</a></div>
                 </td>
             </tr>
 
@@ -359,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/main/components/auth/login/login.component.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/main/components/auth/login/login.component.ts:42</a></div>
                 </td>
             </tr>
 
@@ -401,7 +441,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/main/components/auth/login/login.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/main/components/auth/login/login.component.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -427,12 +467,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
+                        <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/main/components/auth/login/login.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/main/components/auth/login/login.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -457,7 +497,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/main/components/auth/login/login.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/main/components/auth/login/login.component.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -481,37 +521,58 @@ import { UsersService } from &#x27;src/app/main/services/users.service&#x27;;
   styleUrls: [&#x27;./login.component.scss&#x27;]
 })
 export class LoginComponent implements OnInit {
+
   loginForm!: FormGroup;
-  showErrorMessage &#x3D; false; 
-  rememberMe: boolean &#x3D; false;
+  showErrorMessage &#x3D; false;
+  rememberMe: boolean &#x3D; true;
 
-
-  constructor(private fb: FormBuilder, private usersService:UsersService, private modalRef:NzModalRef) { }
+  constructor(private fb: FormBuilder, private usersService: UsersService, private modalRef: NzModalRef) { }
 
   ngOnInit(): void {
+    this.initializeLoginForm();
+  }
+
+  initializeLoginForm(): void {
+    let rememberedEmail &#x3D; localStorage.getItem(&#x27;rememberedEmail&#x27;) || &#x27;&#x27;;
+    let rememberedPassword &#x3D; localStorage.getItem(&#x27;rememberedPassword&#x27;) || &#x27;&#x27;;
+
+    const rememberMe &#x3D; localStorage.getItem(&#x27;rememberMe&#x27;) &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
+    const currentUser &#x3D; localStorage.getItem(&#x27;currentUser&#x27;);
+
+    if (currentUser &amp;&amp; rememberMe) {
+      const { email, password } &#x3D; JSON.parse(currentUser);
+      rememberedEmail &#x3D; email;
+      rememberedPassword &#x3D; password;
+    }
     this.loginForm &#x3D; this.fb.group({
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required]],
+      email: [rememberedEmail, Validators.required],
+      password: [rememberedPassword, Validators.required],
+      rememberMe: [rememberMe]
     });
   }
 
   submitForm(): void {
     const { email, password } &#x3D; this.loginForm.value;
-    this.usersService.loginSubmit(email, password,this.rememberMe);
-    this.showErrorMessage &#x3D; !this.usersService.getIsAuthenticated(); 
-    if (this.rememberMe) {
+    this.rememberMe &#x3D; this.loginForm.get(&#x27;rememberMe&#x27;)?.value;
 
+    if (this.rememberMe) {
+      localStorage.setItem(&#x27;rememberedEmail&#x27;, email);
+      localStorage.setItem(&#x27;rememberedPassword&#x27;, password);
       localStorage.setItem(&#x27;rememberMe&#x27;, &#x27;true&#x27;);
     } else {
+      localStorage.removeItem(&#x27;rememberedEmail&#x27;);
+      localStorage.removeItem(&#x27;rememberedPassword&#x27;);
       localStorage.removeItem(&#x27;rememberMe&#x27;);
     }
+    this.usersService.loginSubmit(email, password, this.rememberMe);
+    this.showErrorMessage &#x3D; !this.usersService.getIsAuthenticated();
+
     if (this.usersService.getIsAuthenticated()) {
       this.modalRef.close();
     }
   }
-  
-  openRegister()
-  {
+
+  openRegister() {
     this.modalRef.close();
     this.usersService.openRegister();
   }
@@ -521,51 +582,41 @@ export class LoginComponent implements OnInit {
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;form nz-form [formGroup]&#x3D;&quot;loginForm&quot; (ngSubmit)&#x3D;&quot;submitForm()&quot;&gt;
-    
-    &lt;nz-form-item&gt;
-      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzRequired nzFor&#x3D;&quot;email&quot;&gt;E-mail&lt;/nz-form-label&gt;
-      
-      &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;The input is not a valid E-mail!&quot;&gt;
-        &lt;input nz-input formControlName&#x3D;&quot;email&quot; placeholder&#x3D;&quot;e-mail&quot; id&#x3D;&quot;email&quot; /&gt;
-      &lt;/nz-form-control&gt;
-    &lt;/nz-form-item&gt;
-    &lt;nz-form-item&gt;
-      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;password&quot; nzRequired&gt;Password&lt;/nz-form-label&gt;
-      &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;Please input your password!&quot;&gt;
-        &lt;input
-          nz-input
-          type&#x3D;&quot;password&quot;
-          id&#x3D;&quot;password&quot;
-          formControlName&#x3D;&quot;password&quot;
-          placeholder&#x3D;&quot;password&quot;
-        /&gt;
-      &lt;/nz-form-control&gt;
-  
-    &lt;/nz-form-item&gt;
-    &lt;nz-form-item nz-row class&#x3D;&quot;login-area&quot;&gt;
-      &lt;nz-form-control [nzSpan]&#x3D;&quot;14&quot; [nzOffset]&#x3D;&quot;6&quot;&gt;
-        &lt;button nz-button nzType&#x3D;&quot;primary&quot; (click)&#x3D;&quot;submitForm()&quot;&gt;Login&lt;/button&gt;
-        &lt;br&gt;
-        &lt;div class&#x3D;&quot;pretty p-icon p-round p-pulse&quot;&gt;
-          &lt;input type&#x3D;&quot;checkbox&quot; /&gt;
-          &lt;div class&#x3D;&quot;state p-success&quot;&gt;
-            &lt;p&gt;
-              &lt;i class&#x3D;&quot;icon mdi mdi-check&quot;&gt;&lt;/i&gt;
-              &lt;label&gt;Remember me!&lt;/label&gt;
-            &lt;/p&gt;
-          &lt;/div&gt;
+
+  &lt;nz-form-item&gt;
+    &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzRequired nzFor&#x3D;&quot;email&quot;&gt;E-mail&lt;/nz-form-label&gt;
+    &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;The input is not a valid E-mail!&quot;&gt;
+      &lt;input nz-input formControlName&#x3D;&quot;email&quot; placeholder&#x3D;&quot;e-mail&quot; id&#x3D;&quot;email&quot; /&gt;
+    &lt;/nz-form-control&gt;
+  &lt;/nz-form-item&gt;
+  &lt;nz-form-item&gt;
+    &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;password&quot; nzRequired&gt;Password&lt;/nz-form-label&gt;
+    &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;Please input your password!&quot;&gt;
+      &lt;input nz-input type&#x3D;&quot;password&quot; id&#x3D;&quot;password&quot; formControlName&#x3D;&quot;password&quot; placeholder&#x3D;&quot;password&quot; /&gt;
+    &lt;/nz-form-control&gt;
+  &lt;/nz-form-item&gt;
+
+  &lt;nz-form-item nz-row class&#x3D;&quot;login-area&quot;&gt;
+    &lt;nz-form-control [nzSpan]&#x3D;&quot;14&quot; [nzOffset]&#x3D;&quot;6&quot;&gt;
+      &lt;button nz-button nzType&#x3D;&quot;primary&quot; (click)&#x3D;&quot;submitForm()&quot;&gt;Login&lt;/button&gt;
+      &lt;br&gt;&lt;br&gt;
+      &lt;div class&#x3D;&quot;pretty p-icon p-round p-pulse&quot;&gt;
+        &lt;input type&#x3D;&quot;checkbox&quot; formControlName&#x3D;&quot;rememberMe&quot; /&gt;
+        &lt;div class&#x3D;&quot;state p-success&quot;&gt;
+          &lt;p&gt;
+            &lt;i class&#x3D;&quot;icon mdi mdi-check&quot;&gt;&lt;/i&gt;
+            &lt;label&gt;Remember me!&lt;/label&gt;
+          &lt;/p&gt;
         &lt;/div&gt;
-        
-        &lt;br&gt;&lt;br&gt;
-        &lt;div *ngIf&#x3D;&quot;showErrorMessage&quot; class&#x3D;&quot;error-message&quot;&gt;
-          It doesn&#x27;t exists an account with this e-mail, please
-          &lt;button class&#x3D;&quot;underline-button&quot; (click)&#x3D;&quot;openRegister()&quot;&gt;Register&lt;/button&gt;
-        &lt;/div&gt;
-   
-      &lt;/nz-form-control&gt;
-    &lt;/nz-form-item&gt;
-  &lt;/form&gt;
-  </code></pre>
+      &lt;/div&gt;
+      &lt;br&gt;
+      &lt;div&gt;
+        Or
+        &lt;button class&#x3D;&quot;underline-button&quot; (click)&#x3D;&quot;openRegister()&quot;&gt;register now!&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/nz-form-control&gt;
+  &lt;/nz-form-item&gt;
+&lt;/form&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
@@ -573,28 +624,65 @@ export class LoginComponent implements OnInit {
                     <code>./login.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.underline-button {
-    background: none;
-    border: none;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  .pretty {
-    display: flex;
-    align-items: center; /* Alinează vertical elementele pe aceeași linie */
-  }
-  
-  .pretty input[type&#x3D;&quot;checkbox&quot;] {
-    margin-right: 5px; /* Spațiu între checkbox și text */
-  }
-  
-  .pretty p {
-    margin: 0; /* Elimină spațiul în jurul paragrafului */
-  }
-  .pretty label {
-    margin-top: 2px; /* Ajustați această valoare pentru a obține alinierea dorită */
-  }
-    
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pretty {
+  display: flex;
+  align-items: center;
+}
+
+.pretty input[type&#x3D;&quot;checkbox&quot;] {
+  margin-right: 5px;
+}
+
+.pretty p {
+  margin: 0;
+}
+
+.pretty label {
+  margin-top: 2px;
+}
+
+/* Updated modern and pleasing design */
+
+.underline-button {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out; /* Add smooth color transition */
+}
+
+.underline-button:hover {
+  color: #ff4081; /* Change color on hover */
+  text-decoration: underline;
+}
+
+.pretty {
+  display: flex;
+  align-items: flex-start; /* Adjust alignment */
+  gap: 10px; /* Add some space between elements */
+}
+
+.pretty input[type&#x3D;&quot;checkbox&quot;] {
+  margin-right: 10px; /* Increase space between checkbox and text */
+}
+
+.pretty p {
+  margin: 0;
+  font-size: 16px; /* Adjust font size */
+}
+
+.pretty label {
+  margin-top: 4px; /* Adjust spacing */
+  font-weight: bold; /* Make labels bold */
+}
   </code></pre>
     </div>
 
@@ -623,7 +711,7 @@ export class LoginComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form nz-form [formGroup]="loginForm" (ngSubmit)="submitForm()">        <nz-form-item>      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not a valid E-mail!">        <input nz-input formControlName="email" placeholder="e-mail" id="email" />      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">        <input          nz-input          type="password"          id="password"          formControlName="password"          placeholder="password"        />      </nz-form-control>      </nz-form-item>    <nz-form-item nz-row class="login-area">      <nz-form-control [nzSpan]="14" [nzOffset]="6">        <button nz-button nzType="primary" (click)="submitForm()">Login</button>        <br>        <div class="pretty p-icon p-round p-pulse">          <input type="checkbox" />          <div class="state p-success">            <p>              <i class="icon mdi mdi-check"></i>              <label>Remember me!</label>            </p>          </div>        </div>                <br><br>        <div *ngIf="showErrorMessage" class="error-message">          It doesn\'t exists an account with this e-mail, please          <button class="underline-button" (click)="openRegister()">Register</button>        </div>         </nz-form-control>    </nz-form-item>  </form>  </div>'
+        var COMPONENT_TEMPLATE = '<div><form nz-form [formGroup]="loginForm" (ngSubmit)="submitForm()">  <nz-form-item>    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not a valid E-mail!">      <input nz-input formControlName="email" placeholder="e-mail" id="email" />    </nz-form-control>  </nz-form-item>  <nz-form-item>    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">      <input nz-input type="password" id="password" formControlName="password" placeholder="password" />    </nz-form-control>  </nz-form-item>  <nz-form-item nz-row class="login-area">    <nz-form-control [nzSpan]="14" [nzOffset]="6">      <button nz-button nzType="primary" (click)="submitForm()">Login</button>      <br><br>      <div class="pretty p-icon p-round p-pulse">        <input type="checkbox" formControlName="rememberMe" />        <div class="state p-success">          <p>            <i class="icon mdi mdi-check"></i>            <label>Remember me!</label>          </p>        </div>      </div>      <br>      <div>        Or        <button class="underline-button" (click)="openRegister()">register now!</button>      </div>    </nz-form-control>  </nz-form-item></form></div>'
     var COMPONENTS = [{'name': 'AllTripsComponent', 'selector': 'app-all-trips'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HomeViewComponent', 'selector': 'app-home-view'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MyTripsComponent', 'selector': 'app-my-trips'},{'name': 'MyTripsTableComponent', 'selector': 'app-my-trips-table'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TripCardComponent', 'selector': 'app-trip-card'},{'name': 'TripFormComponent', 'selector': 'app-trip-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};

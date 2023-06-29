@@ -399,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:35</a></div>
                 </td>
             </tr>
 
@@ -436,8 +436,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:85</a></div>
                 </td>
             </tr>
 
@@ -505,8 +505,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:64</a></div>
                 </td>
             </tr>
 
@@ -574,8 +574,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:75</a></div>
                 </td>
             </tr>
 
@@ -655,8 +655,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/main/components/trip/trip-form/trip-form.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -772,25 +772,24 @@ import { TripsService } from &#x27;src/app/main/services/trips.service&#x27;;
   templateUrl: &#x27;./trip-form.component.html&#x27;,
   styleUrls: [&#x27;./trip-form.component.scss&#x27;]
 })
-export class TripFormComponent implements OnInit{
-   editMode &#x3D; false;
-   validateForm: FormGroup;
-   selectedFile: File | null | undefined;
-   
+export class TripFormComponent implements OnInit {
+  editMode &#x3D; false;
+  validateForm: FormGroup;
+  selectedFile: File | null | undefined;
+
   @Input() tripIndex: number | null &#x3D; null;
   @Input() tripToEdit: Trip | null &#x3D; null;
   @Output() formSubmitted &#x3D; new EventEmitter&lt;void&gt;();
 
-  constructor(private fb: FormBuilder, private tripsService: TripsService, private modalRef: NzModalRef)
-   {
+  constructor(private fb: FormBuilder, private tripsService: TripsService, private modalRef: NzModalRef) {
     this.validateForm &#x3D; this.fb.group({
       country: [&#x27;&#x27;, [Validators.required]],
       city: [&#x27;&#x27;, [Validators.required]],
       attraction: [&#x27;&#x27;, [Validators.required]],
       restaurant: [&#x27;&#x27;, [Validators.required]],
-      image:&quot;assets/default.jpg&quot;,
+      image: &quot;assets/default.jpg&quot;,
       id: null,
-      userEmail:null,
+      userEmail: null,
       likes: null,
       likedByCurrentUser: false,
     });
@@ -799,38 +798,33 @@ export class TripFormComponent implements OnInit{
   ngOnInit(): void {
     if (this.tripToEdit &amp;&amp; this.tripIndex !&#x3D;&#x3D; null) {
       this.setFormData(this.tripToEdit, this.tripIndex);
+    }
   }
-}
 
-  
   submitForm(): void {
     console.log(&#x27;submit&#x27;, this.validateForm.value);
     if (this.validateForm.valid) {
       const formValue &#x3D; this.validateForm.value;
-      this.validateForm.value.id&#x3D;this.tripToEdit?.id;
-      this.validateForm.value.likes&#x3D;this.tripToEdit?.likes;
-      this.validateForm.value.userEmail&#x3D;this.tripToEdit?.userEmail;
-    if (this.editMode &amp;&amp; this.tripIndex !&#x3D;&#x3D; null) 
-    {
-      console.log(&quot;editare din form&quot; ,this.tripToEdit?.id );
-      console.log(&quot;editare din form index&quot; ,this.tripIndex );
-      this.tripsService.editTrip(formValue,this.tripIndex);
-    } 
-    else 
-    {
-      this.tripsService.addTrip(formValue);
+      this.validateForm.value.id &#x3D; this.tripToEdit?.id;
+      this.validateForm.value.likes &#x3D; this.tripToEdit?.likes;
+      this.validateForm.value.userEmail &#x3D; this.tripToEdit?.userEmail;
+
+      if (this.editMode &amp;&amp; this.tripIndex !&#x3D;&#x3D; null) {
+        this.tripsService.editTrip(formValue, this.tripIndex);
+      }
+      else {
+        this.tripsService.addTrip(formValue);
+      }
+
+      this.resetForm(new MouseEvent(&#x27;click&#x27;, { bubbles: true, cancelable: true, view: window }));
+      this.editMode &#x3D; false;
+      this.tripIndex &#x3D; null;
+      this.modalRef.close();
+      this.formSubmitted.emit();
     }
-
-    this.resetForm(new MouseEvent(&#x27;click&#x27;, { bubbles: true, cancelable: true, view: window }));
-    this.editMode &#x3D; false;
-    this.tripIndex &#x3D; null;
-    this.modalRef.close();
-    this.formSubmitted.emit();
   }
-}
 
-  resetForm(e: MouseEvent): void 
-  {
+  resetForm(e: MouseEvent): void {
     e.preventDefault();
     this.validateForm.reset();
     for (const key in this.validateForm.controls) {
@@ -840,74 +834,95 @@ export class TripFormComponent implements OnInit{
       }
     }
   }
+
   setFormData(trip: Trip, index: number) {
-    
-  const updatedTrip &#x3D; {
-    ...trip,
-  };
+
+    const updatedTrip &#x3D; {
+      ...trip,
+    };
     this.validateForm.patchValue(updatedTrip);
     this.tripIndex &#x3D; index;
     this.editMode &#x3D; true;
   }
 
-
-
-onFileSelected(event: any): void {
-  this.selectedFile &#x3D; event.target.files[0] as File;
-}
-
-  
-
-
+  onFileSelected(event: any): void {
+    this.selectedFile &#x3D; event.target.files[0] as File;
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;form nz-form [formGroup]&#x3D;&quot;validateForm&quot; (ngSubmit)&#x3D;&quot;submitForm()&quot;&gt;
-    &lt;nz-form-item&gt;
-      &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Country&lt;/nz-form-label&gt;
-      &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 5 letters!&quot;&gt;
-        &lt;input nz-input formControlName&#x3D;&quot;country&quot; placeholder&#x3D;&quot;country&quot; minlength&#x3D;&quot;5&quot;/&gt;
-      &lt;/nz-form-control&gt;
-    &lt;/nz-form-item&gt;
+  &lt;nz-form-item&gt;
+    &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Country&lt;/nz-form-label&gt;
+    &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 4 letters!&quot;&gt;
+      &lt;input nz-input formControlName&#x3D;&quot;country&quot; placeholder&#x3D;&quot;country&quot; minlength&#x3D;&quot;4&quot; /&gt;
+    &lt;/nz-form-control&gt;
+  &lt;/nz-form-item&gt;
 
-    &lt;nz-form-item&gt;
-        &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;City&lt;/nz-form-label&gt;
-        &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 5 letters!&quot;&gt;
-          &lt;input nz-input formControlName&#x3D;&quot;city&quot; placeholder&#x3D;&quot;city&quot; minlength&#x3D;&quot;5&quot;/&gt;
-        &lt;/nz-form-control&gt;
-      &lt;/nz-form-item&gt;
+  &lt;nz-form-item&gt;
+    &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;City&lt;/nz-form-label&gt;
+    &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 4 letters!&quot;&gt;
+      &lt;input nz-input formControlName&#x3D;&quot;city&quot; placeholder&#x3D;&quot;city&quot; minlength&#x3D;&quot;4&quot; /&gt;
+    &lt;/nz-form-control&gt;
+  &lt;/nz-form-item&gt;
 
-    &lt;nz-form-item&gt;
-      &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Attraction&lt;/nz-form-label&gt;
-      &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 5 letters!&quot;&gt;
-        &lt;input nz-input formControlName&#x3D;&quot;attraction&quot; placeholder&#x3D;&quot;ex: Pisa Tower, Eiffel Tower...&quot; minlength&#x3D;&quot;5&quot;/&gt;
-      &lt;/nz-form-control&gt;
-    &lt;/nz-form-item&gt;
+  &lt;nz-form-item&gt;
+    &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Attraction&lt;/nz-form-label&gt;
+    &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 4 letters!&quot;&gt;
+      &lt;input nz-input formControlName&#x3D;&quot;attraction&quot; placeholder&#x3D;&quot;ex: Pisa Tower, Eiffel Tower...&quot; minlength&#x3D;&quot;4&quot; /&gt;
+    &lt;/nz-form-control&gt;
+  &lt;/nz-form-item&gt;
 
-    &lt;nz-form-item&gt;
-      &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Restaurant/Café&lt;/nz-form-label&gt;
-      &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 5 letters!!&quot;&gt;
-        &lt;input nz-input formControlName&#x3D;&quot;restaurant&quot; placeholder&#x3D;&quot;cafe restaurant which you liked&quot; minlength&#x3D;&quot;5&quot;/&gt;
-      &lt;/nz-form-control&gt;
-    &lt;/nz-form-item&gt;
-    
-    &lt;nz-form-item&gt;
-      &lt;nz-form-control [nzOffset]&#x3D;&quot;7&quot; [nzSpan]&#x3D;&quot;12&quot;&gt;
-        &lt;button nz-button nzType&#x3D;&quot;primary&quot; [disabled]&#x3D;&quot;!validateForm.valid&quot;&gt;Submit&lt;/button&gt;
-        &lt;button nz-button (click)&#x3D;&quot;resetForm($event)&quot;&gt;Reset&lt;/button&gt;
-      &lt;/nz-form-control&gt;
-    &lt;/nz-form-item&gt;
-  &lt;/form&gt;
-  </code></pre>
+  &lt;nz-form-item&gt;
+    &lt;nz-form-label [nzSpan]&#x3D;&quot;7&quot; nzRequired&gt;Restaurant/Café&lt;/nz-form-label&gt;
+    &lt;nz-form-control [nzSpan]&#x3D;&quot;12&quot; nzHasFeedback nzErrorTip&#x3D;&quot;Please write at least 4 letters!!&quot;&gt;
+      &lt;input nz-input formControlName&#x3D;&quot;restaurant&quot; placeholder&#x3D;&quot;cafe restaurant which you liked&quot; minlength&#x3D;&quot;4&quot; /&gt;
+    &lt;/nz-form-control&gt;
+  &lt;/nz-form-item&gt;
+
+  &lt;nz-form-item&gt;
+    &lt;nz-form-control [nzOffset]&#x3D;&quot;7&quot; [nzSpan]&#x3D;&quot;12&quot;&gt;
+      &lt;div class&#x3D;&quot;&quot; button-container&gt;
+        &lt;button class&#x3D;&quot;button&quot; [disabled]&#x3D;&quot;!validateForm.valid&quot;&gt;Submit&lt;/button&gt;
+        &lt;button class&#x3D;&quot;button&quot; (click)&#x3D;&quot;resetForm($event)&quot;&gt;Reset&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/nz-form-control&gt;
+  &lt;/nz-form-item&gt;
+&lt;/form&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
                     <code>./trip-form.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.button {
+  background-color: rgb(42, 22, 106);
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: none;
+  transition-duration: 0.4s;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(21, 9, 60);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.button-container .button {
+  margin: 0 8px;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -935,7 +950,7 @@ onFileSelected(event: any): void {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">    <nz-form-item>      <nz-form-label [nzSpan]="7" nzRequired>Country</nz-form-label>      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 5 letters!">        <input nz-input formControlName="country" placeholder="country" minlength="5"/>      </nz-form-control>    </nz-form-item>    <nz-form-item>        <nz-form-label [nzSpan]="7" nzRequired>City</nz-form-label>        <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 5 letters!">          <input nz-input formControlName="city" placeholder="city" minlength="5"/>        </nz-form-control>      </nz-form-item>    <nz-form-item>      <nz-form-label [nzSpan]="7" nzRequired>Attraction</nz-form-label>      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 5 letters!">        <input nz-input formControlName="attraction" placeholder="ex: Pisa Tower, Eiffel Tower..." minlength="5"/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSpan]="7" nzRequired>Restaurant/Café</nz-form-label>      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 5 letters!!">        <input nz-input formControlName="restaurant" placeholder="cafe restaurant which you liked" minlength="5"/>      </nz-form-control>    </nz-form-item>        <nz-form-item>      <nz-form-control [nzOffset]="7" [nzSpan]="12">        <button nz-button nzType="primary" [disabled]="!validateForm.valid">Submit</button>        <button nz-button (click)="resetForm($event)">Reset</button>      </nz-form-control>    </nz-form-item>  </form>  </div>'
+        var COMPONENT_TEMPLATE = '<div><form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">  <nz-form-item>    <nz-form-label [nzSpan]="7" nzRequired>Country</nz-form-label>    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 4 letters!">      <input nz-input formControlName="country" placeholder="country" minlength="4" />    </nz-form-control>  </nz-form-item>  <nz-form-item>    <nz-form-label [nzSpan]="7" nzRequired>City</nz-form-label>    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 4 letters!">      <input nz-input formControlName="city" placeholder="city" minlength="4" />    </nz-form-control>  </nz-form-item>  <nz-form-item>    <nz-form-label [nzSpan]="7" nzRequired>Attraction</nz-form-label>    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 4 letters!">      <input nz-input formControlName="attraction" placeholder="ex: Pisa Tower, Eiffel Tower..." minlength="4" />    </nz-form-control>  </nz-form-item>  <nz-form-item>    <nz-form-label [nzSpan]="7" nzRequired>Restaurant/Café</nz-form-label>    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write at least 4 letters!!">      <input nz-input formControlName="restaurant" placeholder="cafe restaurant which you liked" minlength="4" />    </nz-form-control>  </nz-form-item>  <nz-form-item>    <nz-form-control [nzOffset]="7" [nzSpan]="12">      <div class="" button-container>        <button class="button" [disabled]="!validateForm.valid">Submit</button>        <button class="button" (click)="resetForm($event)">Reset</button>      </div>    </nz-form-control>  </nz-form-item></form></div>'
     var COMPONENTS = [{'name': 'AllTripsComponent', 'selector': 'app-all-trips'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HomeViewComponent', 'selector': 'app-home-view'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MyTripsComponent', 'selector': 'app-my-trips'},{'name': 'MyTripsTableComponent', 'selector': 'app-my-trips-table'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TripCardComponent', 'selector': 'app-trip-card'},{'name': 'TripFormComponent', 'selector': 'app-trip-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TripFormComponent'};

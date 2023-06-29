@@ -486,12 +486,12 @@ export class HomeViewComponent implements OnInit {
   constructor(private usersService: UsersService, private tripsService: TripsService) { }
 
   ngOnInit(): void {
-    this.homePageTitle&#x3D;&#x27;NEW ADVENTURE&#x27;;
+    this.homePageTitle &#x3D; &#x27;NEW ADVENTURE&#x27;;
     this.tripsService.ngOnInit();
-    this.currentUsername&#x3D;this.usersService.CurrentUsername;
+    this.currentUsername &#x3D; this.usersService.CurrentUsername;
   }
   openMyTrips(): void {
-   this.usersService.openMyTrips();
+    this.usersService.openMyTrips();
   }
   openAllTrips(): void {
     this.usersService.openAllTrips();
@@ -505,63 +505,148 @@ export class HomeViewComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">
-&lt;body&gt;
-&lt;div class&#x3D;&quot;background&quot; #discoverElement&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;body&gt;
+  &lt;div class&#x3D;&quot;background&quot; #discoverElement&gt;
     &lt;ul nz-menu nzMode&#x3D;&quot;inline&quot; class&#x3D;&quot;overlay-menu&quot;&gt;
-        &lt;li nz-submenu nzTitle&#x3D;&quot;More...&quot; nzIcon&#x3D;&quot;appstore&quot;&gt;
+      &lt;li nz-submenu nzTitle&#x3D;&quot;More...&quot; nzIcon&#x3D;&quot;appstore&quot;&gt;
         &lt;ul&gt;
           &lt;li nz-menu-item (click)&#x3D;&quot;openMyTrips()&quot;&gt;My trips&lt;/li&gt;
           &lt;li nz-menu-item (click)&#x3D;&quot;openAllTrips()&quot;&gt;View all trips&lt;/li&gt;
           &lt;li nz-menu-item&gt;
-            &lt;span class&#x3D;&quot;menu-item-text&quot; (click)&#x3D;&quot;logout()&quot;&gt;Log out&lt;/span&gt; 
+            &lt;span class&#x3D;&quot;menu-item-text&quot; (click)&#x3D;&quot;logout()&quot;&gt;Log out&lt;/span&gt;
             &lt;span nz-icon nzType&#x3D;&quot;logout&quot; nzTheme&#x3D;&quot;outline&quot;&gt;&lt;/span&gt;
-                &lt;/li&gt;
-                
-          
+          &lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;/ul&gt;
+    &lt;/ul&gt;
     &lt;div class&#x3D;&quot;title&quot;&gt;
-        &lt;p&gt;Discover the colorful world, {{currentUsername}}!&lt;/p&gt;&lt;br&gt;
+      &lt;p&gt;Discover the colorful world, {{currentUsername}} !&lt;/p&gt;
+      &lt;hr&gt;
     &lt;/div&gt;
-&lt;/div&gt;
-&lt;/body&gt;
-</code></pre>
+    &lt;br&gt;&lt;br&gt;&lt;br&gt; &lt;br&gt;&lt;br&gt;&lt;br&gt;
+    &lt;div class&#x3D;&quot;container&quot;&gt;
+      &lt;div class&#x3D;&quot;column&quot;&gt;
+        &lt;h1&gt;Travel&lt;/h1&gt;
+        &lt;h2&gt;Travel anywhere with us&lt;/h2&gt;
+        &lt;h3&gt;Our experienced writers travel the world to bring you informative and inspirational features, destination
+          round-ups, travel ideas, tips and beautiful photos in order to help you plan your next holiday.&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;column&quot;&gt;
+        &lt;h1&gt;Travel Arrangements&lt;/h1&gt;
+        &lt;h2&gt;Get ready for your perfect journey&lt;/h2&gt;
+        &lt;h3&gt;We have plans, lists, itineraries for all kinds of journeys whether it is about a cruise, a jungle trip, or
+          hiking on a mountain. We are prepared for any kind of adventure you want to choose.&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;column&quot;&gt;
+        &lt;h1&gt;Our professional guide&lt;/h1&gt;
+        &lt;h2&gt;Discover places that you&#x27;ve only seen in movies with our guides&lt;/h2&gt;
+        &lt;h3&gt;Are you afraid you will miss a place and be sad that you didn&#x27;t find it on your trip? No worries! Our guides
+          know everything you must see in your trip, so you don&#x27;t need to stress about missing something.&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;column&quot;&gt;
+        &lt;h1&gt;Activities&lt;/h1&gt;
+        &lt;h2&gt;Are you getting bored fast?&lt;/h2&gt;
+        &lt;h3&gt;Our partners will arrange everything for you to be sure that you will have no time to stay on your phone
+          during your trip. We will prepare different kinds of activities specific to the zone you travel to, and you
+          will make unforgettable memories with new people.&lt;/h3&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
                     <code>./home-view.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.background{
-    background-image: url(../../../../../assets/background.jpg);
-    height: 595px;
+                <pre class="line-numbers"><code class="language-scss">.background {
+    background-image: url(../../../../../assets/peakp.jpg);
+    min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    position:relative;
-} 
-.overlay-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200px;
-    z-index: 999;
+    position: relative;
+    margin: 0;
+    padding: 0;
   }
-.title
-{
+  
+  .title {
     font-family: &#x27;Courier New&#x27;, Courier, monospace;
-    font-size: 30px;
-    color:rgb(80, 97, 170);
+    font-size: 40px;
+    color: white;
     text-align: center;
     position: relative;
-    top:10%;
+
+    margin-bottom: 20px;
+    top: 80px;
     line-height: 12px;
     font-family: &#x27;Helvetica&#x27;;
     font-weight: bold;
-}
+    text-shadow: 4px 4px 4px rgba(0.8, 0.8, 0.8, 0.8);
+  }
+  
+  .overlay-menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 200px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
   .menu-item-text {
-    margin-right: 8px; 
+    margin-right: 8px;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+   
+  
+    
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .column {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+
+  
+  .column h1 {
+    font-family: &#x27;Helvetica&#x27;;
+    color: rgb(42, 22, 106);
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .column h2 {
+    font-family: &#x27;Helvetica&#x27;;
+    color: rgb(80, 97, 170);
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .column h3 {
+    font-family: &#x27;Helvetica&#x27;;
+    font-size: 13px;
+    color: rgb(57, 57, 57);
+    text-align: center;
+  }
+  
+  hr {
+  
+    width: 700px;
+    border: none;
+    border-top: 1px solid rgb(80, 97, 170);
   }
   </code></pre>
     </div>
@@ -591,7 +676,7 @@ export class HomeViewComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><body><div class="background" #discoverElement>    <ul nz-menu nzMode="inline" class="overlay-menu">        <li nz-submenu nzTitle="More..." nzIcon="appstore">        <ul>          <li nz-menu-item (click)="openMyTrips()">My trips</li>          <li nz-menu-item (click)="openAllTrips()">View all trips</li>          <li nz-menu-item>            <span class="menu-item-text" (click)="logout()">Log out</span>             <span nz-icon nzType="logout" nzTheme="outline"></span>                </li>                                  </ul>      </li>      </ul>    <div class="title">        <p>Discover the colorful world, {{currentUsername}}!</p><br>    </div></div></body></div>'
+        var COMPONENT_TEMPLATE = '<div><body>  <div class="background" #discoverElement>    <ul nz-menu nzMode="inline" class="overlay-menu">      <li nz-submenu nzTitle="More..." nzIcon="appstore">        <ul>          <li nz-menu-item (click)="openMyTrips()">My trips</li>          <li nz-menu-item (click)="openAllTrips()">View all trips</li>          <li nz-menu-item>            <span class="menu-item-text" (click)="logout()">Log out</span>            <span nz-icon nzType="logout" nzTheme="outline"></span>          </li>        </ul>      </li>    </ul>    <div class="title">      <p>Discover the colorful world, {{currentUsername}} !</p>      <hr>    </div>    <br><br><br> <br><br><br>    <div class="container">      <div class="column">        <h1>Travel</h1>        <h2>Travel anywhere with us</h2>        <h3>Our experienced writers travel the world to bring you informative and inspirational features, destination          round-ups, travel ideas, tips and beautiful photos in order to help you plan your next holiday.</h3>      </div>      <div class="column">        <h1>Travel Arrangements</h1>        <h2>Get ready for your perfect journey</h2>        <h3>We have plans, lists, itineraries for all kinds of journeys whether it is about a cruise, a jungle trip, or          hiking on a mountain. We are prepared for any kind of adventure you want to choose.</h3>      </div>      <div class="column">        <h1>Our professional guide</h1>        <h2>Discover places that you\'ve only seen in movies with our guides</h2>        <h3>Are you afraid you will miss a place and be sad that you didn\'t find it on your trip? No worries! Our guides          know everything you must see in your trip, so you don\'t need to stress about missing something.</h3>      </div>      <div class="column">        <h1>Activities</h1>        <h2>Are you getting bored fast?</h2>        <h3>Our partners will arrange everything for you to be sure that you will have no time to stay on your phone          during your trip. We will prepare different kinds of activities specific to the zone you travel to, and you          will make unforgettable memories with new people.</h3>      </div>    </div>  </div></body></div>'
     var COMPONENTS = [{'name': 'AllTripsComponent', 'selector': 'app-all-trips'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HomeViewComponent', 'selector': 'app-home-view'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MyTripsComponent', 'selector': 'app-my-trips'},{'name': 'MyTripsTableComponent', 'selector': 'app-my-trips-table'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TripCardComponent', 'selector': 'app-trip-card'},{'name': 'TripFormComponent', 'selector': 'app-trip-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeViewComponent'};

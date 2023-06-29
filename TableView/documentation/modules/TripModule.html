@@ -270,6 +270,7 @@ import { NzFormModule } from &#x27;ng-zorro-antd/form&#x27;;
 import { AllTripsComponent } from &#x27;./all-trips/all-trips.component&#x27;;
 import { TripCardComponent } from &#x27;./trip-card/trip-card.component&#x27;;
 import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
+import { NzSpinModule } from &#x27;ng-zorro-antd/spin&#x27;;
 
 
 @NgModule({
@@ -280,7 +281,7 @@ import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
     TripFormComponent,
     AllTripsComponent,
     TripCardComponent
-     
+
   ],
   imports: [
     CommonModule,
@@ -293,7 +294,8 @@ import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
     NzFormModule,
     ReactiveFormsModule,
     NzIconModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NzSpinModule
 
   ]
 })

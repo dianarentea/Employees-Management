@@ -105,13 +105,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/TripModule.html" data-type="entity-link" >TripModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-TripModule-37b625f8eafb6960f0f4069350bf5ba543943e1b9fdf10801047c57e19159708045163a0bed4d7e9e42e6d41ab0c720a1b466b918207d5eaab6d0b1d581cf455"' : 'data-bs-target="#xs-components-links-module-TripModule-37b625f8eafb6960f0f4069350bf5ba543943e1b9fdf10801047c57e19159708045163a0bed4d7e9e42e6d41ab0c720a1b466b918207d5eaab6d0b1d581cf455"' }>
+                                            'data-bs-target="#components-links-module-TripModule-61f9589d76df359c5d352e43088255efe03d521592fec433212099dff06e317ae929d6ccb70014b884404c4ecd897e0c31c50f2647926052fbf4f3f8931d5043"' : 'data-bs-target="#xs-components-links-module-TripModule-61f9589d76df359c5d352e43088255efe03d521592fec433212099dff06e317ae929d6ccb70014b884404c4ecd897e0c31c50f2647926052fbf4f3f8931d5043"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-TripModule-37b625f8eafb6960f0f4069350bf5ba543943e1b9fdf10801047c57e19159708045163a0bed4d7e9e42e6d41ab0c720a1b466b918207d5eaab6d0b1d581cf455"' :
-                                            'id="xs-components-links-module-TripModule-37b625f8eafb6960f0f4069350bf5ba543943e1b9fdf10801047c57e19159708045163a0bed4d7e9e42e6d41ab0c720a1b466b918207d5eaab6d0b1d581cf455"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-TripModule-61f9589d76df359c5d352e43088255efe03d521592fec433212099dff06e317ae929d6ccb70014b884404c4ecd897e0c31c50f2647926052fbf4f3f8931d5043"' :
+                                            'id="xs-components-links-module-TripModule-61f9589d76df359c5d352e43088255efe03d521592fec433212099dff06e317ae929d6ccb70014b884404c4ecd897e0c31c50f2647926052fbf4f3f8931d5043"' }>
                                             <li class="link">
                                                 <a href="components/AllTripsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AllTripsComponent</a>
                                             </li>

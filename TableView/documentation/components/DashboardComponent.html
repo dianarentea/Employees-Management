@@ -189,7 +189,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/main/components/dashboard/dashboard.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/main/components/dashboard/dashboard.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -330,8 +330,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/main/components/dashboard/dashboard.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">src/app/main/components/dashboard/dashboard.component.ts:21</a></div>
                 </td>
             </tr>
 
@@ -373,7 +373,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/main/components/dashboard/dashboard.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/main/components/dashboard/dashboard.component.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -394,126 +394,118 @@ import { UsersService } from &#x27;../../services/users.service&#x27;;
   templateUrl: &#x27;./dashboard.component.html&#x27;,
   styleUrls: [&#x27;./dashboard.component.scss&#x27;]
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
+
   homePageTitle?: string;
 
-  constructor(private usersService:UsersService) 
-  { }
+  constructor(private usersService: UsersService) { }
   ngOnInit(): void {
-    this.homePageTitle&#x3D;&#x27;NEW ADVENTURE&#x27;;
+    this.homePageTitle &#x3D; &#x27;NEW ADVENTURE&#x27;;
     this.usersService.ngOnInit();
   }
-openLogin()
-{
-  this.usersService.openLogin();
-}
-openRegister()
-{
-  this.usersService.openRegister();
-}
+  openLogin() {
+    this.usersService.openLogin();
+  }
+  openRegister() {
+    this.usersService.openRegister();
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-      &lt;div class&#x3D;&quot;title&quot;&gt;
-        &lt;p id&#x3D;&quot;one&quot;&gt;Discover the colorful world!&lt;/p&gt;&lt;br&gt;
-        &lt;p id&#x3D;&quot;two&quot;&gt;{{homePageTitle}}&lt;/p&gt;
-        &lt;hr&gt;
-        &lt;p id&#x3D;&quot;three&quot;&gt;Fill your life with adventures, not things. Have stories to tell, not stuff to show!&lt;/p&gt;
-        &lt;br&gt;&lt;br&gt;
-        &lt;button  class&#x3D;&quot;buttonExplore&quot; (click)&#x3D;&quot;openLogin()&quot; &gt;LOGIN&lt;/button&gt;
-
-        
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+  &lt;div class&#x3D;&quot;title&quot;&gt;
+    &lt;p id&#x3D;&quot;one&quot;&gt;Discover the colorful world!&lt;/p&gt;&lt;br&gt;
+    &lt;p id&#x3D;&quot;two&quot;&gt;{{homePageTitle}}&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p id&#x3D;&quot;three&quot;&gt;Fill your life with adventures, not things. Have stories to tell, not stuff to show!&lt;/p&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;button class&#x3D;&quot;buttonExplore&quot; (click)&#x3D;&quot;openLogin()&quot;&gt;LOGIN&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
                     <code>./dashboard.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">h1{
-    color: rgb(85, 111, 194);
-    text-align: center;
-    font-family: &#x27;Times New Roman&#x27;, Times, serif;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 50px;
-}
-.container{
-    background-image: url(../../../../assets/background.jpg);
+                <pre class="line-numbers"><code class="language-scss">.container {
+    background-image: url(../../../../assets/peakpx.jpg);
     background-size: cover;
-    height: 595px;
-    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-repeat: no-repeat;
     text-align: center;
-    position: relative;
-    margin: 0px;
-    padding: 0px;
-}
-.buttonLogin{
-    background-color: rgb(228, 226, 229);
-    font-size: 20px;
-    padding: 4px 15px;
-    border-radius: 15px;
-    border-color: #a385c1;
-    color: #a385c1;
-    font-family: &#x27;Helvetica&#x27;;
-    transition-duration: 0.4s;
-    position: relative;
-    top:30%
-}
-.title
-{
-    font-family: &#x27;Courier New&#x27;, Courier, monospace;
-    font-size: 20px;
-    color:white;
-    text-align: center;
-    position: relative;
-    top:35%;
-    line-height: 12px;
-}
-hr{
-    width:700px;
-}
-#one
-{
-    font-family: &#x27;Helvetica&#x27;;
-    color:white;
-    font-size: 25px;
-}
-#two
-{
-    font-family: &#x27;Helvetica&#x27;;
-    color:white;
-    font-size: 45px;
-    font-weight: bold;
-}
-#three
-{
-    font-family: &#x27;Helvetica&#x27;;
-    color:white;
-    font-size: 20px;
-}
-.buttonExplore{
-    background-color:rgb(33, 73, 134);
-    font-size: 25px;
-    padding: 4px 15px;
-    border-radius: 10px;
-    border-color: #ececec;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .title {
+    font-family: &#x27;Arial&#x27;, sans-serif;
+    font-size: 30px;
     color: #ffffff;
-    font-family: &#x27;Helvetica&#x27;;
+    text-align: center;
+  }
+  
+  #one {
+    font-size: 28px;
+    color: #ffffff; /* White color */
+  }
+  
+  #two {
+    font-size: 60px;
+    color: #ffffff;
+   font-weight: bolder;
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+  
+  
+  
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateX(5px);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+  }
+  
+  #three {
+    font-size: 20px;
+    color: #342234; 
+    background-color: rgba(255, 255, 255, 0.6); 
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .buttonExplore {
+    background: linear-gradient(to bottom, #342234, #342234);
+    font-size: 25px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    font-family: &#x27;Arial&#x27;, sans-serif;
     transition-duration: 0.4s;
-    position: relative;
-    top:50%;
-    height: 30px;
-}
-.buttonExplore:hover {
-    background-color: #afc0d6;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  
+  
+  .buttonExplore:hover {
+    background: linear-gradient(to bottom, #ffffff, #ffffff); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #342234;
+    transform: scale(1.05);
+  }
+  hr {
+margin-top: -50px;
+    width: 700px;
+    border: none;
+    border-top: 1px solid #FDD7CA;
   }</code></pre>
     </div>
 
@@ -542,7 +534,7 @@ hr{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">      <div class="title">        <p id="one">Discover the colorful world!</p><br>        <p id="two">{{homePageTitle}}</p>        <hr>        <p id="three">Fill your life with adventures, not things. Have stories to tell, not stuff to show!</p>        <br><br>        <button  class="buttonExplore" (click)="openLogin()" >LOGIN</button>            </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="title">    <p id="one">Discover the colorful world!</p><br>    <p id="two">{{homePageTitle}}</p>    <hr>    <p id="three">Fill your life with adventures, not things. Have stories to tell, not stuff to show!</p>    <br><br>    <button class="buttonExplore" (click)="openLogin()">LOGIN</button>  </div></div></div>'
     var COMPONENTS = [{'name': 'AllTripsComponent', 'selector': 'app-all-trips'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HomeViewComponent', 'selector': 'app-home-view'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MyTripsComponent', 'selector': 'app-my-trips'},{'name': 'MyTripsTableComponent', 'selector': 'app-my-trips-table'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TripCardComponent', 'selector': 'app-trip-card'},{'name': 'TripFormComponent', 'selector': 'app-trip-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
