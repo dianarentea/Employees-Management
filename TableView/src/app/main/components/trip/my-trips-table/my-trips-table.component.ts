@@ -46,4 +46,8 @@ export class MyTripsTableComponent implements OnInit {
     console.log("editare",trip.id);
     this.tripsService.openEditTripModal(trip, index);
   }
+  get showLoading(): boolean {
+    return this.tripsService.isFormSubmitting;
+  }
+  
 }

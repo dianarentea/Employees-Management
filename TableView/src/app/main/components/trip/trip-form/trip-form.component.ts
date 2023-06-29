@@ -42,11 +42,13 @@ export class TripFormComponent implements OnInit{
   
   submitForm(): void {
     console.log('submit', this.validateForm.value);
-    if (this.validateForm.valid) {
+    if (this.validateForm.valid) 
+    {
       const formValue = this.validateForm.value;
       this.validateForm.value.id=this.tripToEdit?.id;
       this.validateForm.value.likes=this.tripToEdit?.likes;
       this.validateForm.value.userEmail=this.tripToEdit?.userEmail;
+
     if (this.editMode && this.tripIndex !== null) 
     {
       console.log("editare din form" ,this.tripToEdit?.id );

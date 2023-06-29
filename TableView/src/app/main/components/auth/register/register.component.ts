@@ -12,10 +12,15 @@ import { UsersService } from 'src/app/main/services/users.service';
 })
 export class RegisterComponent implements OnInit {
 
+  registerForm!: FormGroup;
 
   constructor(private fb: UntypedFormBuilder, private usersService:UsersService, private modalRef:NzModalRef ){}
 
   ngOnInit(): void {
+   this.initializeRegisterForm();
+  }
+  
+  initializeRegisterForm(): void {
     this.registerForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       firstname: [null, [Validators.required]],
@@ -26,7 +31,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  registerForm!: FormGroup;
 
   submitForm(): void {
     const{email,firstname,lastname,password}=this.registerForm.value;

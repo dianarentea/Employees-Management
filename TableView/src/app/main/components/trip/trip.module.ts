@@ -17,6 +17,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { AllTripsComponent } from './all-trips/all-trips.component';
 import { TripCardComponent } from './trip-card/trip-card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NzFormModule,
     ReactiveFormsModule,
     NzIconModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NzSpinModule
 
   ]
 })

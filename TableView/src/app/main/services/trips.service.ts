@@ -16,6 +16,9 @@ export class TripsService implements OnInit {
   tripsListSubject=new Subject<Trip[]>();
   tripsListObservable=this.tripsListSubject.asObservable();
 
+   isFormSubmitting: boolean = false;
+
+
   constructor(private modalService: NzModalService, private usersService: UsersService, private http:HttpClient) 
   { 
     this.http.get<Trip[]>('http://localhost:3000/trips').subscribe((trips:Trip[])=>{
@@ -37,18 +40,28 @@ export class TripsService implements OnInit {
     return this.tripsListCurrentUser;
   }
 
-  deleteTrip(trip: Trip): void
-  {
-    const index = this.tripsList.indexOf(trip);
-    this.http.delete('http://localhost:3000/trips/'+trip.id).subscribe((res)=>{
-    console.log('res',res);});
-    this.tripsList.splice(index, 1);
-    this.tripsListSubject.next([...this.tripsList]);
-    this.updateTripsListCurrentUser();
+  async deleteTrip(trip: Trip): Promise<void> {
+    try {
+      this.isFormSubmitting = true;
+      const index = this.tripsList.indexOf(trip);
+      await this.http.delete('http://localhost:3000/trips/' + trip.id).toPromise();
+  
+      this.tripsList.splice(index, 1);
+      this.tripsListSubject.next([...this.tripsList]);
+  
+      await this.updateTripsListCurrentUser();
+    } catch (error) {
+      console.error(error);
+    }finally {
+      this.isFormSubmitting = false;
+    }
+
   }
+  
   
   async addTrip(trip: Trip): Promise<void> {
     try {
+      this.isFormSubmitting = true;
       trip.id = this.tripsList.length + 1;
       trip.likes = 0;
       trip.userEmail = this.usersService.CurrentUserEmail;
@@ -61,11 +74,15 @@ export class TripsService implements OnInit {
       await this.updateTripsListCurrentUser();
     } catch (error) {
       console
-    }  
+    }  finally {
+      this.isFormSubmitting = false;
+    }
   }
 
   async editTrip(trip: Trip, index: number): Promise<void> {
     try {
+      this.isFormSubmitting = true;
+
       console.log('tripid', trip.id);
       console.log('tripindex', index);
       
@@ -78,7 +95,9 @@ export class TripsService implements OnInit {
       console.log('tripslist', this.tripsList);
     } catch (error) {
       console.log('Error editing trip:', error);
-    }
+    }finally {
+        this.isFormSubmitting = false;
+      }
   }
   
   private updateTripsListCurrentUser(): void {

@@ -4,7 +4,10 @@
       Add New Trip
     </button>
     </div>
-  <nz-table #groupingTable [nzPageSize]="8" 
+    <div class="loading" *ngIf="showLoading" >
+     <img src="../../../../../assets/spinner.gif">
+    </div>
+  <nz-table #groupingTable [nzPageSize]="6" 
     [nzData]="TripsList" 
     [(nzPageIndex)]="currentPage" 
     nzSize="middle" 
@@ -31,7 +34,7 @@
                 nz-icon
                 nzType="edit"
                 nzTheme="outline"
-                (click)="editTrip(data,i+(currentPage-1)*8)"
+                (click)="editTrip(data,i+(currentPage-1)*6)"
               ></span>
               <br>
               <span

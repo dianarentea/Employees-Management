@@ -27,6 +27,20 @@
       "firstname": "Diana",
       "lastname": "Diana",
       "password": "1"
+    },
+    {
+      "id": 5,
+      "email": "test@gmail.com",
+      "firstname": "Test",
+      "lastname": "Test",
+      "password": "test123T#"
+    },
+    {
+      "id": 6,
+      "email": "test@gmail.com",
+      "firstname": "Test",
+      "lastname": "Test",
+      "password": "test123T#"
     }
   ],
   "trips": [
@@ -70,9 +84,9 @@
       "city": "Viena",
       "attraction": "Schonbrunn Palace",
       "restaurant": "Steirereck",
-      "likes": 5,
+      "likes": 6,
       "image": "assets/images/viena.jpg",
-      "likedByCurrentUser": false
+      "likedByCurrentUser": true
     },
     {
       "country": "Hungary",
@@ -175,7 +189,7 @@
     },
     {
       "country": "Roumania",
-      "city": "Iasi-",
+      "city": "Iasi",
       "attraction": "Culturii Palace",
       "restaurant": "Iulius Mall",
       "image": "assets/default.jpg",
